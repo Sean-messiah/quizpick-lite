@@ -169,6 +169,8 @@ def main():
             errors += 1
             print(f"SKIP {remote}: {exc}")
         time.sleep(0.3)
+    if success == 0 and errors:
+        raise SystemExit("Expanded quiz sources unavailable from runner (e.g. HTTP 403). No data published.")
     if incoming:
         merged = merge(existing.get("quizzes", []), incoming, today)
         if merged != existing.get("quizzes", []):
