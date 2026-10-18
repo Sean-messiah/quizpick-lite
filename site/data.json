@@ -1,7 +1,47 @@
 {
   "schema_version": 1,
-  "updated_at": null,
-  "source_mode": "pending",
-  "notice": "외부 공개 페이지의 참고 정보입니다. 실제 정답 및 진행 여부는 원본 앱과 다를 수 있습니다.",
-  "quizzes": []
+  "updated_at": "2026-10-19T02:08:49+09:00",
+  "source_mode": "public-page",
+  "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
+  "quizzes": [
+    {
+      "id": "salbopick-fa615027dcc32b4b",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "사람들이 경제를 어떻게 느끼고 전망하는지 보여주는 지표를 무엇이라고 할까요?",
+      "answer": "소비자심리지수",
+      "date": "2026-10-19",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-5dd8060d085e1aa5",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "CU에서 신한 슈퍼SOL/SOL페이 결제 시 월요일엔 단돈 100원으로, 다른 요일엔 500원을 할인 받을 수 있는…",
+      "answer": "get 아이스아메리카노",
+      "date": "2026-10-19",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2dfbc259afdeed56",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "급여클럽 플레스 회원에게 더 큰 혜택을 제공하는 쏠가전에서 10월 진행 중인 기획전이 아닌 것은 무엇일까요?",
+      "answer": "럭셔리 패션 브랜드 초대전",
+      "date": "2026-10-19",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    }
+  ]
 }
