@@ -2,8 +2,8 @@ name: QuizPick Lite - extended quiz index refresh
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '42 1,7,13,19 * * *'
+  # Scheduled runs disabled: source returns HTTP 403 to GitHub Actions.
+  # Re-enable only after an accessible, permitted data source is confirmed.
 
 permissions:
   contents: write
