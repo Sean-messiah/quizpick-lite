@@ -112,7 +112,7 @@ def merge(old, incoming, today):
                 items[record["id"]] = record
         except (ValueError, TypeError, KeyError):
             continue
-    return sorted(items.values(), key=lambda x: (x["date"], x.get("time") or "", x["id"]), reverse=True)[:250]
+    return sorted(items.values(), key=lambda x: (x["date"], x.get("time") or "", x["id"]), reverse=True)[:1200]
 
 def main():
     now = datetime.now(KST)
