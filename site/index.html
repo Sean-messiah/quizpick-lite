@@ -6,6 +6,15 @@
 <meta name="theme-color" content="#192c51">
 <meta name="description" content="오늘의 캐시워크·토스·신한·KB Pay 등 앱테크 퀴즈 정답을 한곳에서 확인하고 복사하세요. 외부 공개 자료를 참고한 미검증 정보입니다.">
 <title>오늘의 앱테크 퀴즈 정답 모음 | 퀴즈픽</title>
+<!-- Google tag (gtag.js): QuizPick GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y68828WYZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3Y68828WYZ');
+</script>
+
 <style>
 :root{font-family:system-ui,-apple-system,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:#13213d;background:#f4f7fc;font-synthesis:none}
 *{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}
@@ -62,7 +71,7 @@ main{max-width:900px;margin:auto;padding:18px}
 <p>여러 앱에 흩어진 정답을 모아서 보고, 터치 한 번으로 복사하세요.</p>
 <div class="stat"><span id="date-chip">기준일 확인 중</span><span id="count-chip">데이터 불러오는 중</span><span id="update-chip">업데이트 확인 중</span></div>
 </section>
-<div class="notice">⚠️ 출처 사이트에 게시된 참고 정보입니다. 정답이 변경되거나 퀴즈가 마감될 수 있으며, 원본 앱에서 최종 확인하세요. 제휴 또는 공식 인증 서비스가 아닙니다.</div>
+<div class="notice">⚠️ 출처 사이트에 게시된 참고 정보입니다. 정답이 변경되거나 퀴즈가 마감될 수 있으며, 원본 앱에서 최종 확인하세요. 제휴 또는 공식 인증 서비스가 아닙니다. 방문 통계 확인을 위해 Google Analytics를 사용합니다.</div>
 <div class="controls">
 <label class="search"><span aria-hidden="true">🔎</span><input type="search" id="search" autocomplete="off" placeholder="앱 이름·문제·정답 검색" aria-label="앱 이름, 문제, 정답 검색"></label>
 <nav class="filters" id="filters" aria-label="앱별 퀴즈 필터"><button type="button" class="active" data-app="all">전체</button></nav>
@@ -77,6 +86,8 @@ const dataState={list:[],mode:'pending',app:'all',days:'0',q:''};
 const el=id=>document.getElementById(id);
 const kstDate=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const icons={cashwalk:'👟',cashdoc:'🩺',toss:'💙',okquiz:'🟠',shinhanbank:'🏦',shinhanpay:'💳',kbstar:'⭐',kbpay:'💰',timespread:'⏱️',other:'📱'};
+// Send only app/date, never an answer or a person's information.
+function trackCopy(item){if(typeof window.gtag==='function'){window.gtag('event','answer_copy',{quiz_app:item.app||'other',quiz_date:item.date||''})}}
 let toastTimer;
 function toast(msg){el('toast').textContent=msg;el('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el('toast').classList.remove('show'),1900)}
 function text(tag,value,cls){const d=document.createElement(tag);d.textContent=value;if(cls)d.className=cls;return d}
@@ -89,7 +100,7 @@ const body=text('div','','answer');body.append(text('span','게시된 정답','m
 const foot=text('div','','foot');foot.append(text('span',(item.date||'')+(item.time?' '+item.time:'')));
 try{const link=document.createElement('a');const u=new URL(item.source_url);if(u.protocol==='https:'){link.href=u.href;link.target='_blank';link.rel='noopener noreferrer';link.textContent='원문 출처 ↗';link.className='source';foot.append(link)}}catch(e){}
 card.append(foot);
-const copy=text('button','📋 정답 복사','copy');copy.type='button';copy.onclick=async()=>{try{await navigator.clipboard.writeText(item.answer);toast('정답을 복사했어요!')}catch(e){const area=document.createElement('textarea');area.value=item.answer;document.body.append(area);area.select();const ok=document.execCommand('copy');area.remove();toast(ok?'정답을 복사했어요!':'복사에 실패했습니다')}};card.append(copy);return card}
+const copy=text('button','📋 정답 복사','copy');copy.type='button';copy.onclick=async()=>{try{await navigator.clipboard.writeText(item.answer);trackCopy(item);toast('정답을 복사했어요!')}catch(e){const area=document.createElement('textarea');area.value=item.answer;document.body.append(area);area.select();const ok=document.execCommand('copy');area.remove();if(ok)trackCopy(item);toast(ok?'정답을 복사했어요!':'복사에 실패했습니다')}};card.append(copy);return card}
 function render(){
 const today=kstDate();const min=new Date(today+'T00:00:00+09:00');min.setDate(min.getDate()-6);
 const boundary=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(min);
