@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "description": "앱테크 정답형 리워드 퀴즈 카탈로그: 리워드 지급과 정답 공개 여부는 수시로 변동됩니다.",
+  "apps": [
+    {
+      "id": "toss",
+      "name": "토스",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "kakaobank",
+      "name": "카카오뱅크 AI퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "cashwalk",
+      "name": "캐시워크 돈버는퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/cashwalk/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "shinhan",
+      "name": "신한 SOL퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/shinhan/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "nh",
+      "name": "NH올원뱅크 디깅퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/nh/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "kakaopay",
+      "name": "카카오페이 퀴즈타임",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/kakaopay/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "bitbunny",
+      "name": "비트버니 퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/bitbunny/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "okcashbag",
+      "name": "OK캐쉬백 오퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/okcashbag/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "cashdoc",
+      "name": "캐시닥 용돈퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/cashdoc/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "kbstar",
+      "name": "KB스타뱅킹·KB Pay",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/kbstar/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "3o3",
+      "name": "삼쩜삼 퀴즈",
+      "category": "생활",
+      "source_url": "https://quizbells.com/quiz/3o3/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "doctornow",
+      "name": "닥터나우 퀴즈",
+      "category": "생활",
+      "source_url": "https://quizbells.com/quiz/doctornow/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "mydoctor",
+      "name": "나만의닥터 퀴즈",
+      "category": "생활",
+      "source_url": "https://quizbells.com/quiz/mydoctor/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "hpoint",
+      "name": "H.Point 퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quizbells.com/quiz/hpoint/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "climate",
+      "name": "기후행동 기회소득 퀴즈",
+      "category": "생활",
+      "source_url": "https://quizbells.com/quiz/climate/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "skstoa",
+      "name": "SK스토아 퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quizbells.com/quiz/skstoa/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "hanabank",
+      "name": "하나원큐 퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/hanabank/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "auction",
+      "name": "옥션 매일퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quizbells.com/quiz/auction/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "kbank",
+      "name": "케이뱅크 AI퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/kbank/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "monimo",
+      "name": "모니모 퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/monimo/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "buzzvil",
+      "name": "버즈빌 퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/buzzvil/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "livemate",
+      "name": "리브메이트 퀴즈",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/livemate/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "paybooc",
+      "name": "페이북 퀴즈팡",
+      "category": "금융",
+      "source_url": "https://quizbells.com/quiz/paybooc/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "cashslide",
+      "name": "캐시슬라이드 초성퀴즈",
+      "category": "캐시",
+      "source_url": "https://quizbells.com/quiz/cashslide/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "balso",
+      "name": "발로소득 OX퀴즈",
+      "category": "생활",
+      "source_url": "https://quizbells.com/quiz/balso/weekly/answer",
+      "source_site": "퀴즈벨",
+      "feed": "weekly_public",
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+    },
+    {
+      "id": "kakaobank-ox",
+      "name": "카카오뱅크 OX퀴즈",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/kakaobank-ox/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "kbpay",
+      "name": "KB Pay 퀴즈",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/kbpay/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "monimo-eng",
+      "name": "모니모 영어챌린지",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/monimo-eng/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "hana-life",
+      "name": "하나원큐 금융생활 OX",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/hana-life/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "hana-travel",
+      "name": "하나원큐 트래블미션",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/hana-travel/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "myhomeplus",
+      "name": "마이홈플러스 홈플퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/myhomeplus/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "syrup",
+      "name": "시럽 타임어택",
+      "category": "쇼핑",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/syrup/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "moneywalk",
+      "name": "머니워크 퀴즈",
+      "category": "캐시",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/moneywalk/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "yoit",
+      "name": "요잇 퀴즈",
+      "category": "캐시",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/yoit/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "yes24",
+      "name": "예스24 출석퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/yes24/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "fallcent",
+      "name": "폴센트 퀴즈",
+      "category": "쇼핑",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/fallcent/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "naverpay",
+      "name": "네이버페이 랜덤포인트 퀴즈",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/naverpay/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "adapter",
+      "name": "어댑터 퀴즈",
+      "category": "캐시",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/adapter/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "woori-festa",
+      "name": "우리금융 퀴즈",
+      "category": "금융",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/woori-festa/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "harim-real",
+      "name": "하림더리얼 퀴즈",
+      "category": "생활",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/harim-real/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "bitbunny-ox",
+      "name": "비트버니 OX퀴즈",
+      "category": "캐시",
+      "source_url": "https://quiz.jjyu.co.kr/quiz/bitbunny-ox/monthly/",
+      "source_site": "QUIZDAY",
+      "feed": "link_only",
+      "note": "정답 공개 자료 확인 · 자동 수집 미연결"
+    },
+    {
+      "id": "daangn",
+      "name": "당근 퀴즈",
+      "category": "생활",
+      "source_url": "https://www.daangn.com/",
+      "source_site": "당근",
+      "feed": "unverified",
+      "note": "정답형 리워드 퀴즈의 공개 출처 미확인 · 등록 대기"
+    }
+  ]
+}
