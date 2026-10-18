@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {
+      "id": "salbopick",
+      "name": "살보픽 투데이",
+      "host": "salbopick.com",
+      "url_template": "https://salbopick.com/today/quiz/date/{date}",
+      "enabled": true
+    }
+  ]
+}
