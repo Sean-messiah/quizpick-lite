@@ -1,34 +1,34 @@
-# 퀴즈픽 Lite
+# 퀴즈픽 Lite — 앱테크 퀴즈 정보 허브
 
-앱테크 퀴즈 정답을 모아 보여주는 무료 정적 웹 MVP입니다.
+무료 정적 웹사이트: https://sean-messiah.github.io/quizpick-lite/
 
-- 정적 모바일 웹사이트: `site/index.html`
-- JSON 데이터: `site/data.json`
-- 공개 페이지 수집기: `scraper/collect.py`
-- 자동 업데이트: `.github/workflows/crawl.yml` (2시간 간격, GitHub Actions 예약 실행은 지연될 수 있음)
-- 파서 테스트: `tests/test_collect.py`
+## 현재 구현 현황 (2026-10-19)
 
-## 시작
+- `site/catalog.json`: 국내 앱테크 퀴즈·리워드 관련 **42개 항목**의 목록과 공개 출처 링크를 정리했습니다. 일부 항목은 현재 운영/정답 공개 여부를 확인 중입니다.
+- `site/index.html`: 모바일 퀴즈 정답 검색·앱별 필터·정답 복사, 전체 앱 목록 펼치기, 공개 출처 이동.
+- `site/data.json`: 실제 수집된 정답만 표시합니다. 출처는 앱 운영사의 공식 API가 아닌 외부 공개 페이지이며 정답은 미검증입니다.
+- `scraper/collect.py`: 살보픽 공개 페이지를 2시간 간격 확인.
+- `scraper/collect_focus.py`: 카카오뱅크 AI이모지·토스 퀴즈의 공개 정보 수집.
+- `scraper/collect_expanded.py`: QUIZDAY의 35개 공개 월간 경로 테스트용 수집기. **GitHub Actions 서버에서 35개 요청 모두 HTTP 403**을 받아 현재 자동 실행을 비활성화했습니다. 차단 우회 금지.
+- `.github/workflows/crawl.yml`: 정상 동작 확인된 수집기만 정기 실행.
+- `.github/workflows/crawl-expanded.yml`: 문제 원인 확인을 위한 수동 실행만 허용.
+- `.github/workflows/deploy-pages.yml`: 정답 JSON 갱신 후 GitHub Pages 배포.
+- Google Analytics GA4 측정 ID는 `site/index.html`에 설치되어 있습니다.
 
-1. **Actions**에서 **QuizPick Lite - public quiz index refresh → Run workflow**를 눌러 첫 크롤링을 실행하세요.
-2. Actions에서 수집 결과 및 커밋 여부를 확인합니다. 저장소 **Settings → Actions → General → Workflow permissions**에서 필요하면 **Read and write permissions**로 변경하세요.
-3. Cloudflare Pages에서 이 GitHub 저장소를 연결하고 빌드 명령은 비운 채 **출력 폴더 `site`**를 선택하면 공개 웹사이트를 만들 수 있습니다.
-4. 무료 플랜의 빌드·실행량, 사이트 약관 및 데이터 재사용 조건을 확인하세요.
+## 유의점
 
-## 데이터 및 출처
+**42개 앱이 모두 자동 수집되는 것은 아닙니다.** 실제 정답 수집은 일부 항목에만 연결되어 있으며, 홈페이지 카탈로그의 '출처 보기'는 수동 확인용 링크입니다. '당근 퀴즈'는 지속 운영되는 정답형 리워드 이벤트의 공개 근거가 아직 확인되지 않아 '확인 대기'로 표시합니다.
 
-초기 수집처는 공개된 살보픽 날짜별 퀴즈 페이지 한 곳입니다. HTML 변경, 로봇 정책, 요청 실패에 따라 수집이 중단될 수 있으며 원본 앱의 정답 여부는 별도 검증하지 않습니다. 원문 링크를 함께 제공하며 긴 문제를 그대로 전재하지 않습니다. robots 허용은 콘텐츠 복제 허가가 아닙니다.
+공개 페이지의 robots 허용은 콘텐츠 재게시 권한을 의미하지 않습니다. 웹사이트 이용약관 및 저작권을 확인하고 접근거부 HTTP 403을 우회하지 않습니다. 정답은 원본 앱에서 최종 확인하세요.
 
-`site/data.json`은 처음에는 빈 배열입니다. 최초 실제 수집 성공 후에만 데이터가 기록됩니다. 정답을 찾지 못하면 저장된 데이터는 보존됩니다.
+## 로컬 개발
 
-로컬 실행:
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
 python scraper/collect.py
+python scraper/collect_focus.py
 python -m http.server 8000 -d site
 ```
 
-공개 저장소이므로 비밀번호/API 키를 커밋하지 마세요.
-
-모바일 UI의 필터·검색·복사 기능은 실제 데이터가 들어온 뒤 사용할 수 있습니다.
+GitHub 저장소에 비밀번호와 비공개 API 키를 업로드하지 마세요.
