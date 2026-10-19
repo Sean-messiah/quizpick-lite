@@ -112,7 +112,7 @@ function renderCatalog(){
       const title=text('div','');title.append(text('strong',entry.name));title.append(text('div',n?('최근 수집 '+n+'건'):(entry.feed==='historical_unverified'?'과거 이벤트 확인 · 현재 미확인':entry.feed==='unverified'?'현재 운영 확인 대기':entry.feed==='link_only'?'원문 연결 · 정답 미수집':'최근 7일 데이터 없음'),'meta'));item.append(title);
       if(n){
         const button=text('button','정답 보기');button.type='button';
-        button.onclick=()=>{dataState.app=appCount.has(entry.id)?entry.id:'all';dataState.days='7';dataState.q=appCount.has(entry.id)?'':entry.name.split(' ')[0]==='신한'?'신한':'';el('search').value=dataState.q;showFilters();render();el('result-title').scrollIntoView({behavior:'smooth',block:'start'})};item.append(button)
+        button.onclick=()=>{dataState.app=entry.id==='shinhan'?'all':(ids.find(id=>appCount.has(id))||'all');dataState.days='7';dataState.q=entry.id==='shinhan'?'신한':'';el('search').value=dataState.q;showFilters();render();el('result-title').scrollIntoView({behavior:'smooth',block:'start'})};item.append(button)
       }else{
         try{const uri=new URL(entry.source_url);if(uri.protocol==='https:'){const a=text('a','출처 보기 ↗');a.href=uri.href;a.rel='noopener noreferrer';a.target='_blank';item.append(a)}}catch(e){}
       }
