@@ -6,9 +6,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
+import argparse
 import hashlib
 import json
 import re
+import time
 
 import requests
 from bs4 import BeautifulSoup
@@ -114,27 +116,42 @@ def merge(old, incoming, today):
             continue
     return sorted(items.values(), key=lambda x: (x["date"], x.get("time") or "", x["id"]), reverse=True)[:1200]
 
+def collect_dates(now, day_count):
+    """Generate today's KST date and up to six preceding dates (oldest first)."""
+    if day_count < 1 or day_count > 7:
+        raise ValueError("1~7일만 수집할 수 있습니다")
+    return [(now.date() - timedelta(days=offset)).isoformat()
+            for offset in range(day_count - 1, -1, -1)]
+
 def main():
+    argparser = argparse.ArgumentParser(description="Small source-linked quiz index")
+    argparser.add_argument("--days", type=int, choices=range(1, 8), default=1,
+                           metavar="1-7", help="1=today only (default); 7=one-off recent backfill")
+    args = argparser.parse_args()
     now = datetime.now(KST)
-    date = now.date().isoformat()
+    today = now.date().isoformat()
     previous = json.loads(OUTPUT.read_text(encoding="utf-8"))
     config = json.loads(SOURCES.read_text(encoding="utf-8"))
     collected = []
+    dates = collect_dates(now, args.days)
     for source in config.get("sources", []):
         if not source.get("enabled"):
             continue
-        url = source["url_template"].format(date=date)
-        try:
-            html = fetch_html(url, source["host"])
-            new = parse_quizzes(html, url, date)
-            print(source["id"] + ": " + str(len(new)) + "건")
-            collected.extend(new)
-        except (RuntimeError, requests.RequestException, OSError) as exc:
-            print("SKIP " + source["id"] + ": " + str(exc))
+        for day in dates:
+            url = source["url_template"].format(date=day)
+            try:
+                html = fetch_html(url, source["host"])
+                new = parse_quizzes(html, url, day)
+                print(source["id"] + " " + day + ": " + str(len(new)) + "건")
+                collected.extend(new)
+            except (RuntimeError, requests.RequestException, OSError) as exc:
+                print("SKIP " + source["id"] + " " + day + ": " + str(exc))
+            if len(dates) > 1:
+                time.sleep(0.6)  # modest backfill frequency; never bypass HTTP blocks
     if not collected:
         print("성공 데이터 없음: 기존 데이터 보존")
         return
-    records = merge(previous.get("quizzes", []), collected, date)
+    records = merge(previous.get("quizzes", []), collected, today)
     if records == previous.get("quizzes", []) and previous.get("source_mode") == "public-page":
         print("변경 없음")
         return
