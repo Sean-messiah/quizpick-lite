@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "앱테크 정답형 리워드 퀴즈 카탈로그: 리워드 지급과 정답 공개 여부는 수시로 변동됩니다.",
+  "description": "앱테크 퀴즈·리워드 카탈로그. 현재 운영과 정답 공개 여부는 별도 확인해야 하며 과거 이벤트를 포함합니다.",
   "apps": [
     {
       "id": "toss",
@@ -18,7 +18,10 @@
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_site": "퀴즈벨",
       "feed": "weekly_public",
-      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시",
+      "aliases": [
+        "kakaobank"
+      ]
     },
     {
       "id": "cashwalk",
@@ -36,7 +39,11 @@
       "source_url": "https://quizbells.com/quiz/shinhan/weekly/answer",
       "source_site": "퀴즈벨",
       "feed": "weekly_public",
-      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시",
+      "aliases": [
+        "shinhanbank",
+        "shinhanpay"
+      ]
     },
     {
       "id": "nh",
@@ -72,7 +79,10 @@
       "source_url": "https://quizbells.com/quiz/okcashbag/weekly/answer",
       "source_site": "퀴즈벨",
       "feed": "weekly_public",
-      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시",
+      "aliases": [
+        "okquiz"
+      ]
     },
     {
       "id": "cashdoc",
@@ -90,7 +100,10 @@
       "source_url": "https://quizbells.com/quiz/kbstar/weekly/answer",
       "source_site": "퀴즈벨",
       "feed": "weekly_public",
-      "note": "공개 사이트에서 정답이 있는 경우에만 표시"
+      "note": "공개 사이트에서 정답이 있는 경우에만 표시",
+      "aliases": [
+        "kbstar"
+      ]
     },
     {
       "id": "3o3",
@@ -373,12 +386,30 @@
     },
     {
       "id": "daangn",
-      "name": "당근 퀴즈",
+      "name": "당근 모임 퀴즈",
       "category": "생활",
-      "source_url": "https://www.daangn.com/",
-      "source_site": "당근",
-      "feed": "unverified",
-      "note": "정답형 리워드 퀴즈의 공개 출처 미확인 · 등록 대기"
+      "source_url": "https://cafe.daangn.com/aebtekeu-moim-t/posts/PMKXNB9j",
+      "source_site": "당근 카페 공개 게시물",
+      "feed": "historical_unverified",
+      "note": "과거 당근 모임장 퀴즈 보상 이벤트 사례 확인. 현재 이벤트 진행 여부는 미확인."
+    },
+    {
+      "id": "pointpop",
+      "name": "포인트팝 초성퀴즈·토스 미니앱",
+      "category": "캐시",
+      "source_url": "https://pointpop.kr/",
+      "source_site": "포인트팝 서비스 안내",
+      "feed": "link_only",
+      "note": "토스 안에서 초성퀴즈 등 미션 수행 시 포인트 제공. 일자별 정답 수집 미연결."
+    },
+    {
+      "id": "quiz-prize",
+      "name": "리워드·경품 퀴즈 이벤트",
+      "category": "생활",
+      "source_url": "https://myevent.kr/events",
+      "source_site": "마이이벤트 공개 행사 목록",
+      "feed": "link_only",
+      "note": "퀴즈 이벤트는 경품 추첨형일 수 있어 정답 시 지급 보장이 아님. 진행여부 개별 확인."
     }
   ]
 }
