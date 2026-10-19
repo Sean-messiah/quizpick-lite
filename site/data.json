@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:10:08+09:00",
+  "updated_at": "2026-10-19T13:43:53+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-24205607ffa4fa4a",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "환절기엔 구달 세럼 OO기획! 초특가 G라이브 파격가! 세럼,크림,아이크림까지 고효율 풀세트 3만원대 파격가 청귤 …",
+      "answer": "더블",
+      "date": "2026-10-19",
+      "time": "13:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-94f7a3b4142f05ca",
       "app": "cashwalk",
@@ -15,6 +28,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-6efe737b4c3cf97c",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "안내장",
+      "date": "2026-10-19",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -145,6 +171,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-fb5d9ac4d416b788",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스 냉장고 급 비싼 폰보다 탐나는 특A급 중고폰은? 10월19일 두근두근 1등 일등 찍기",
+      "answer": "일등 갤럭시 S24 울트라 이등 갤럭시 Z 플립 6",
+      "date": "2026-10-19",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
