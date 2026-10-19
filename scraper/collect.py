@@ -31,6 +31,8 @@ def get_app(text):
         ("KB Pay 오늘의 퀴즈", "kbpay", "KB Pay"),
         ("KB스타뱅킹", "kbstar", "KB스타뱅킹"),
         ("스타퀴즈", "kbstar", "KB스타뱅킹"),
+        ("카카오뱅크", "kakaobank", "카카오뱅크"),
+        ("카뱅", "kakaobank", "카카오뱅크"),
         ("캐시워크", "cashwalk", "캐시워크"),
         ("캐시닥", "cashdoc", "캐시닥"),
         ("토스", "toss", "토스"),
@@ -151,7 +153,12 @@ def main():
     if not collected:
         print("성공 데이터 없음: 기존 데이터 보존")
         return
-    records = merge(previous.get("quizzes", []), collected, today)
+    # Replace previously misclassified same-source records after classifier fixes.
+    fresh_keys = {(x["date"], x["answer"], x["source_url"]) for x in collected if x["app"] == "kakaobank"}
+    old_records = [x for x in previous.get("quizzes", [])
+                   if not (x.get("app") == "other"
+                           and (x.get("date"), x.get("answer"), x.get("source_url")) in fresh_keys)]
+    records = merge(old_records, collected, today)
     if records == previous.get("quizzes", []) and previous.get("source_mode") == "public-page":
         print("변경 없음")
         return
