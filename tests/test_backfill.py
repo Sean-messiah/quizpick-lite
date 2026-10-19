@@ -22,6 +22,7 @@ class BackfillTests(unittest.TestCase):
     def test_app_mapping(self):
         self.assertEqual(get_app("KB Pay 오늘의 퀴즈")[0], "kbpay")
         self.assertEqual(get_app("캐시워크")[0], "cashwalk")
+        self.assertEqual(get_app("카카오뱅크 AI 이모지 퀴즈")[0], "kakaobank")
 
 if __name__ == "__main__":
     unittest.main()
