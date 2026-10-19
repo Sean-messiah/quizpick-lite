@@ -8,7 +8,7 @@ on:
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
   workflow_run:
-    workflows: ['QuizPick Lite - public quiz index refresh', 'QuizPick Lite - extended quiz index refresh']
+    workflows: ['QuizPick Lite - public quiz index refresh', 'QuizPick Lite - extended quiz index refresh', 'QuizPick Lite - seven day backfill']
     types: [completed]
     branches: [main]
 
