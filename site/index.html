@@ -59,6 +59,7 @@ main{max-width:900px;margin:auto;padding:18px}
 .empty strong{color:#263859;font-size:17px}footer{text-align:center;font-size:12px;color:#91a0b9;margin:35px 0 12px;line-height:1.8}
 .catalog{margin:22px 0}.catalog details{background:#fff;border:1px solid #e4eaf4;border-radius:18px;padding:16px}.catalog summary{cursor:pointer;font-weight:800;color:#243961;list-style-position:inside}.catalog summary span{font-size:12px;color:#667b9f}.directory-notice{font-size:12px;color:#74829d;line-height:1.7;margin:14px 0}.directory{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:9px}.directory-group{grid-column:1/-1;font-size:13px;font-weight:800;color:#3b5281;margin:13px 0 1px}.directory-row{border:1px solid #e9edf5;padding:10px 12px;border-radius:11px;display:flex;align-items:center;justify-content:space-between;gap:10px}.directory-row strong{font-size:12px;line-height:1.6}.directory-row .meta{font-size:11px;color:#8794ad}.directory-row a,.directory-row button{font-size:11px;color:#345bca;border:0;background:none;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;padding:4px}
 
+ .catalog-search{display:block;width:100%;border:1px solid #dfe6f1;border-radius:10px;padding:11px 13px;margin:14px 0;font:inherit;font-size:13px;outline-offset:2px;background:#fff;color:#192c51}
 #toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#16264c;color:#fff;padding:12px 18px;border-radius:13px;box-shadow:0 8px 20px #25345655;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s}
 #toast.show{opacity:1}
 @media(max-width:480px){main{padding:12px}.hero{padding:22px 19px}.controls{margin-top:13px}.brand{font-size:19px}.heading h2{font-size:17px}.cards{grid-template-columns:1fr}}
@@ -80,8 +81,8 @@ main{max-width:900px;margin:auto;padding:18px}
 </div>
 <div class="heading"><h2 id="result-title">퀴즈 목록</h2><div class="range"><button type="button" data-days="0" class="active">오늘</button><button type="button" data-days="7">최근 7일</button></div></div>
 <div id="cards" class="cards" aria-live="polite"><div class="empty">데이터를 불러오는 중입니다…</div></div>
-<section class="catalog" aria-labelledby="catalog-title"><details><summary id="catalog-title">지원 앱·퀴즈 전체 목록 펼치기 <span id="catalog-count"></span></summary><p class="directory-notice">공개 출처를 조사한 앱 목록입니다. 이름이 표시된다고 해서 현재 정답이 있거나 리워드가 지급되는 것은 아닙니다. 해당 앱·퀴즈가 진행 중인지 원본에서 확인하세요.</p><div id="catalog-list" class="directory"></div></details></section>
-<footer>© 퀴즈픽 Lite · 공개 웹페이지 참고 정답 모음<br>잘못된 정보는 원문 출처를 통해 확인해 주세요.</footer>
+<section class="catalog" aria-labelledby="catalog-title"><details><summary id="catalog-title">앱테크 퀴즈·리워드 전체 목록 <span id="catalog-count"></span></summary><p class="directory-notice">오늘 정답이 없는 앱도 확인할 수 있습니다. 외부 게시물과 과거 이벤트가 포함되므로 원문에서 현재 진행 여부를 확인하세요.</p><input type="search" id="catalog-search" class="catalog-search" placeholder="44개 목록에서 앱·퀴즈 이름 찾기" aria-label="전체 퀴즈 목록 검색"><div id="catalog-list" class="directory"></div></details></section>
+<footer>© 퀴즈픽 Lite · 공개 출처의 참고용 정답 모음<br>지난 정답은 보상 지급이 종료됐을 수 있습니다. 출처별 게시 조건을 확인해 주세요.</footer>
 </main><div role="status" id="toast"></div>
 <script>
 'use strict';
@@ -102,16 +103,16 @@ function renderCatalog(){
   for(const q of dataState.list)appCount.set(q.app,(appCount.get(q.app)||0)+1);
   el('catalog-count').textContent='('+dataState.catalog.length+'개)';
   for(const group of categories){
-    const entries=dataState.catalog.filter(a=>a.category===group);
+    const catalogQuery=(el('catalog-search')?.value||'').trim().toLocaleLowerCase();const entries=dataState.catalog.filter(a=>a.category===group&&[a.name,a.note,a.category].join(' ').toLocaleLowerCase().includes(catalogQuery));
     if(!entries.length)continue;
     root.append(text('div',group+' · '+entries.length+'개','directory-group'));
     for(const entry of entries){
-      const n=appCount.get(entry.id)||((entry.id==='shinhan')?(appCount.get('shinhanbank')||0)+(appCount.get('shinhanpay')||0):0);
+      const ids=[entry.id,...(entry.aliases||[])];const n=[...new Set(ids)].reduce((sum,id)=>sum+(appCount.get(id)||0),0);
       const item=text('div','','directory-row');
-      const title=text('div','');title.append(text('strong',entry.name));title.append(text('div',n?('최근 수집 '+n+'건'):(entry.feed==='unverified'?'퀴즈 운영 확인 대기':'정답 수집 대기'),'meta'));item.append(title);
-      if(n&&entry.id!=='shinhan'){
+      const title=text('div','');title.append(text('strong',entry.name));title.append(text('div',n?('최근 수집 '+n+'건'):(entry.feed==='historical_unverified'?'과거 이벤트 확인 · 현재 미확인':entry.feed==='unverified'?'현재 운영 확인 대기':entry.feed==='link_only'?'원문 연결 · 정답 미수집':'최근 7일 데이터 없음'),'meta'));item.append(title);
+      if(n){
         const button=text('button','정답 보기');button.type='button';
-        button.onclick=()=>{dataState.app=entry.id;dataState.days='7';dataState.q='';el('search').value='';showFilters();render();el('result-title').scrollIntoView({behavior:'smooth',block:'start'})};item.append(button)
+        button.onclick=()=>{dataState.app=appCount.has(entry.id)?entry.id:'all';dataState.days='7';dataState.q=appCount.has(entry.id)?'':entry.name.split(' ')[0]==='신한'?'신한':'';el('search').value=dataState.q;showFilters();render();el('result-title').scrollIntoView({behavior:'smooth',block:'start'})};item.append(button)
       }else{
         try{const uri=new URL(entry.source_url);if(uri.protocol==='https:'){const a=text('a','출처 보기 ↗');a.href=uri.href;a.rel='noopener noreferrer';a.target='_blank';item.append(a)}}catch(e){}
       }
@@ -122,7 +123,7 @@ function renderCatalog(){
 
 function makeCard(item){
 const card=document.createElement('article');card.className='card';
-const head=text('div','','card-top');const app=text('div','','app');app.append(text('span',icons[item.app]||'📱','emoji'),text('span',item.app_name||'기타 앱테크'));head.append(app,text('span','미검증','flag'));card.append(head);
+const head=text('div','','card-top');const app=text('div','','app');app.append(text('span',icons[item.app]||'📱','emoji'),text('span',item.app_name||'기타 앱테크'));head.append(app,text('span',(item.date===kstDate()?'오늘 · 미검증':'지난 기록 · 미검증'),'flag'));card.append(head);
 card.append(text('p',item.question_hint||'문제 문구가 제공되지 않았습니다.','question'));
 const body=text('div','','answer');body.append(text('span','게시된 정답','mini'),text('strong',item.answer||'-'));card.append(body);
 const foot=text('div','','foot');foot.append(text('span',(item.date||'')+(item.time?' '+item.time:'')));
@@ -136,11 +137,12 @@ const query=dataState.q.toLocaleLowerCase();
 const rows=dataState.list.filter(x=>(dataState.days==='7'?(x.date>=boundary&&x.date<=today):x.date===today)&&(dataState.app==='all'||x.app===dataState.app)&&[x.app_name,x.question_hint,x.answer].join(' ').toLocaleLowerCase().includes(query));
 el('result-title').textContent='퀴즈 목록 '+rows.length+'건';
 const holder=el('cards');holder.replaceChildren();
-if(!rows.length){const empty=text('div','','empty');empty.append(text('div','📭'),text('strong',dataState.app==='daangn'?'당근 정답 퀴즈 수집 준비 중':dataState.mode==='pending'?'아직 수집된 정답이 없어요':'조건에 맞는 정답이 없어요'),text('p',dataState.app==='daangn'?'당근 걷기 보상과 리워드 미션은 별도 정보로 준비합니다. 확인되지 않은 정답은 표시하지 않습니다.':dataState.mode==='pending'?'첫 자동 수집이 완료되면 이곳에 정답이 표시됩니다.':'다른 날짜나 검색어를 선택해보세요.'));holder.append(empty)}
+if(!rows.length){const empty=text('div','','empty');empty.append(text('div','📭'),text('strong',dataState.app==='daangn'?'당근 정답 퀴즈 수집 준비 중':dataState.mode==='pending'?'아직 수집된 정답이 없어요':'조건에 맞는 정답이 없어요'),text('p',dataState.app==='daangn'?'과거 당근 모임 퀴즈 이벤트는 확인했지만 현재 진행 중인 정답형 퀴즈는 확인되지 않았습니다. 전체 목록에서 과거 이벤트 출처를 볼 수 있습니다.':dataState.mode==='pending'?'첫 자동 수집이 완료되면 이곳에 정답이 표시됩니다.':'다른 날짜나 검색어를 선택해보세요.'));holder.append(empty)}
 else rows.forEach(item=>holder.append(makeCard(item)));
 document.querySelectorAll('[data-days]').forEach(btn=>btn.classList.toggle('active',btn.dataset.days===dataState.days));
 }
 el('search').addEventListener('input',e=>{dataState.q=e.target.value.trim();render()});
+el('catalog-search').addEventListener('input',renderCatalog);
 document.querySelectorAll('[data-days]').forEach(btn=>btn.onclick=()=>{dataState.days=btn.dataset.days;render()});
 (async()=>{try{const response=await fetch('./catalog.json',{cache:'no-store'});if(response.ok){const data=await response.json();dataState.catalog=Array.isArray(data.apps)?data.apps:[];renderCatalog()}}catch(e){console.warn('Catalog unavailable')}})();
 (async()=>{try{const response=await fetch('./data.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();dataState.list=Array.isArray(data.quizzes)?data.quizzes:[];dataState.mode=data.source_mode||'pending';el('date-chip').textContent='오늘 '+kstDate();el('count-chip').textContent='저장된 정답 '+dataState.list.length+'건';el('update-chip').textContent=data.updated_at?'업데이트 '+data.updated_at.slice(0,16).replace('T',' '):'수집 대기';if(!dataState.list.some(x=>x.date===kstDate()))dataState.days='7';showFilters();render();renderCatalog()}catch(e){el('cards').replaceChildren(text('div','데이터를 불러오지 못했습니다. 새로고침 후 다시 확인해 주세요.','empty'));el('count-chip').textContent='연결 확인 필요';el('update-chip').textContent='데이터 오류'}})();
