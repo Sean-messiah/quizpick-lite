@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:01:19+09:00",
+  "updated_at": "2026-10-19T12:10:08+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-94f7a3b4142f05ca",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "AGE20S 글래스 스킨 에센스 팩트 글로우/퍼펙트 본품+리필(12.5g) 행사가 25,500원+무료배송! 글래스 …",
+      "answer": "72",
+      "date": "2026-10-19",
+      "time": "12:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-dbce28879f0ac014",
       "app": "okquiz",
@@ -174,9 +187,9 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
-      "id": "salbopick-d6b1178138a793f3",
-      "app": "other",
-      "app_name": "기타 앱테크",
+      "id": "salbopick-6b75432cc9ab1d32",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
       "question_hint": "문제 문구 확인 불가",
       "answer": "진열대",
       "date": "2026-10-18",
@@ -226,9 +239,9 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
-      "id": "salbopick-d83285302090473d",
-      "app": "other",
-      "app_name": "기타 앱테크",
+      "id": "salbopick-253aacaf22a41977",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
       "question_hint": "문제 문구 확인 불가",
       "answer": "포장재",
       "date": "2026-10-18",
@@ -317,9 +330,9 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
-      "id": "salbopick-db4b9a83388e0cde",
-      "app": "other",
-      "app_name": "기타 앱테크",
+      "id": "salbopick-6d82a7e966a3025c",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
       "question_hint": "문제 문구 확인 불가",
       "answer": "경보",
       "date": "2026-10-17",
@@ -421,9 +434,9 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
-      "id": "salbopick-a4d6f02f79b0cd39",
-      "app": "other",
-      "app_name": "기타 앱테크",
+      "id": "salbopick-e8969bcfaef20711",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
       "question_hint": "문제 문구 확인 불가",
       "answer": "분침",
       "date": "2026-10-17",
@@ -1422,9 +1435,9 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
-      "id": "salbopick-806aa3c91ac32039",
-      "app": "other",
-      "app_name": "기타 앱테크",
+      "id": "salbopick-b3953e18be2ad524",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
       "question_hint": "문제 문구 확인 불가",
       "answer": "교자",
       "date": "2026-10-13",
