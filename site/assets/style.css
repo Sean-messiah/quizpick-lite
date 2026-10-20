@@ -288,3 +288,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
   .challenge-promo-compact .primary-action{width:100%}
   .mobile-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
+/* Optional local nickname – never blocks the checklist. */
+.daily-nickname{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 15px;padding:9px 13px;background:#fff;border:1px solid #f2dbe7;border-radius:12px}
+.daily-nickname .daily-muted{flex:1;margin:0}
+.daily-nickname-form{display:flex;align-items:center;gap:7px;flex-wrap:wrap;width:100%}
+.daily-nickname-form input{flex:1;min-width:130px;height:44px;border:1px solid #efcadc;border-radius:10px;padding:9px 11px;background:#fff;color:#423244}
+.daily-nickname-form button{min-height:44px}
+@media(max-width:390px){.daily-nickname-form input{width:100%;flex-basis:100%}}
