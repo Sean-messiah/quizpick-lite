@@ -62,7 +62,9 @@ def parse_quizzes(html, source_url, date):
         if answer is None:
             continue
         heading = article.find("h3")
-        question = heading.get_text(" ", strip=True) if heading else "문제 문구 확인 불가"
+        question = heading.get_text(" ", strip=True) if heading else ""
+        if not question:
+            continue  # prevent unsourced answer-only duplicate pages
         slug, name = get_app(flat[:220])
         clock = re.search(r"\b([012]\d:[0-5]\d)\b", flat)
         hour = clock.group(1) if clock else None
@@ -116,7 +118,13 @@ def merge(old, incoming, today):
                 items[record["id"]] = record
         except (ValueError, TypeError, KeyError):
             continue
-    return sorted(items.values(), key=lambda x: (x["date"], x.get("time") or "", x["id"]), reverse=True)[:1200]
+    values = list(items.values())
+    complete_keys = {(q.get("app"),q.get("date"),q.get("source_url"),str(q.get("answer","")).strip().casefold())
+                     for q in values if q.get("question_hint") not in ("문제 문구 확인 불가", "", None)}
+    values = [q for q in values
+              if q.get("question_hint") not in ("문제 문구 확인 불가", "", None)
+              or (q.get("app"),q.get("date"),q.get("source_url"),str(q.get("answer","")).strip().casefold()) not in complete_keys]
+    return sorted(values, key=lambda x: (x["date"], x.get("time") or "", x["id"]), reverse=True)[:1200]
 
 def collect_dates(now, day_count):
     """Generate today's KST date and up to six preceding dates (oldest first)."""
