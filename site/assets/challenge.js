@@ -147,22 +147,7 @@
   function render() {
     root.replaceChildren();
     const intro=el('div','challenge-intro');
-    if (!data.nickname) {
-      intro.append(heading('닉네임으로 가볍게 시작하기',
-        '가입 없이 이 브라우저에만 기록됩니다. 다른 기기와 자동 연동되지는 않아요.'));
-      const form=el('form','challenge-profile');
-      const inp=el('input');inp.type='text';inp.maxLength=16;inp.placeholder='닉네임 (예: 매일 100원)';inp.required=true;
-      inp.setAttribute('aria-label','챌린지 닉네임');
-      const btn=el('button','challenge-start','시작하기');btn.type='submit';
-      form.append(inp,btn);
-      form.addEventListener('submit',event=>{
-        event.preventDefault();const name=inp.value.trim();
-        if(name.length<2){window.alert('닉네임을 두 글자 이상 입력해 주세요.');return;}
-        data.nickname=name;if(persist()){send('challenge_profile_created');render();}
-      });intro.append(form);
-      root.append(intro);return;
-    }
-    intro.append(heading(data.nickname+'님의 100일 챌린지',
+    intro.append(heading(data.nickname?data.nickname+'님의 100일 챌린지':'100일 챌린지',
       '퀴즈픽은 실제 돈이나 금을 지급하지 않습니다. 내가 다른 앱에서 모은 금액을 직접 적는 기록장입니다.'));
     const top=el('div','challenge-top');
     top.append(el('span','challenge-neutral','대한민국 표준시(KST) 기준 하루 한 번 기록'));
