@@ -193,6 +193,12 @@ class BuildSiteTests(unittest.TestCase):
             self.assertIn("QUIZPICK", b.brand_strip(app))
         self.assertIn('class="app-brand-logo"', b.app_summary("toss", []))
         self.assertIn('data-app="toss"', b.app_summary("toss", []))
+        # KakaoBank must use its yellow publisher-provided app icon,
+        # not the monochrome logo from the corporate mobile website.
+        kb_icon = b.app_icon("kakaobank")
+        self.assertIn("play-lh.googleusercontent.com/RM-EqEESDLBixB", kb_icon)
+        self.assertNotIn("/view/images/sub/symbol-logo.svg", kb_icon)
+        self.assertIn("play-lh.googleusercontent.com/RM-EqEESDLBixB", b.app_summary("kakaobank", []))
 
 if __name__ == "__main__":
     unittest.main()
