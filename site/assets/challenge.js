@@ -67,8 +67,17 @@
       ? Math.min(100,Math.max(1,Math.floor((dateToUtc(today)-dateToUtc(goal.startDate))/86400000)+1)) : 1;
     const target=slug==='gold'?(+goal.goalWon||0):cfg.daily*100;
     const percent=target>0?Math.min(100,Math.round(saved/target*100)):0;
+    let streak=0;
+    let cursor=Number(entries[today])>0?today:addDays(today,-1);
+    for(let i=0;i<100&&Number(entries[cursor])>0;i++){
+      streak++;cursor=addDays(cursor,-1);
+    }
     const meta=el('div','challenge-meta');
     meta.append(el('span','',daysDone+'일 체크'),el('span','',won(saved)+' 기록'));
+    if(streak>0) meta.append(el('span','','🔥 연속 '+streak+'일'));
+    if(daysDone>=100) meta.append(el('span','','🏆 100일 완주'));
+    else if(daysDone>=30) meta.append(el('span','','🏅 30일 달성'));
+    else if(daysDone>=7) meta.append(el('span','','🌟 7일 달성'));
     box.append(meta);
     const progress=el('div','challenge-progress');
     progress.setAttribute('role','progressbar');progress.setAttribute('aria-valuemin','0');
@@ -176,7 +185,43 @@
       if(!window.confirm('이 브라우저의 챌린지 닉네임과 모든 체크 기록을 삭제할까요? 복구할 수 없습니다.'))return;
       data=blank();if(persist()){send('challenge_data_deleted');render();}
     });
-    manage.append(exportBtn,deleteBtn);root.append(manage);
+    const upload=el('input');
+    upload.type='file';upload.accept='application/json,.json';upload.className='challenge-restore';
+    upload.setAttribute('aria-label','챌린지 백업 파일 불러오기');
+    upload.addEventListener('change',async ()=>{
+      const file=upload.files?.[0];
+      if(!file)return;
+      try {
+        if(file.size>100000) throw new Error('백업 파일 크기가 너무 큽니다.');
+        const json=JSON.parse(await file.text());
+        if(json.version!==1||typeof json.nickname!=='string'||!json.goals||typeof json.goals!=='object')
+          throw new Error('퀴즈픽 챌린지 v1 백업 파일이 아닙니다.');
+        const goals={};
+        for(const [id,goal] of Object.entries(json.goals)){
+          if(!Object.hasOwn(PLANS,id)||!goal||typeof goal!=='object')continue;
+          if(!validDate(goal.startDate)||!goal.entries||typeof goal.entries!=='object')
+            throw new Error('챌린지 기록 날짜를 확인할 수 없습니다.');
+          const entries={};
+          for(const [day,value] of Object.entries(goal.entries)){
+            const amount=Number(value);
+            if(!validDate(day)||!Number.isInteger(amount)||amount<1||amount>1000000)
+              throw new Error('챌린지 기록 형식이 올바르지 않습니다.');
+            entries[day]=amount;
+          }
+          const budget=Number(goal.goalWon)||0;
+          if(!Number.isInteger(budget)||budget<0||budget>100000000)
+            throw new Error('목표 금액 형식이 올바르지 않습니다.');
+          goals[id]={startDate:goal.startDate,goalWon:budget,entries};
+        }
+        if(!window.confirm('현재 이 기기의 체크 기록을 백업 파일 내용으로 교체할까요?'))return;
+        data={version:1,nickname:json.nickname.slice(0,16),goals};
+        if(persist()){send('challenge_restore');render();}
+      }catch(error){window.alert('복원 실패: '+error.message);}
+      finally{upload.value='';}
+    });
+    const restoreLabel=el('label','challenge-restore-label','JSON 백업 파일로 복원');
+    restoreLabel.append(upload);
+    manage.append(exportBtn,restoreLabel,deleteBtn);root.append(manage);
   }
   render();
 })();
