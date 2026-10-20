@@ -55,5 +55,17 @@ class BuildSiteTests(unittest.TestCase):
         self.assertIn("회차별 정답 확인하기", html)
         self.assertNotIn("SENSITIVE_ANSWER", html)
 
+
+    def test_service_icons_render_original_publisher_artwork(self):
+        for app in b.APPS:
+            icon = b.app_icon(app)
+            self.assertIn('class="app-brand-logo"', icon)
+            self.assertIn('src="https://is1-ssl.mzstatic.com/', icon)
+            self.assertIn('class="appicon-fallback"', icon)
+            self.assertIn('width="64"', icon)
+            self.assertIn("QUIZPICK", b.brand_strip(app))
+        self.assertIn('class="app-brand-logo"', b.app_summary("toss", []))
+        self.assertIn('data-app="toss"', b.app_summary("toss", []))
+
 if __name__ == "__main__":
     unittest.main()
