@@ -64,7 +64,7 @@ def page(title, description, body, path, *, noindex=False):
     robots = '<meta name="robots" content="noindex,follow">' if noindex else ""
     return '''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#213764"><title>%s | 퀴즈픽</title>
+<meta name="theme-color" content="#fff1f7"><title>%s | 퀴즈픽</title>
 <meta name="description" content="%s"><link rel="canonical" href="%s">
 <meta property="og:type" content="website"><meta property="og:title" content="%s | 퀴즈픽"><meta property="og:description" content="%s">
 <meta property="og:url" content="%s">%s
@@ -73,17 +73,19 @@ def page(title, description, body, path, *, noindex=False):
 gtag('js',new Date());gtag('config','%s')</script>
 <link rel="stylesheet" href="%s"><script defer src="%s"></script></head>
 <body><a class="skip" href="#content">본문으로 이동</a>
-<header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">✓</span> 퀴즈픽</a>
-<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 앱</a><a href="%s">이용 안내</a></nav></div></header>
+<header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">♥</span><span><span class="wordmark">QUIZ<em>PICK</em></span><small class="brand-ko">퀴즈픽</small></span></a>
+<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">이용 안내</a></nav></div></header>
 <main id="content" class="main">%s</main>
 <footer class="footer"><div>퀴즈픽은 공식 앱과 무관한 독립 정보 서비스입니다. 원본 앱에서 정답과 리워드 지급 조건을 최종 확인하세요.</div>
-<div class="footnav"><a href="%s">서비스 소개</a><a href="%s">개인정보 처리 안내</a><a href="%s">정답 검증 기준</a></div>
+<div class="footnav"><a href="%s">서비스 소개</a><a href="%s">개인정보 처리 안내</a><a href="%s">정답 검증 기준</a><a href="%s">문의·정정</a></div>
 <div>© QuizPick Lite · 보상 지급 주체가 아닙니다</div></footer>
+<nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
 ''' % (e(title),e(description),e(canonical),e(title),e(description),
        e(canonical),robots,e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
        e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
-       e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")))
+       e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
+       e(local()),e(local("apps")),e(local("saved")),e(local("about")))
 
 def write(path, html):
     dest=SITE/path.strip("/")/"index.html" if path else SITE/"index.html"
@@ -150,13 +152,12 @@ def item_card(row, kind="tile"):
 def app_summary(slug, rows):
     name,icon,_,_,sub=APPS[slug]
     current=sum(r["date"]==TODAY.isoformat() for r in rows)
-    if current:
-        report="오늘 공개 정답 %d건 · 진행 및 보상 가능 여부는 원본 앱에서 확인"%current
-    else:
-        report="오늘 확인된 정답 없음 · 최근 7일 기록은 확인 가능"
-    return '''<a class="appcard" href="%s" data-event="home_app_click" data-app="%s">
-    <span class="appicon">%s</span><span><strong>%s</strong><small>%s</small>
-    <span class="appstat">%s</span></span><span class="chevron">›</span></a>'''%(e(app_path(slug)),e(slug),icon,e(name),e(sub),e(report))
+    report=("오늘 공개 참고 정답 %d건 · 현재 참여 여부 미확인"%current) if current else "최근 7일 참고 기록 · 오늘 출제 여부 미확인"
+    cta='<span class="card-cta">회차별 정답 확인하기 →</span>' if slug in ("toss","kakaobank") else ""
+    return '''<a class="appcard" data-app="%s" href="%s" data-event="home_app_click">
+    <span class="appicon" aria-hidden="true">%s</span><span><strong>%s</strong><small>%s</small>
+    <span class="appstat">%s</span></span><span class="chevron" aria-hidden="true">›</span>%s</a>'''%(
+        e(slug),e(app_path(slug)),icon,e(name),e(sub),e(report),cta)
 
 def breadcrumb(*nodes):
     links=[]
@@ -164,8 +165,9 @@ def breadcrumb(*nodes):
         links.append(link(title,path))
     return '<nav class="breadcrumbs" aria-label="현재 위치">'+ ' <span aria-hidden="true">›</span> '.join(links)+'</nav>'
 
-def heading(kicker,title,lead):
-    return '<div class="section-head"><div class="eyebrow">%s</div><h1>%s</h1><p>%s</p></div>'%(e(kicker),e(title),e(lead))
+def heading(kicker,title,lead, level="h1"):
+    tag="h2" if level=="h2" else "h1"
+    return '<div class="section-head"><div class="eyebrow">%s</div><%s>%s</%s><p>%s</p></div>'%(e(kicker),tag,e(title),tag,e(lead))
 
 def quiz_group(slug, dated_rows):
     dates=sorted(dated_rows,reverse=True)
@@ -192,13 +194,15 @@ def main():
     remaining=[x for x in ("cashwalk","okquiz","shinhanpay","shinhanbank","cashdoc","kbpay","kbstar") if byapp[x]]
     apporder=p0+remaining
 
-    hero='''<section class="hero"><span class="eyebrow light">TODAY · QUIZPICK</span>
-    <h1>앱테크 퀴즈,<br>정답은 여기서 찾아보세요.</h1>
-    <p>토스·카카오뱅크 먼저. 앱을 선택하고 해당 회차의 정답을 확인하세요.</p>
-    <div class="hero-date">한국시간 %s 기준 · 공개 정답 자료 %d건</div></section>'''%(e(TODAY.isoformat()),len(rows))
-    homes=heading("1순위","먼저 확인할 퀴즈","회차별 정답은 앱 전용 페이지에서 확인할 수 있습니다.")
+    hero='''<section class="hero"><div class="hero-copy"><span class="eyebrow light">💕 오늘도 퀴즈픽!</span>
+    <h1>오늘의 앱테크 <strong>퀴즈</strong><br>정답을 한곳에서!</h1>
+    <p>토스·카카오뱅크 먼저! 앱별 문제와 회차를 확인하고 정답을 복사해 보세요.</p>
+    <div class="hero-date">📅 한국시간 %s 기준 · 최근 7일 공개 참고 정답 %d건</div></div>
+    <div class="hero-art" aria-hidden="true"><span class="hero-bunny">🐰</span><span class="hero-coin">🪙</span><span class="hero-gift">🎁</span></div>
+    </section>'''%(e(TODAY.isoformat()),len(rows))
+    homes=heading("⭐ 우선 확인","토스 · 카카오뱅크","먼저 찾는 두 앱의 정답은 회차별 상세 페이지에서 확인하세요.",level="h2")
     homes+='<div class="featured">'+''.join(app_summary(x,byapp[x]) for x in p0)+'</div>'
-    others=heading("다른 앱테크","추가 퀴즈","최근 7일 동안 공개 정답 자료가 확인된 앱만 보여드립니다.")
+    others=heading("🎁 앱테크 더보기","다른 퀴즈도 확인해요","최근 7일 공개 정답 참고 자료가 있는 앱만 표시합니다.",level="h2")
     others+='<div class="apps-grid">'+''.join(app_summary(x,byapp[x]) for x in remaining)+'</div>'
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
     sections='<section class="section">'+homes+'</section><section class="section">'+others+'</section>'
@@ -208,7 +212,8 @@ def main():
 
     allbody=breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
     allbody+='<label class="finder">앱 이름 검색 <input type="search" id="app-search" placeholder="토스, 카카오뱅크, 캐시워크..." autocomplete="off"></label>'
-    allbody+='<div class="apps-grid app-list">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
+    allbody+='<p class="eyebrow" id="search-count" aria-live="polite"></p><div class="apps-grid app-list">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
+    allbody+='<div class="empty-panel" id="search-empty" hidden><strong>검색 결과가 없어요 🔎</strong><p>다른 앱 이름으로 검색하거나 검색어를 지워 주세요.</p></div>'
     allbody+='<div class="info"><h2>왜 모든 앱을 표시하지 않나요?</h2><p>종료된 이벤트와 운영 확인이 어려운 퀴즈를 현재 참여 가능한 것처럼 안내하지 않기 위해서입니다. 정답이 있는 앱도 보상 지급 여부는 앱에서 다시 확인해야 합니다.</p></div>'
     write("apps",page("앱테크 퀴즈 전체 목록","토스, 카카오뱅크, 캐시워크 등 공개 정답 자료가 확인된 앱 모음.",allbody,local("apps")))
 
@@ -230,7 +235,7 @@ def main():
                                'target="_blank" rel="noopener noreferrer" data-event="official_site_click" data-app="'+e(slug)+'"')+'</p>'
         appbody+='</section>'
         appbody+='<section class="section">'+heading("날짜별 확인","퀴즈 날짜 선택","정답이 등록된 날짜만 표시합니다.")
-        appbody+='<div class="days">'+quiz_group(slug,dated)+'</div></section>'
+        appbody+=('<div class="days">'+quiz_group(slug,dated)+'</div>' if dated else '<div class="empty-panel"><strong>최근 등록된 정답이 없어요</strong><p>현재 출제·리워드 여부는 앱에서 직접 확인해 주세요.</p></div>')+'</section>'
         appbody+='<p class="inline-action">'+link("다른 앱테크 퀴즈 둘러보기 →",local("apps"))+'</p>'
         write(app_path(slug).removeprefix(BASE+"/").strip("/"),
               page(name+" 오늘의 퀴즈 정답 · 날짜별 목록",name+"의 최근 회차, 공개 정답 기록 및 참여 방법.",appbody,app_path(slug)))
@@ -251,9 +256,11 @@ def main():
             qtitle=label(row)+" "+row["date"]+" 정답"
             body=breadcrumb(("홈",local()),(name,app_path(slug)),(date,day_path(slug,date)))
             body+=heading(label(row),name+" "+row["date"]+" 정답 확인","회차: "+(row.get("time") or "출제시각 미확인")+" · "+state(row))
+            body+='<div class="detail-actions"><span class="pills"><span>💗 외부 공개 참고 자료</span></span><button class="savebtn" type="button" aria-pressed="false" data-save-quiz data-app="'+e(slug)+'" data-url="'+e(qpath)+'" data-title="'+e(name+" "+row["date"]+" "+label(row))+'">♡ 즐겨찾기에 저장</button></div>'
             body+='<section class="question-detail"><h2>문제 정보</h2><p>'+e(summary(row))+'</p></section>'
-            body+='<section class="answer-detail"><div class="eyebrow">외부 공개 자료에 게시된 정답</div><div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사</button><p>원본 앱의 문제와 회차가 같은지 반드시 확인하세요.</p></section>'
+            body+='<section class="answer-detail"><div class="eyebrow">✅ 외부 공개 자료에 게시된 참고 정답</div><div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button><p>원본 앱의 문제·회차가 같은지 꼭 확인하세요. 보상 지급은 퀴즈픽이 아닌 해당 앱에서 이루어집니다.</p></section>'
             source=row.get("source_url","")
+            body+='<div class="steps" aria-label="퀴즈 참여 절차"><div class="step"><strong>① 문제 확인</strong>앱과 회차를 확인해요</div><div class="step"><strong>② 정답 복사</strong>정답을 복사해요</div><div class="step"><strong>③ 공식 앱 참여</strong>해당 앱에서 직접 참여해요</div></div>'
             body+='<section class="info"><h2>참여 방법과 확인 사항</h2><p>'+e(APPS[slug][3])+'</p>'
             body+='<p>정답 출처: '+e(row.get("source","외부 공개 자료"))+' · '+e(row.get("confidence_label","외부 미검증"))+'</p>'
             body+='<p>현재 회차 참여·지급 여부: 미확인. 보상은 원본 앱에서 지급되며 시간·대상·잔여 수량에 따라 달라질 수 있습니다.</p>'
@@ -272,12 +279,19 @@ def main():
       ("about","퀴즈픽 소개","퀴즈픽은 앱테크 퀴즈의 공개 정답 참고 자료와 참여 방법을 모아 제공하는 독립 서비스입니다. 토스·카카오뱅크를 먼저 보여주며, 각 운영사와 제휴하거나 이들로부터 리워드를 지급받는 서비스가 아닙니다."),
       ("privacy","개인정보 및 방문 통계 안내","이 웹사이트는 회원가입, 결제 또는 개인별 정답 제출 기록을 요구하지 않습니다. 방문 통계 목적으로 Google Analytics 4를 사용하여 페이지 방문과 버튼 이용 집계가 전송될 수 있습니다. 웹 브라우저 설정이나 광고·추적 차단 기능으로 분석을 제한할 수 있습니다. 개인정보 및 방문 분석 문의는 공개 GitHub 저장소의 이슈 기능을 이용할 수 있습니다."),
       ("editorial-policy","정답 검증·정정 기준","퀴즈픽은 원본 앱이 아닌 공개 자료를 참고합니다. 게시된 답은 변경될 수 있으며 원본 앱에서 최종 확인해야 합니다. 회차 마감·보상 지급 가능 여부를 앱에서 실시간 확인하지 않은 경우 '미확인'으로 표시합니다. 잘못된 답이나 출처 정정은 GitHub 저장소의 공개 이슈로 제보해 주세요."),
+      ("contact","문의 및 정정 요청","잘못된 정답이나 출처, 서비스 이용 문의는 아래 GitHub 프로젝트의 이슈 기능을 통해 접수할 수 있습니다. 문제 발생 날짜·앱 이름·페이지 주소를 함께 남겨주시면 확인에 도움이 됩니다."),
     ]
     for path,title,description in info_pages:
         text=breadcrumb(("홈",local()))+heading("QUIZPICK",title,description)
         text+='<p class="inline-action">'+link("GitHub 프로젝트와 정정 요청 ↗","https://github.com/Sean-messiah/quizpick-lite/issues","source-link",'target="_blank" rel="noopener noreferrer"')+'</p>'
         write(path,page(title,description,text,local(path)))
 
+    savedbody=breadcrumb(("홈",local()))+heading("MY QUIZ","즐겨찾기한 퀴즈","나중에 다시 볼 정답 상세 페이지를 이 브라우저에만 보관합니다.")
+    savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
+    write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
+    notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
+    notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
+    (SITE/"404.html").write_text(page("페이지를 찾을 수 없습니다","찾을 수 없는 퀴즈픽 페이지입니다.",notfound,local(),noindex=True),encoding="utf-8")
     urls=[local(),local("apps")]+[app_path(x) for x in apporder]
     for path,_,_ in info_pages:
         urls.append(local(path))
