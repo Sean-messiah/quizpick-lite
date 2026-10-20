@@ -153,15 +153,19 @@
         input.value=String(v.amount);
         input.setAttribute('aria-label',q.appName+' 실제 받은 보상 수량');
         const unit=node('select');unit.setAttribute('aria-label',q.appName+' 보상 단위');
+        const placeholder=node('option','','단위 선택');placeholder.value='';unit.append(placeholder);
         for(const u of UNITS){const option=node('option','',u);option.value=u;unit.append(option);}
-        unit.value=v.unit;
+        unit.value=v.amount>0?v.unit:'';
         const set=node('button','challenge-undo','기록 저장');set.type='button';
         set.addEventListener('click',()=>{
           const amount=Number(input.value);
           if(input.value.trim()===''||!Number.isInteger(amount)||amount<0||amount>1000000){
             window.alert('실제로 받은 보상 수량을 0 이상 1,000,000 이하의 정수로 입력해 주세요.');return;
           }
-          update(q.id,{done:true,amount,unit:unit.value});
+          if(amount>0&&!unit.value){
+            window.alert('금액과 포인트를 혼동하지 않도록 받은 보상의 단위를 선택해 주세요.');return;
+          }
+          update(q.id,{done:true,amount,unit:unit.value||'원'});
         });
         actions.append(input,unit,set);
       }
