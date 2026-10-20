@@ -309,9 +309,12 @@ def main():
         appbody=breadcrumb(("홈",local()),("전체 앱",local("apps")))
         appbody+=brand_strip(slug)+heading(subtitle,name+" 퀴즈 정답","오늘의 회차와 지난 7일 공개 기록을 날짜별로 확인하세요.")
         if slug in p0:
-            types=sorted(set(label(r) for r in arr))
-            if types:
-                appbody+='<p class="pills">'+''.join('<span>'+e(t)+'</span>' for t in types)+'</p>'
+            expected=("행운퀴즈","두근두근 1등찍기") if slug=="toss" else ("AI 이모지 퀴즈","OX 퀴즈")
+            today_by_type={t:sum(q["date"]==TODAY.isoformat() and label(q)==t for q in arr) for t in expected}
+            appbody+='<section class="info"><h2>오늘 유형별 공개 정답</h2><div class="pills">'+''.join(
+                '<span>'+e(t)+' · '+(str(today_by_type[t])+'건 게시' if today_by_type[t] else '오늘 확인된 정답 없음')+'</span>'
+                for t in expected
+            )+'</div><p>오늘 정답이 등록되지 않았다고 해서 원본 앱에서 퀴즈가 진행되지 않는다는 뜻은 아닙니다.</p></section>'
         appbody+='<section class="info"><h2>어디서 참여하나요?</h2><p>'+e(instructions)+'</p><p>공개 정답이 등록돼도 현재 회차가 열려 있거나 리워드가 남았다는 뜻은 아닙니다.</p>'
         if slug in OFFICIAL:
             appbody+='<p>'+link("공식 홈페이지 열기 ↗",OFFICIAL[slug],"source-link",
