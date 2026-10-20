@@ -149,6 +149,20 @@ class BuildSiteTests(unittest.TestCase):
             self.assertIn('"name":"전체 앱"',app_html)
             self.assertNotIn('<lastmod>',(root/"sitemap.xml").read_text(encoding="utf-8"))
 
+    def test_optional_auth_config_uses_public_credentials_only(self):
+        root=Path(__file__).resolve().parents[1]
+        cfg=json.loads((root/"site/auth-config.json").read_text(encoding="utf-8"))
+        self.assertNotIn("secretKey", cfg)
+        self.assertNotIn("serviceRoleKey", cfg)
+        if cfg.get("enabled"):
+            self.assertRegex(cfg["projectUrl"],r"^https://[a-z0-9-]+\\.supabase\\.co$")
+            self.assertTrue(cfg["publishableKey"].startswith("sb_publishable_"))
+            self.assertTrue(cfg.get("emailBeta"))
+            js=(root/"site/assets/auth.js").read_text(encoding="utf-8")
+            self.assertIn("signInWithOtp",js)
+            self.assertIn("shouldCreateUser:true",js)
+            self.assertIn("quizpick:local-change",js)
+
     def test_service_icons_render_original_publisher_artwork(self):
         for app in b.APPS:
             icon = b.app_icon(app)
