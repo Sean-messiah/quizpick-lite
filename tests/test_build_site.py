@@ -38,5 +38,22 @@ class BuildSiteTests(unittest.TestCase):
     def test_noindex_detail(self):
         self.assertIn('noindex,follow',b.page("제목","설명","",b.local("toss"),noindex=True))
 
+
+    def test_pink_ui_routes_and_navigation(self):
+        html = b.page("핑크 시안", "테스트 설명", "<p>body</p>", b.local())
+        self.assertIn('content="#fff1f7"', html)
+        self.assertIn('class="wordmark"', html)
+        self.assertIn('class="mobile-nav"', html)
+        self.assertIn('href="/quizpick-lite/saved/"', html)
+        self.assertIn('href="/quizpick-lite/contact/"', html)
+        self.assertIn('href="/quizpick-lite/assets/style.css"', html)
+
+    def test_featured_app_cards_keep_answers_hidden(self):
+        example = {"date": "2026-10-20", "answer": "SENSITIVE_ANSWER"}
+        html = b.app_summary("toss", [example])
+        self.assertIn('data-app="toss"', html)
+        self.assertIn("회차별 정답 확인하기", html)
+        self.assertNotIn("SENSITIVE_ANSWER", html)
+
 if __name__ == "__main__":
     unittest.main()
