@@ -40,6 +40,11 @@ jobs:
           python-version: '3.12'
       - name: Test page generator
         run: python -m unittest discover -s tests -p 'test_build_site.py' -v
+      - name: Validate challenge scripts and curated feed
+        run: |
+          node --check site/assets/challenge.js
+          node --check site/assets/app.js
+          python -m json.tool site/manual-quizzes.json > /dev/null
       - name: Build multi-page website
         run: python scripts/build_site.py
       - name: Verify output
@@ -48,6 +53,8 @@ jobs:
           test -f site/toss/index.html
           test -f site/kakaobank/index.html
           test -f site/apps/index.html
+          test -f site/challenge/index.html
+          test -f site/guide/apptech-routine/index.html
           test -f site/sitemap.xml
           if grep -q 'data-copy-answer' site/index.html; then
             echo "ERROR: answers must not be on home"
