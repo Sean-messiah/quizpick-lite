@@ -43,6 +43,7 @@ jobs:
       - name: Validate challenge scripts and curated feed
         run: |
           node --check site/assets/challenge.js
+          node --check site/assets/daily-challenge.js
           node --check site/assets/app.js
           node --check site/assets/auth.js
           python -m json.tool site/manual-quizzes.json > /dev/null
@@ -60,6 +61,8 @@ jobs:
           test -f site/kakaobank/index.html
           test -f site/apps/index.html
           test -f site/challenge/index.html
+          test -f site/challenge-feed.json
+          test -f site/assets/daily-challenge.js
           test -f site/assets/auth.js
           test -f site/auth-config.json
           test -f site/guide/apptech-routine/index.html
