@@ -1,6 +1,6 @@
 {
   "enabled": false,
-  "projectUrl": "",
-  "publishableKey": "",
-  "notes": "Enable only after provisioning Supabase, applying RLS policies, and setting allowed Auth redirects. Publishable keys are public; never publish privileged or private API credentials."
+  "projectUrl": "https://ngozrhjczaattarydgnr.supabase.co",
+  "publishableKey": "sb_publishable_hk3-eeAs0MFAfnZ5lkGL5g_SesxLkIl",
+  "notes": "Project exists with RLS. Auth email Site URL and redirect allowlist must be configured and tested before enabling signup."
 }
