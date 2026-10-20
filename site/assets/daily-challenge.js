@@ -130,7 +130,7 @@
       form.append(input,saveName,cancel);
       profile.append(node('span','daily-muted','이름은 입력하지 않아도 체크리스트를 이용할 수 있습니다.'),form);
     }else{
-      profile.append(node('span','daily-muted',nickname?nickname+'님의 참여 기록 · 이 브라우저에만 저장':'닉네임 없이 바로 참여할 수 있어요.'));
+      profile.append(node('span','daily-muted',nickname?(nickname.endsWith('님')?nickname+'의 참여 기록':nickname+'님의 참여 기록')+' · 이 브라우저에만 저장':'닉네임 없이 바로 참여할 수 있어요.'));
       const edit=node('button','challenge-textbutton',nickname?'닉네임 변경·삭제':'닉네임 만들기 (선택)');
       edit.type='button';edit.addEventListener('click',()=>{editingNickname=true;render();});
       profile.append(edit);
