@@ -76,6 +76,7 @@ if (search) {
 
 const SAVED_KEY = 'quizpick_saved_v1';
 const QUIZ_ROUTE = /^\/quizpick-lite\/quiz\/([a-z0-9_-]+)\/(\d{4}-\d{2}-\d{2})\/([a-z0-9_-]+)\/$/;
+let publishedQuizPaths = new Set();
 function safeQuizPath(value) {
   return typeof value === 'string' && QUIZ_ROUTE.test(value);
 }
@@ -109,7 +110,7 @@ function canOpenSaved(url) {
   const match = QUIZ_ROUTE.exec(url || '');
   if (!match) return false;
   const age = daysFromToday(match[2]);
-  return age >= 0 && age <= 6;
+  return age >= 0 && age <= 6 && publishedQuizPaths.has(url);
 }
 function appHub(url) {
   const m = QUIZ_ROUTE.exec(url || '');
@@ -200,4 +201,17 @@ function renderSaved() {
   }
 }
 syncSaveButtons();
-renderSaved();
+(async () => {
+  try {
+    const response = await fetch('/quizpick-lite/active-quizzes.json', { cache: 'no-store' });
+    if (response.ok) {
+      const json = await response.json();
+      if (Array.isArray(json.paths)) {
+        publishedQuizPaths = new Set(json.paths.filter(safeQuizPath));
+      }
+    }
+  } catch (_) {
+    // Without a verified published manifest, prefer archived summaries over 404 links.
+  }
+  renderSaved();
+})();
