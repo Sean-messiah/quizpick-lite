@@ -141,3 +141,15 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
 @media(max-width:390px){.nav a:nth-child(3){display:none}.hero-copy{max-width:77%}.hero-bunny{font-size:60px}.hero-art{right:-8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 [hidden]{display:none!important}
+
+/* Third-party service icons: original publisher artwork, never recolored. */
+.appicon.has-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid #f3eaf0;box-shadow:0 2px 9px rgba(46,21,35,.07);font-size:26px;overflow:hidden}
+.appicon.has-logo .appicon-fallback{position:absolute;inset:0;display:grid;place-items:center}
+.appicon.has-logo .app-brand-logo{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain;background:#fff}
+.appicon.has-logo .app-brand-logo[hidden]{display:none}
+.appcard[data-app="toss"] .appicon.has-logo,.appcard[data-app="kakaobank"] .appicon.has-logo{background:#fff}
+.brand-strip{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #f4dfe9;border-radius:20px;padding:15px 19px;margin:0 0 18px;box-shadow:0 3px 15px rgba(163,59,108,.05)}
+.brand-strip .appicon{width:66px;height:66px;border-radius:17px;flex:none}
+.brand-strip small{display:block;color:#c35485;font-size:11px;letter-spacing:.03em;font-weight:750}
+.brand-strip strong{display:block;font-size:20px;font-weight:900;line-height:1.35;color:#302035}
+@media(max-width:720px){.brand-strip{padding:12px 14px;border-radius:16px;gap:12px}.brand-strip .appicon{width:52px;height:52px;border-radius:13px}.brand-strip strong{font-size:17px}}
