@@ -1,5 +1,9 @@
 import sys
 import unittest
+import json
+import tempfile
+from datetime import date
+from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -55,6 +59,51 @@ class BuildSiteTests(unittest.TestCase):
         self.assertIn("회차별 정답 확인하기", html)
         self.assertNotIn("SENSITIVE_ANSWER", html)
 
+
+    def test_toss_first_second_choices(self):
+        choices=b.split_toss_prizes("일등 부산 정통 어묵 꼬치 이등 통참깨 100% 참기름")
+        self.assertEqual(choices,[("1등","부산 정통 어묵 꼬치"),("2등","통참깨 100% 참기름")])
+        self.assertEqual(b.split_toss_prizes("일등만 있음"),[])
+        self.assertEqual(b.split_toss_prizes("한가지 정답"),[])
+        self.assertEqual(b.split_toss_prizes("1등 선택 A 2등 선택 B"),[("1등","선택 A"),("2등","선택 B")])
+
+    def test_curate_missing_question_duplication(self):
+        base={"app":"shinhanpay","date":"2026-10-20","source_url":"https://example.org/day","answer":"쿠팡와우 멤버십"}
+        good=dict(base,id="good-record",question_hint="생활요금 자동납부 이벤트는?")
+        bad=dict(base,id="bad-record",question_hint="문제 문구 확인 불가")
+        self.assertEqual(b.curate_rows([bad,good]),[good])
+        another=dict(base,id="other-record",question_hint="다른 문제도 같은 정답인가요?")
+        self.assertEqual(len(b.curate_rows([good,another])),2)
+
+    def test_build_app_search_saved_snapshots_and_menu(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            quiz=[{
+              "id":"qb-1234test","app":"toss","app_name":"토스",
+              "date":"2026-10-20","question_hint":"두근두근 1등 찍기 퀴즈",
+              "answer":"일등 부산 정통 어묵 꼬치 이등 통참깨 100% 참기름",
+              "time":None,"source_url":"https://example.org/toss",
+            }]
+            (root/"data.json").write_text(json.dumps({"quizzes":quiz},ensure_ascii=False),encoding="utf-8")
+            (root/"catalog.json").write_text(json.dumps({"apps":[
+              {"id":"toss","name":"토스","source_url":"https://example.org/toss"},
+              {"id":"bitbunny","name":"비트버니 퀴즈","source_url":"https://example.org/bitbunny","feed":"link_only"}
+            ]},ensure_ascii=False),encoding="utf-8")
+            with patch.object(b,"SITE",root),patch.object(b,"TODAY",date(2026,10,20)):
+                b.main()
+            home=(root/"index.html").read_text(encoding="utf-8")
+            detail=(root/"quiz/toss/2026-10-20/qb-1234test/index.html").read_text(encoding="utf-8")
+            apps=(root/"apps/index.html").read_text(encoding="utf-8")
+            self.assertNotIn("부산 정통 어묵",home)
+            self.assertIn("1등 상품",detail)
+            self.assertIn("2등 상품",detail)
+            self.assertIn('data-copy-text="부산 정통 어묵 꼬치"',detail)
+            self.assertIn('data-answer="일등 부산 정통 어묵 꼬치',detail)
+            self.assertIn("비트버니 퀴즈",apps)
+            self.assertIn("운영 확인 대기",apps)
+            self.assertTrue((root/"menu/index.html").is_file())
+            self.assertIn("menu/",home)
+            self.assertIn("sitemap.xml",(root/"robots.txt").read_text(encoding="utf-8"))
 
     def test_service_icons_render_original_publisher_artwork(self):
         for app in b.APPS:
