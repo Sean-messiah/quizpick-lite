@@ -100,18 +100,18 @@ gtag('js',new Date());gtag('config','%s')</script>
 <link rel="stylesheet" href="%s"><script defer src="%s"></script></head>
 <body><a class="skip" href="#content">본문으로 이동</a>
 <header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">♥</span><span><span class="wordmark">QUIZ<em>PICK</em></span><small class="brand-ko">퀴즈픽</small></span></a>
-<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">이용 안내</a></nav></div></header>
+<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">챌린지</a><a href="%s">이용 안내</a></nav></div></header>
 <main id="content" class="main">%s</main>
 <footer class="footer"><div>퀴즈픽은 공식 앱과 무관한 독립 정보 서비스입니다. 원본 앱에서 정답과 리워드 지급 조건을 최종 확인하세요.</div><div>각 서비스명 및 심볼의 권리는 해당 운영사에 있으며, 퀴즈 정보를 구분하기 위한 목적으로만 표시합니다. 공식 제휴·후원을 의미하지 않습니다.</div>
 <div class="footnav"><a href="%s">서비스 소개</a><a href="%s">개인정보 처리 안내</a><a href="%s">정답 검증 기준</a><a href="%s">문의·정정</a></div>
 <div>© QuizPick Lite · 보상 지급 주체가 아닙니다</div></footer>
-<nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
+<nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">◎</span>챌린지</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
 ''' % (e(title),e(description),e(canonical),e(title),e(description),
        e(canonical),robots,e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
        e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
-       e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
-       e(local()),e(local("apps")),e(local("saved")),e(local("menu")))
+       e(local("challenge")),e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
+       e(local()),e(local("apps")),e(local("challenge")),e(local("saved")),e(local("menu")))
 
 def write(path, html):
     dest=SITE/path.strip("/")/"index.html" if path else SITE/"index.html"
@@ -278,7 +278,8 @@ def main():
     others=heading("🎁 앱테크 더보기","다른 퀴즈도 확인해요","최근 7일 공개 정답 참고 자료가 있는 앱만 표시합니다.",level="h2")
     others+='<div class="apps-grid">'+''.join(app_summary(x,byapp[x]) for x in remaining)+'</div>'
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
-    sections='<section class="section">'+homes+'</section><section class="section">'+others+'</section>'
+    challengepromo='<section class="challenge-promo" aria-label="매일 앱테크 챌린지"><div><span class="eyebrow">🎯 100일 저축 챌린지</span><h2>오늘 50원, 100원 기록하기</h2><p>100일 체크로 나만의 목표를 채워 보세요. 금 0.1돈 모으기도 도전할 수 있어요.</p></div>'+link("챌린지 시작 →",local("challenge"),"primary-action")+'</section>'
+    sections='<section class="section">'+homes+'</section>'+challengepromo+'<section class="section">'+others+'</section>'
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
     homebody=hero+sections+guide
     write("",page("오늘의 토스·카카오뱅크 앱테크 퀴즈", "토스 행운퀴즈와 카카오뱅크 AI 이모지 퀴즈부터 날짜와 회차별 공개 정답을 확인하세요. 리워드는 원본 앱에서 제공합니다.",homebody,local()))
@@ -375,6 +376,20 @@ def main():
             write(qpath.removeprefix(BASE+"/").strip("/"),
                   page(qtitle+" · "+summary(row),name+" "+date+" "+label(row)+" 답을 확인하고 복사하세요. 원본 앱 회차와 보상을 확인하세요.",body,qpath,noindex=True))
 
+    challengebody=breadcrumb(("홈",local()))+heading("QUIZPICK · 100 DAYS","매일 50원·100원 모으기 챌린지",
+        "내가 앱테크로 모은 금액을 100일간 직접 기록하고, 작은 목표가 얼마나 쌓이는지 확인하세요.")
+    challengebody+='''<div class="challenge-stats"><div><strong>50원 × 100일</strong><span>5,000원</span></div>
+      <div><strong>100원 × 100일</strong><span>10,000원</span></div>
+      <div><strong>금 0.1돈</strong><span>0.375g</span></div></div>
+      <p class="notice">⚠️ 이 챌린지는 <strong>직접 기록하는 목표 관리 도구</strong>입니다. 퀴즈픽이 포인트·현금·금을 지급하거나 실제 앱 적립을 인증하지 않습니다.</p>
+      <div id="challenge-app" class="challenge-app"><noscript>챌린지 기록 기능은 자바스크립트가 켜진 브라우저에서 이용할 수 있습니다.</noscript></div>'''
+    challengebody+='<section class="info challenge-guide"><h2>100일 챌린지는 어떻게 진행하나요?</h2><p>닉네임을 입력해 이 기기에서 시작하세요. 하루 50원 또는 100원을 목표로 정하고 실제로 모은 금액을 매일 직접 기록하면 체크 수와 누적 금액이 계산됩니다. 하루에 여러 번 눌러도 해당 날짜의 기록이 중복되지 않고 수정할 수 있습니다.</p><p>금 0.1돈은 무게로 0.375g입니다. 실제 금 가격, 구매 수수료 등은 달라질 수 있으므로 구매에 필요한 예산을 직접 정하고 그 금액을 향해 모은 돈을 기록해 주세요.</p><p>현재는 로그인·기기간 동기화가 없는 기기 저장형 체험 기능입니다. 브라우저 데이터 삭제 시 기록이 사라질 수 있으니 기록 관리에서 파일로 백업하세요. 실제 계정 가입 기능은 별도 서버·인증을 구성한 뒤 적용할 계획입니다.</p></section>'
+    challengebody+='<section class="challenge-partners"><h2>함께 준비 중인 서비스</h2><div class="challenge-grid"><div class="challenge-partner"><strong>🎮 가벼운 미니게임</strong><p>별도로 배포하고, 실제 서비스 주소가 생기면 상호 배너로 연결합니다.</p><span>준비 중</span></div><div class="challenge-partner"><strong>🛒 장보기 서비스</strong><p>기존 장보기 프로젝트가 공개되면 관련 배너와 서비스 이동을 연결합니다.</p><span>연동 준비 중</span></div></div></section>'
+    challengebody+='<script defer src="'+e(static_url("assets","challenge.js"))+'"></script>'
+    write("challenge",page("100일 앱테크 50원·100원 챌린지 · 금 0.1돈 목표",
+        "매일 50원·100원을 기록하고 100일 누적 금액을 계산하는 앱테크 도전. 금 0.1돈(0.375g) 예산 목표도 직접 설정하세요.",
+        challengebody,local("challenge")))
+
     info_pages=[
       ("about","퀴즈픽 소개","퀴즈픽은 앱테크 퀴즈의 공개 정답 참고 자료와 참여 방법을 모아 제공하는 독립 서비스입니다. 토스·카카오뱅크를 먼저 보여주며, 각 운영사와 제휴하거나 이들로부터 리워드를 지급받는 서비스가 아닙니다."),
       ("privacy","개인정보 및 방문 통계 안내","이 웹사이트는 회원가입, 결제 또는 개인별 정답 제출 기록을 요구하지 않습니다. 방문 통계 목적으로 Google Analytics 4를 사용하여 페이지 방문과 버튼 이용 집계가 전송될 수 있습니다. 웹 브라우저 설정이나 광고·추적 차단 기능으로 분석을 제한할 수 있습니다. 개인정보 및 방문 분석 문의는 공개 GitHub 저장소의 이슈 기능을 이용할 수 있습니다."),
@@ -390,12 +405,12 @@ def main():
     savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
     write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
     menubody=breadcrumb(("홈",local()))+heading("QUIZPICK","전체 메뉴","퀴즈픽의 앱테크 정답과 이용 정보를 빠르게 찾으세요.")
-    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
+    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("100일 챌린지",local("challenge")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
     write("menu",page("전체 메뉴","퀴즈픽 앱테크 서비스 메뉴",menubody,local("menu")))
     notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
     notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
     (SITE/"404.html").write_text(page("페이지를 찾을 수 없습니다","찾을 수 없는 퀴즈픽 페이지입니다.",notfound,local(),noindex=True),encoding="utf-8")
-    urls=[local(),local("apps"),local("menu")]+[app_path(x) for x in apporder]
+    urls=[local(),local("apps"),local("menu"),local("challenge")]+[app_path(x) for x in apporder]
     for path,_,_ in info_pages:
         urls.append(local(path))
     # Detailed answer pages are intentionally noindex (brief externally sourced facts).
