@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-20T08:43:20+09:00",
+  "updated_at": "2026-10-20T13:52:11+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-03c7357d8328fcb4",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "군것질",
+      "date": "2026-10-20",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-d9d453b279be3540",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "코웨이닷컴 만원 렌탈, 마지막 찬스! OOO3 정수기부터 비데, 안마의자, 매트리스까지! 최대 12개월 월 렌탈료 …",
+      "answer": "아이콘",
+      "date": "2026-10-20",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-aa7f285bcfc02856",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "2027학년도 대학수학능력시험이 실시되는 날짜는 언제일까요?",
+      "answer": "2026년 11월 19일",
+      "date": "2026-10-20",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-663d0374207dc4eb",
       "app": "kbstar",
@@ -31,6 +70,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-dc98b24be166d733",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "생활요금 자동납부 이벤트의 대상이 아닌 것은 무엇일까요?",
+      "answer": "쿠팡와우 멤버십",
+      "date": "2026-10-20",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-aa9280dd7d4f9866",
       "app": "shinhanpay",
       "app_name": "신한 SOL페이",
@@ -54,6 +106,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-20",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-ba067b8d291524d6",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스 지금 당장 장바구니에 담고 싶은 상품은? 10월20일 두근두근 일등 1등 찍기",
+      "answer": "일등 부산 정통 어묵 꼬치 이등 통참깨 100% 참기름",
+      "date": "2026-10-20",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
