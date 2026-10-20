@@ -293,6 +293,8 @@ def main():
         name, appid = entry.get("name",""), entry.get("id","")
         if not name or appid in active or active.intersection(entry.get("aliases",[])):
             continue
+        if entry.get("feed") == "ended" or appid in {"climate"}:
+            continue  # officially ended programs must not be suggested as active candidates
         source=entry.get("source_url","")
         parsed=urlparse(source)
         if parsed.scheme != "https" or not parsed.hostname:
