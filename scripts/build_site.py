@@ -322,6 +322,7 @@ def main():
     challengepromo='<section class="challenge-promo" aria-label="매일 앱테크 챌린지"><div><span class="eyebrow">🎯 100일 저축 챌린지</span><h2>오늘 50원, 100원 기록하기</h2><p>100일 체크로 나만의 목표를 채워 보세요. 금 0.1돈 모으기도 도전할 수 있어요.</p></div>'+link("챌린지 시작 →",local("challenge"),"primary-action")+'</section>'
     sections='<section class="section">'+homes+'</section>'+challengepromo+'<section class="section">'+others+'</section>'
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
+    guide+='<p class="inline-action">'+link("매일 앱테크 퀴즈 확인하는 방법 →",local("guide","apptech-routine"))+'</p>'
     homebody=hero+sections+guide
     write("",page("오늘의 토스·카카오뱅크 앱테크 퀴즈", "토스 행운퀴즈와 카카오뱅크 AI 이모지 퀴즈부터 날짜와 회차별 공개 정답을 확인하세요. 리워드는 원본 앱에서 제공합니다.",homebody,local()))
 
@@ -417,6 +418,17 @@ def main():
             write(qpath.removeprefix(BASE+"/").strip("/"),
                   page(qtitle+" · "+summary(row),name+" "+date+" "+label(row)+" 답을 확인하고 복사하세요. 원본 앱 회차와 보상을 확인하세요.",body,qpath,noindex=True))
 
+    # Original evergreen guide for meaningful SEO entry, not a copied answer doorway.
+    routine=breadcrumb(("홈",local()))+heading("APPTECH GUIDE","앱테크 퀴즈 매일 확인하는 방법",
+        "토스·카카오뱅크부터 문제 유형, 날짜, 회차를 확인하고 100일 목표까지 관리하는 실전 루틴입니다.")
+    routine+='<section class="info"><h2>1. 앱 이름보다 오늘의 퀴즈 유형을 먼저 확인하세요</h2><p>토스에는 행운퀴즈와 두근두근 1등찍기처럼 서로 다른 형식이 있을 수 있습니다. 상품을 고르는 형식이라면 1등·2등 보기가 무엇인지 따로 확인해야 합니다. 카카오뱅크는 AI 이모지 퀴즈와 OX처럼 형식이 다른 문제가 있을 수 있으므로 같은 앱이라는 이유로 다른 정답을 입력하면 안 됩니다.</p><p>'+link("토스 회차 목록",local("toss"))+' · '+link("카카오뱅크 회차 목록",local("kakaobank"))+'</p></section>'
+    routine+='<section class="info"><h2>2. 날짜·회차를 맞춘 뒤 정답을 복사하세요</h2><p>검색 결과나 지난 회차에 같은 상품명이 반복되더라도 오늘 문제와 완전히 일치하는지 먼저 비교해야 합니다. 퀴즈픽은 한국시간 기준으로 날짜별 참고 자료를 묶고 출제 시각이 알려져 있으면 따로 표시합니다. 실제 앱에서 문제가 바뀌거나 정답이 수정될 수 있으므로 마지막 확인은 원본 앱에서 진행하세요.</p><p>정답 상세에서는 복사 버튼을 통해 입력할 문구를 쉽게 가져올 수 있습니다. 출처에 정답이 없으면 퀴즈픽이 임의로 답을 만들어 게시하지 않습니다.</p></section>'
+    routine+='<section class="info"><h2>3. 하루에 얼마를 모았는지 직접 체크하세요</h2><p>앱테크를 시작할 때 큰 금액부터 목표로 잡을 필요는 없습니다. 하루 50원을 100일간 모으면 5,000원, 하루 100원이라면 10,000원이 됩니다. 실제로 모은 금액은 날마다 달라도 되며, 퀴즈픽 챌린지에는 본인이 확인한 금액을 적습니다. 같은 날짜 기록은 중복 합산하지 않고 수정할 수 있습니다.</p><p>'+link("100일 챌린지 기록장 열기 →",local("challenge"),"source-link")+'</p></section>'
+    routine+='<section class="info"><h2>자주 묻는 질문</h2><h3>퀴즈픽에서 포인트를 주나요?</h3><p>아니요. 포인트·현금은 각 원본 앱에서 운영하는 제도입니다. 퀴즈픽의 기록장 금액은 사용자가 직접 입력한 계산용 숫자이며 실제 지급이 아닙니다.</p><h3>회차가 바뀐 다음에도 같은 답을 쓰면 되나요?</h3><p>아니요. 날짜와 문항 내용이 다를 수 있으므로 새로운 회차의 출처를 확인해야 합니다.</p><h3>휴대폰을 바꾸면 챌린지 기록이 이어지나요?</h3><p>현재는 브라우저 저장 방식이므로 자동 동기화되지 않습니다. 설정에서 내 기록을 JSON 파일로 백업할 수 있습니다. 계정 기능은 아직 준비 중입니다.</p></section>'
+    write("guide/apptech-routine",page("앱테크 퀴즈 매일 확인하는 방법 · 100일 체크 루틴",
+        "토스·카카오뱅크 퀴즈 날짜·회차 구분, 정답 복사와 50원·100원 100일 기록 방법을 알아보세요.",
+        routine,local("guide","apptech-routine")))
+
     challengebody=breadcrumb(("홈",local()))+heading("QUIZPICK · 100 DAYS","매일 50원·100원 모으기 챌린지",
         "내가 앱테크로 모은 금액을 100일간 직접 기록하고, 작은 목표가 얼마나 쌓이는지 확인하세요.")
     challengebody+='''<div class="challenge-stats"><div><strong>50원 × 100일</strong><span>5,000원</span></div>
@@ -446,12 +458,12 @@ def main():
     savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
     write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
     menubody=breadcrumb(("홈",local()))+heading("QUIZPICK","전체 메뉴","퀴즈픽의 앱테크 정답과 이용 정보를 빠르게 찾으세요.")
-    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("100일 챌린지",local("challenge")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
+    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("100일 챌린지",local("challenge")),("매일 앱테크 가이드",local("guide","apptech-routine")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
     write("menu",page("전체 메뉴","퀴즈픽 앱테크 서비스 메뉴",menubody,local("menu")))
     notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
     notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
     (SITE/"404.html").write_text(page("페이지를 찾을 수 없습니다","찾을 수 없는 퀴즈픽 페이지입니다.",notfound,local(),noindex=True),encoding="utf-8")
-    urls=[local(),local("apps"),local("menu"),local("challenge")]+[app_path(x) for x in apporder]
+    urls=[local(),local("apps"),local("menu"),local("challenge"),local("guide","apptech-routine")]+[app_path(x) for x in apporder]
     for path,_,_ in info_pages:
         urls.append(local(path))
     # Detailed answer pages are intentionally noindex (brief externally sourced facts).
