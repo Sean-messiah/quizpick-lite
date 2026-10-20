@@ -251,6 +251,11 @@ def quiz_group(slug, dated_rows):
 
 def main():
     rows=verified_rows()
+    # Small manifest lets saved bookmarks avoid vanished detail routes after a refresh.
+    (SITE/"active-quizzes.json").write_text(
+        json.dumps({"date":TODAY.isoformat(),"paths":[quiz_path(q) for q in rows]},ensure_ascii=False),
+        encoding="utf-8"
+    )
     byapp=defaultdict(list)
     byday=defaultdict(list)
     for row in rows:
