@@ -211,3 +211,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
 @media(max-width:850px){.challenge-grid{grid-template-columns:1fr 1fr}.challenge-card.challenge-gold{grid-column:1/-1}}
 @media(max-width:720px){.challenge-grid{grid-template-columns:1fr}.challenge-card.challenge-gold{grid-column:auto}.challenge-stats{gap:6px}.challenge-stats>div{padding:14px 6px}.challenge-stats strong{font-size:11px}.challenge-stats span{font-size:18px}.challenge-promo{flex-direction:column;align-items:stretch}.challenge-promo .primary-action{width:100%}.mobile-nav{grid-template-columns:repeat(5,1fr)}}
 @media(max-width:390px){.mobile-nav a{font-size:9px}.nav a:nth-child(4){display:none}}
+
+.challenge-restore-label{display:inline-flex;flex-direction:column;gap:5px;margin:5px;padding:9px 12px;border-radius:11px;background:#fff7fa;color:#a63270;font-size:12px;font-weight:800;border:1px solid #efcddd;vertical-align:middle}
+.challenge-restore{display:block;max-width:260px;font-size:11px;color:#855e77}
