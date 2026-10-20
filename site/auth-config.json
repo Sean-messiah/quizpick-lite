@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "projectUrl": "",
+  "publishableKey": "",
+  "notes": "Set only after Supabase project is created, RLS migration applied, and Auth redirect URL configured. Publishable key is public; never use service_role or secret key."
+}
