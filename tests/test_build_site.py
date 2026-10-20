@@ -155,7 +155,7 @@ class BuildSiteTests(unittest.TestCase):
         self.assertNotIn("secretKey", cfg)
         self.assertNotIn("serviceRoleKey", cfg)
         if cfg.get("enabled"):
-            self.assertRegex(cfg["projectUrl"],r"^https://[a-z0-9-]+\\.supabase\\.co$")
+            self.assertRegex(cfg["projectUrl"],r"^https://[a-z0-9-]+\.supabase\.co$")
             self.assertTrue(cfg["publishableKey"].startswith("sb_publishable_"))
             self.assertTrue(cfg.get("emailBeta"))
             js=(root/"site/assets/auth.js").read_text(encoding="utf-8")
