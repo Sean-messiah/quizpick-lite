@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-20T13:52:11+09:00",
+  "updated_at": "2026-10-20T15:35:28+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-5f3e73580072b4b1",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "0000란, 물품 또는 용역을 사용하거나 이용하는 과정에서 발생한 피해를 사실조사, 전문가 자문 등을 거쳐 관련 법…",
+      "answer": "피해구제",
+      "date": "2026-10-20",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-03c7357d8328fcb4",
       "app": "kakaobank",
@@ -265,6 +278,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-f7106bd4ffa2ca3b",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "문제 문구 확인 불가",
+      "answer": "레스토랑",
+      "date": "2026-10-19",
+      "time": "12:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-94f7a3b4142f05ca",
       "app": "cashwalk",
       "app_name": "캐시워크",
@@ -376,6 +402,19 @@
       "answer": "12",
       "date": "2026-10-19",
       "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2b730799271404c4",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "문제 문구 확인 불가",
+      "answer": "해바라기씨",
+      "date": "2026-10-19",
+      "time": "08:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-19",
       "source_status": "마감 표시",
