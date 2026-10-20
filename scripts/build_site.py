@@ -331,7 +331,7 @@ def main():
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
     # Keep the familiar order: pink hero → priority Toss/Kakao → other quiz cards.
     # The challenge is secondary, not a large block interrupting the main directory.
-    challengepromo='<aside class="challenge-promo challenge-promo-compact" aria-label="앱테크 참여 체크"><div><span class="eyebrow">✅ 오늘의 퀴즈 참여 체크</span><h2>오늘 몇 개 참여했나요?</h2><p>체크리스트에서 참여 기록과 실제 받은 포인트를 관리해 보세요.</p></div>'+link("체크리스트 열기 →",local("challenge"),"primary-action")+'</aside>'
+    challengepromo='<aside class="challenge-promo challenge-promo-compact" aria-label="앱테크 참여 체크"><div><span class="eyebrow">✅ 오늘의 퀴즈 참여 체크</span><h2>오늘 몇 개 참여했나요?</h2><p>체크리스트에서 참여 기록과 실제 받은 포인트를 관리해 보세요.</p></div>'+link("체크리스트 열기 →",local("challenge"),"primary-action",'data-event="challenge_entry"')+'</aside>'
     sections='<section class="section">'+homes+'</section><section class="section">'+others+'</section>'+challengepromo
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
     guide+='<p class="inline-action">'+link("매일 앱테크 퀴즈 확인하는 방법 →",local("guide","apptech-routine"))+'</p>'
