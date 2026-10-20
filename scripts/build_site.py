@@ -47,6 +47,12 @@ def local(*parts):
         return BASE + "/"
     return BASE + "/" + "/".join(str(x).strip("/") for x in parts if x != "") + "/"
 
+def static_url(*parts):
+    """URLs to real files must not end with a directory slash."""
+    if not parts:
+        raise ValueError("파일 경로가 필요합니다")
+    return BASE + "/" + "/".join(str(x).strip("/") for x in parts)
+
 def absolute(path):
     return ORIGIN + path
 
@@ -75,8 +81,8 @@ gtag('js',new Date());gtag('config','%s')</script>
 <div>© QuizPick Lite · 보상 지급 주체가 아닙니다</div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
 ''' % (e(title),e(description),e(canonical),e(title),e(description),
-       e(canonical),robots,e(GA_ID),e(GA_ID),e(local("assets","style.css")),
-       e(local("assets","app.js")),e(local()),e(local()),e(local("apps")),
+       e(canonical),robots,e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
+       e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
        e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")))
 
 def write(path, html):
@@ -285,7 +291,7 @@ def main():
         ET.SubElement(u,"loc").text=absolute(path)
         ET.SubElement(u,"lastmod").text=TODAY.isoformat()
     ET.ElementTree(root).write(SITE/"sitemap.xml",encoding="utf-8",xml_declaration=True)
-    (SITE/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+absolute(local("sitemap.xml"))+"\n",encoding="utf-8")
+    (SITE/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+absolute(static_url("sitemap.xml"))+"\n",encoding="utf-8")
     print("built v1:",len(rows),"quizzes,",len(apporder),"apps,",len(byday),"date pages")
 
 if __name__=="__main__":
