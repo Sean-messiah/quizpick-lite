@@ -89,6 +89,32 @@ def absolute(path):
 def link(label, href, cls="", attrs=""):
     return '<a class="%s" href="%s" %s>%s</a>' % (e(cls), e(href), attrs, e(label))
 
+def breadcrumb_schema(path, title):
+    """Grounded JSON-LD navigation for the actual page hierarchy."""
+    if path == local():
+        return ""
+    items=[{"@type":"ListItem","position":1,"name":"퀴즈픽 홈","item":absolute(local())}]
+    parts=path.removeprefix(BASE+"/").strip("/").split("/")
+    if parts[0]=="quiz" and len(parts)>=3:
+        slug,day=parts[1],parts[2]
+        if slug in APPS:
+            items.append({"@type":"ListItem","position":2,"name":APPS[slug][0],
+                          "item":absolute(app_path(slug))})
+        items.append({"@type":"ListItem","position":3,"name":day+" 퀴즈",
+                      "item":absolute(day_path(slug,day))})
+        if len(parts)>3:
+            items.append({"@type":"ListItem","position":4,"name":"정답 상세",
+                          "item":absolute(path)})
+    else:
+        if len(parts)>1 and parts[0]=="apps" and parts[1] in APPS:
+            items.append({"@type":"ListItem","position":2,"name":"전체 앱", "item":absolute(local("apps"))})
+            pos=3
+        else:
+            pos=2
+        items.append({"@type":"ListItem","position":pos,"name":title,"item":absolute(path)})
+    schema={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":items}
+    return '<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")+'</script>'
+
 def page(title, description, body, path, *, noindex=False):
     canonical = absolute(path)
     robots = '<meta name="robots" content="noindex,follow">' if noindex else ""
@@ -97,7 +123,7 @@ def page(title, description, body, path, *, noindex=False):
 <meta name="theme-color" content="#fff1f7"><title>%s | 퀴즈픽</title>
 <meta name="description" content="%s"><link rel="canonical" href="%s">
 <meta property="og:type" content="website"><meta property="og:title" content="%s | 퀴즈픽"><meta property="og:description" content="%s">
-<meta property="og:url" content="%s">%s
+<meta property="og:url" content="%s">%s%s
 <script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());gtag('config','%s')</script>
@@ -112,7 +138,7 @@ gtag('js',new Date());gtag('config','%s')</script>
 <nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">◎</span>챌린지</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
 ''' % (e(title),e(description),e(canonical),e(title),e(description),
-       e(canonical),robots,e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
+       e(canonical),robots,breadcrumb_schema(path,title),e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
        e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
        e(local("challenge")),e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
        e(local()),e(local("apps")),e(local("challenge")),e(local("saved")),e(local("menu")))
@@ -436,7 +462,8 @@ def main():
     for path in dict.fromkeys(urls):
         u=ET.SubElement(root,"url")
         ET.SubElement(u,"loc").text=absolute(path)
-        ET.SubElement(u,"lastmod").text=TODAY.isoformat()
+        # lastmod is omitted until actual per-page edit times are recorded.
+        # A daily build does not mean every page's content changed.
     ET.ElementTree(root).write(SITE/"sitemap.xml",encoding="utf-8",xml_declaration=True)
     (SITE/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+absolute(static_url("sitemap.xml"))+"\n",encoding="utf-8")
     print("built v1:",len(rows),"quizzes,",len(apporder),"apps,",len(byday),"date pages")
