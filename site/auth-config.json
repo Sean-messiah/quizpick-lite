@@ -1,6 +1,7 @@
 {
-  "enabled": false,
+  "enabled": true,
   "projectUrl": "https://ngozrhjczaattarydgnr.supabase.co",
   "publishableKey": "sb_publishable_hk3-eeAs0MFAfnZ5lkGL5g_SesxLkIl",
-  "notes": "Project exists with RLS. Auth email Site URL and redirect allowlist must be configured and tested before enabling signup."
+  "notes": "Email login beta enabled after owner reports Supabase Site URL + redirect URL are configured. Default Supabase SMTP is team-only and limited; use custom SMTP before open public launch. No automatic local data transfer.",
+  "emailBeta": true
 }
