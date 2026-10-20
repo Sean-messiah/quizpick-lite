@@ -193,12 +193,14 @@ if (root) {
       if(enabledForUser===current.id)status('자동 동기화 사용 중입니다.');
     }
     function renderSignedOut(){
-      reset('이메일로 무료 가입·로그인할 수 있습니다. 기존 챌린지 기록은 동의 전까지 서버에 업로드하지 않습니다.');
+      reset(conf.emailBeta
+        ? '🧪 이메일 로그인 시험 운영 중입니다. Supabase 기본 메일 서비스는 프로젝트 구성원 이메일에만 전송될 수 있고 시간당 발송 제한이 있습니다. 전체 가입을 열려면 운영용 SMTP 설정이 필요합니다. 기존 챌린지 기록은 동의 전까지 업로드되지 않습니다.'
+        : '이메일로 가입·로그인할 수 있습니다. 기존 챌린지 기록은 동의 전까지 서버에 업로드하지 않습니다.');
       const form=document.createElement('form');form.className='cloud-form';
       const input=document.createElement('input');
       input.type='email';input.autocomplete='email';input.required=true;
       input.placeholder='이메일 주소';input.setAttribute('aria-label','계정 이메일');
-      const send=element('button','이메일 로그인 링크 받기','challenge-start');
+      const send=element('button',conf.emailBeta?'테스트 로그인 링크 받기':'이메일 로그인 링크 받기','challenge-start');
       send.type='submit';form.append(input,send);
       form.addEventListener('submit',async e=>{
         e.preventDefault();send.disabled=true;
@@ -208,7 +210,7 @@ if (root) {
             email,options:{emailRedirectTo:location.origin+HOST+'/challenge/',shouldCreateUser:true}
           });
           if(error)throw error;
-          status('이메일을 확인해 로그인 링크를 눌러 주세요. 같은 브라우저에서 열면 편리합니다.');
+          status('이메일 전송 요청을 접수했습니다. 받은편지함과 스팸함을 확인하고 같은 브라우저에서 링크를 열어주세요. 메일이 오지 않으면 프로젝트의 발송 설정을 확인해야 합니다.');
         }catch(e){status('이메일 발송 실패: '+(e.message||''),true);}
         finally{send.disabled=false;}
       });
