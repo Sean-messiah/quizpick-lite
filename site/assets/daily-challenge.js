@@ -91,7 +91,17 @@
     };
     if(!checkRecord(fresh))return;
     records[id]=fresh;
-    if(save()){emit('quiz_daily_updated');render();}
+    if(save()){
+      // No nickname, amount, quiz answer or other personal values go to GA4.
+      if(Object.prototype.hasOwnProperty.call(patch,'done') && patch.done!==!!old?.done) {
+        emit(patch.done?'quiz_daily_check':'quiz_daily_uncheck');
+      } else if(Object.prototype.hasOwnProperty.call(patch,'amount')) {
+        emit('quiz_daily_reward_saved');
+      } else {
+        emit('quiz_daily_updated');
+      }
+      render();
+    }
   }
   function stat(value,title,sub=''){
     const b=node('div','daily-stat');
