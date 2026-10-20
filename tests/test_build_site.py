@@ -25,6 +25,16 @@ class BuildSiteTests(unittest.TestCase):
         self.assertIn("G-3Y68828WYZ",p)
         self.assertIn('rel="canonical"',p)
         self.assertIn('name="viewport"',p)
+    def test_static_files_have_no_trailing_slash(self):
+        self.assertEqual(b.static_url("assets", "style.css"), "/quizpick-lite/assets/style.css")
+        self.assertEqual(b.static_url("assets", "app.js"), "/quizpick-lite/assets/app.js")
+        self.assertEqual(b.static_url("sitemap.xml"), "/quizpick-lite/sitemap.xml")
+        p = b.page("제목", "설명", "", b.local())
+        self.assertIn('href="/quizpick-lite/assets/style.css"', p)
+        self.assertIn('src="/quizpick-lite/assets/app.js"', p)
+        self.assertNotIn('style.css/"', p)
+        self.assertNotIn('app.js/"', p)
+
     def test_noindex_detail(self):
         self.assertIn('noindex,follow',b.page("제목","설명","",b.local("toss"),noindex=True))
 
