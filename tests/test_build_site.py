@@ -92,6 +92,17 @@ class BuildSiteTests(unittest.TestCase):
             with patch.object(b,"SITE",root),patch.object(b,"TODAY",date(2026,10,20)):
                 b.main()
             home=(root/"index.html").read_text(encoding="utf-8")
+            # Homepage regressions: challenge must not split the approved quiz directory.
+            self.assertLess(home.index('class="hero"'),home.index('class="featured"'))
+            self.assertLess(home.index('class="featured"'),home.index('class="apps-grid"'))
+            self.assertLess(home.index('class="apps-grid"'),home.index('class="challenge-promo challenge-promo-compact"'))
+            self.assertIn('class="mobile-nav"',home)
+            mobile_menu=home.split('class="mobile-nav"',1)[1].split('</nav>',1)[0]
+            self.assertEqual(mobile_menu.count('<a '),4)
+            desktop_menu=home.split('class="nav"',1)[1].split('</nav>',1)[0]
+            self.assertEqual(desktop_menu.count('<a '),3)
+            self.assertIn('href="/quizpick-lite/challenge/"',home)
+
             detail=(root/"quiz/toss/2026-10-20/qb-1234test/index.html").read_text(encoding="utf-8")
             apps=(root/"apps/index.html").read_text(encoding="utf-8")
             self.assertNotIn("부산 정통 어묵",home)
