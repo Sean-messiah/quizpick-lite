@@ -47,7 +47,7 @@ APPS = {
 # Unmodified source images are presented only as app identifiers, with text/emoji fallbacks.
 APP_ICONS = {
     "toss": "https://static.toss.im/icons/png/4x/icon-toss-logo.png",
-    "kakaobank": "https://m.kakaobank.com/view/images/sub/symbol-logo.svg",
+    "kakaobank": "https://play-lh.googleusercontent.com/RM-EqEESDLBixB960jZ8fHi2SL6HR59HhMygkkC5cvZO2UCTMcoIGjIvgTtxaPeeY860z_ir_4lLUs91LZ_vXB8=w240-h480-rw",
     "cashwalk": "https://play-lh.googleusercontent.com/AtjN8ZCMqB0OZF2jjKetQscmLGDVVUat_rbQgJJ2Y_sJMp_haQ_RMFVllMit6J2I2f5s7pqWIOirPw69mRjh=w240-h480-rw",
     "okquiz": "https://play-lh.googleusercontent.com/qxw_pDtrlO7BDgJJdPl802eog8dfws1kXrzLXmOGr8kE2AQwiUT88KGwwJOkZUqWDhyYolauN06iGXHVHelGbA=w240-h480-rw",
     "shinhanpay": "https://play-lh.googleusercontent.com/Y2-sVm4TNp5QG__Ac8Ysug7Il9sfBM61L0sJ7zb4vuu98793AG21gaekossyHcOzOrwjHCZ-bXarM4eCzv8nBg=w240-h480-rw",
