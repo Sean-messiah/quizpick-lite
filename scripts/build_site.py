@@ -111,13 +111,55 @@ gtag('js',new Date());gtag('config','%s')</script>
        e(canonical),robots,e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
        e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
        e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
-       e(local()),e(local("apps")),e(local("saved")),e(local("about")))
+       e(local()),e(local("apps")),e(local("saved")),e(local("menu")))
 
 def write(path, html):
     dest=SITE/path.strip("/")/"index.html" if path else SITE/"index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(html,encoding="utf-8")
     return dest
+
+def split_toss_prizes(answer):
+    """Separate published first/second choices without inventing any response."""
+    raw = str(answer or "").strip()
+    matches = list(re.finditer(r"(?<!\\S)(일등|1등|이등|2등)\\s*[:：]?\\s*", raw))
+    if len(matches) != 2 or matches[0].start() != 0:
+        return []
+    first = matches[0].group(1)
+    second = matches[1].group(1)
+    if first not in ("일등", "1등") or second not in ("이등", "2등"):
+        return []
+    a = raw[matches[0].end():matches[1].start()].strip()
+    b = raw[matches[1].end():].strip()
+    if not a or not b:
+        return []
+    return [("1등", a), ("2등", b)]
+
+
+def curate_rows(rows):
+    """Remove missing-question duplicates, retaining distinct questions even if answers match."""
+    groups = defaultdict(list)
+    for row in rows:
+        key = (row.get("app"), row.get("date"), row.get("source_url"), str(row.get("answer", "")).strip().casefold())
+        groups[key].append(row)
+    hidden = set()
+    for batch in groups.values():
+        complete = [r for r in batch if summary(r) != "문제 요약 확인 필요"]
+        if complete:
+            hidden.update(r["id"] for r in batch if summary(r) == "문제 요약 확인 필요")
+    seen = set()
+    result = []
+    for row in rows:
+        if row.get("id") in hidden:
+            continue
+        k = (row.get("app"),row.get("date"),row.get("source_url"),
+             str(row.get("question_hint", "")).strip(),str(row.get("answer", "")).strip())
+        if k in seen:
+            continue
+        seen.add(k)
+        result.append(row)
+    return result
+
 
 def verified_rows():
     payload=json.loads((SITE/"data.json").read_text(encoding="utf-8"))
@@ -140,7 +182,7 @@ def verified_rows():
         if p.scheme!="https" or not p.hostname:
             continue
         rows.append(raw)
-    return rows
+    return curate_rows(rows)
 
 def app_path(slug):
     return local(slug) if slug in ("toss","kakaobank") else local("apps",slug)
@@ -239,6 +281,21 @@ def main():
     allbody=breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
     allbody+='<label class="finder">앱 이름 검색 <input type="search" id="app-search" placeholder="토스, 카카오뱅크, 캐시워크..." autocomplete="off"></label>'
     allbody+='<p class="eyebrow" id="search-count" aria-live="polite"></p><div class="apps-grid app-list">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
+    catalog_data=json.loads((SITE/"catalog.json").read_text(encoding="utf-8"))
+    active=set(apporder)
+    candidates=[]
+    for entry in catalog_data.get("apps",[]):
+        name, appid = entry.get("name",""), entry.get("id","")
+        if not name or appid in active or active.intersection(entry.get("aliases",[])):
+            continue
+        source=entry.get("source_url","")
+        parsed=urlparse(source)
+        if parsed.scheme != "https" or not parsed.hostname:
+            continue
+        note="과거 이벤트 · 현재 운영 미확인" if entry.get("feed")=="historical_unverified" else "현재 정답·리워드 지급 미확인"
+        candidates.append('<a class="directory-card" href="'+e(source)+'" target="_blank" rel="noopener noreferrer" data-app="'+e(appid)+'"><strong>'+e(name)+'</strong><small>'+e(note)+'</small><span>공개 출처 확인 ↗</span></a>')
+    if candidates:
+        allbody+='<details id="candidate-details" class="candidate-details"><summary>운영 확인 대기 · 기타 후보 '+str(len(candidates))+'개</summary><p class="notice">아래 항목은 현재 리워드 지급을 확인하지 못했습니다. 정답이 있다고 표시하지 않으며 출처 링크만 제공합니다.</p><div class="apps-grid app-list">'+''.join(candidates)+'</div></details>'
     allbody+='<div class="empty-panel" id="search-empty" hidden><strong>검색 결과가 없어요 🔎</strong><p>다른 앱 이름으로 검색하거나 검색어를 지워 주세요.</p></div>'
     allbody+='<div class="info"><h2>왜 모든 앱을 표시하지 않나요?</h2><p>종료된 이벤트와 운영 확인이 어려운 퀴즈를 현재 참여 가능한 것처럼 안내하지 않기 위해서입니다. 정답이 있는 앱도 보상 지급 여부는 앱에서 다시 확인해야 합니다.</p></div>'
     write("apps",page("앱테크 퀴즈 전체 목록","토스, 카카오뱅크, 캐시워크 등 공개 정답 자료가 확인된 앱 모음.",allbody,local("apps")))
@@ -282,9 +339,16 @@ def main():
             qtitle=label(row)+" "+row["date"]+" 정답"
             body=breadcrumb(("홈",local()),(name,app_path(slug)),(date,day_path(slug,date)))
             body+=brand_strip(slug)+heading(label(row),name+" "+row["date"]+" 정답 확인","회차: "+(row.get("time") or "출제시각 미확인")+" · "+state(row))
-            body+='<div class="detail-actions"><span class="pills"><span>💗 외부 공개 참고 자료</span></span><button class="savebtn" type="button" aria-pressed="false" data-save-quiz data-app="'+e(slug)+'" data-url="'+e(qpath)+'" data-title="'+e(name+" "+row["date"]+" "+label(row))+'">♡ 즐겨찾기에 저장</button></div>'
+            body+='<div class="detail-actions"><span class="pills"><span>💗 외부 공개 참고 자료</span></span><button class="savebtn" type="button" aria-pressed="false" data-save-quiz data-app="'+e(slug)+'" data-url="'+e(qpath)+'" data-title="'+e(name+" "+row["date"]+" "+label(row))+'" data-date="'+e(row["date"])+'" data-answer="'+e(row["answer"])+'" data-question="'+e(summary(row))+'">♡ 즐겨찾기에 저장</button></div>'
             body+='<section class="question-detail"><h2>문제 정보</h2><p>'+e(summary(row))+'</p></section>'
-            body+='<section class="answer-detail"><div class="eyebrow">✅ 외부 공개 자료에 게시된 참고 정답</div><div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button><p>원본 앱의 문제·회차가 같은지 꼭 확인하세요. 보상 지급은 퀴즈픽이 아닌 해당 앱에서 이루어집니다.</p></section>'
+            prize_options = split_toss_prizes(row["answer"]) if slug=="toss" and label(row)=="두근두근 1등찍기" else []
+            body+='<section class="answer-detail"><div class="eyebrow">✅ 외부 공개 자료에 게시된 참고 정답</div>'
+            if prize_options:
+                for rank, value in prize_options:
+                    body+='<div class="answer-option"><strong>'+e(rank)+' 상품</strong><div class="answer-value">'+e(value)+'</div><button class="copybtn" type="button" data-copy-answer data-copy-text="'+e(value)+'" data-app="'+e(slug)+'">📋 '+e(rank)+' 항목 복사</button></div>'
+            else:
+                body+='<div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button>'
+            body+='<p>원본 앱의 문제·회차가 같은지 꼭 확인하세요. 보상 지급은 퀴즈픽이 아닌 해당 앱에서 이루어집니다.</p></section>'
             source=row.get("source_url","")
             body+='<div class="steps" aria-label="퀴즈 참여 절차"><div class="step"><strong>① 문제 확인</strong>앱과 회차를 확인해요</div><div class="step"><strong>② 정답 복사</strong>정답을 복사해요</div><div class="step"><strong>③ 공식 앱 참여</strong>해당 앱에서 직접 참여해요</div></div>'
             body+='<section class="info"><h2>참여 방법과 확인 사항</h2><p>'+e(APPS[slug][3])+'</p>'
@@ -315,10 +379,13 @@ def main():
     savedbody=breadcrumb(("홈",local()))+heading("MY QUIZ","즐겨찾기한 퀴즈","나중에 다시 볼 정답 상세 페이지를 이 브라우저에만 보관합니다.")
     savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
     write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
+    menubody=breadcrumb(("홈",local()))+heading("QUIZPICK","전체 메뉴","퀴즈픽의 앱테크 정답과 이용 정보를 빠르게 찾으세요.")
+    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
+    write("menu",page("전체 메뉴","퀴즈픽 앱테크 서비스 메뉴",menubody,local("menu")))
     notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
     notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
     (SITE/"404.html").write_text(page("페이지를 찾을 수 없습니다","찾을 수 없는 퀴즈픽 페이지입니다.",notfound,local(),noindex=True),encoding="utf-8")
-    urls=[local(),local("apps")]+[app_path(x) for x in apporder]
+    urls=[local(),local("apps"),local("menu")]+[app_path(x) for x in apporder]
     for path,_,_ in info_pages:
         urls.append(local(path))
     # Detailed answer pages are intentionally noindex (brief externally sourced facts).
