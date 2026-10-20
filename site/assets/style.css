@@ -153,3 +153,21 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
 .brand-strip small{display:block;color:#c35485;font-size:11px;letter-spacing:.03em;font-weight:750}
 .brand-strip strong{display:block;font-size:20px;font-weight:900;line-height:1.35;color:#302035}
 @media(max-width:720px){.brand-strip{padding:12px 14px;border-radius:16px;gap:12px}.brand-strip .appicon{width:52px;height:52px;border-radius:13px}.brand-strip strong{font-size:17px}}
+
+/* QuizPick v1.1: transparent verification candidates, saved snapshots and separated Toss prizes */
+.answer-option{background:#fff;border:1px solid #f1dce5;border-radius:17px;padding:16px;margin:13px auto;max-width:640px}
+.answer-option>strong{display:block;color:#c52869;font-size:17px}
+.answer-option .answer-value{font-size:clamp(20px,3vw,30px);margin:10px 0 15px;padding:12px}
+.answer-option .copybtn{min-height:44px;font-size:13px}
+.candidate-details{margin:22px 0;border:1px solid #edd4df;border-radius:18px;padding:16px;background:#fffcfd}
+.candidate-details>summary{cursor:pointer;font-weight:800;color:#7d4764;padding:7px 3px}
+.candidate-details .notice{margin:12px 0}
+.directory-card{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px;border:1px solid #e8dfeb;border-radius:13px;background:#fff;min-height:108px}
+.directory-card strong{font-size:15px;color:#504353}
+.directory-card small{color:#8f7d8e;font-size:12px}
+.directory-card span{font-size:12px;color:#a04f79;text-decoration:underline}
+.directory-card:hover{border-color:#dca8c4}
+.saved-item>div:first-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.saved-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.saved-snapshot{margin-top:7px;font-size:13px;font-weight:750;color:#92506c;background:#fff0f6;padding:9px 12px;border-radius:9px;overflow-wrap:anywhere}
+@media(max-width:390px){.saved-item{align-items:flex-start;flex-wrap:wrap}.saved-actions{width:100%;flex-direction:row;justify-content:flex-end}}
