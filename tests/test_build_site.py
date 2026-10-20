@@ -116,13 +116,41 @@ class BuildSiteTests(unittest.TestCase):
             self.assertIn("menu/",home)
             self.assertIn("sitemap.xml",(root/"robots.txt").read_text(encoding="utf-8"))
 
+    def test_reviewed_manual_feed_and_breadcrumb_schema(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/"data.json").write_text(json.dumps({"quizzes":[]}),encoding="utf-8")
+            (root/"manual-quizzes.json").write_text(json.dumps({"quizzes":[
+                {"id":"man-review1","app":"bitbunny","date":"2026-10-20",
+                 "question_hint":"검증한 문제","answer":"정답1","source_url":"https://example.org/quiz",
+                 "reviewed":True},
+                {"id":"man-draft1","app":"hpoint","date":"2026-10-20",
+                 "question_hint":"미검수","answer":"정답2","source_url":"https://example.org/quiz",
+                 "reviewed":False}
+            ]},ensure_ascii=False),encoding="utf-8")
+            (root/"catalog.json").write_text(json.dumps({"apps":[]}),encoding="utf-8")
+            with patch.object(b,"SITE",root),patch.object(b,"TODAY",date(2026,10,20)):
+                found=b.verified_rows()
+                self.assertEqual(len(found),1)
+                self.assertEqual(found[0]["app"],"bitbunny")
+                b.main()
+            self.assertTrue((root/"apps/bitbunny/index.html").exists())
+            self.assertFalse((root/"apps/hpoint/index.html").exists())
+            app_html=(root/"apps/bitbunny/index.html").read_text(encoding="utf-8")
+            self.assertIn('"@type":"BreadcrumbList"',app_html)
+            self.assertIn('"name":"전체 앱"',app_html)
+            self.assertNotIn('<lastmod>',(root/"sitemap.xml").read_text(encoding="utf-8"))
+
     def test_service_icons_render_original_publisher_artwork(self):
         for app in b.APPS:
             icon = b.app_icon(app)
-            self.assertIn('class="app-brand-logo"', icon)
-            self.assertTrue(any(host in icon for host in ("static.toss.im", "m.kakaobank.com", "play-lh.googleusercontent.com")))
-            self.assertIn('class="appicon-fallback"', icon)
-            self.assertIn('width="64"', icon)
+            if app in b.APP_ICONS:
+                self.assertIn('class="app-brand-logo"', icon)
+                self.assertTrue(any(host in icon for host in ("static.toss.im", "m.kakaobank.com", "play-lh.googleusercontent.com")))
+                self.assertIn('class="appicon-fallback"', icon)
+                self.assertIn('width="64"', icon)
+            else:
+                self.assertIn('class="appicon"', icon)
             self.assertIn("QUIZPICK", b.brand_strip(app))
         self.assertIn('class="app-brand-logo"', b.app_summary("toss", []))
         self.assertIn('data-app="toss"', b.app_summary("toss", []))
