@@ -21,6 +21,7 @@ SITE = ROOT / "site"
 BASE = os.environ.get("QUIZPICK_BASE_PATH", "/quizpick-lite").rstrip("/")
 ORIGIN = "https://sean-messiah.github.io"
 GA_ID = "G-3Y68828WYZ"
+OFFICIAL = {"toss": "https://toss.im/", "kakaobank": "https://www.kakaobank.com/"}
 KST = timezone(timedelta(hours=9))
 TODAY = datetime.now(KST).date()
 SAFE_ID = re.compile(r"^[a-z0-9][a-z0-9_-]{1,90}$")
@@ -217,7 +218,11 @@ def main():
             types=sorted(set(label(r) for r in arr))
             if types:
                 appbody+='<p class="pills">'+''.join('<span>'+e(t)+'</span>' for t in types)+'</p>'
-        appbody+='<section class="info"><h2>어디서 참여하나요?</h2><p>'+e(instructions)+'</p><p>공개 정답이 등록돼도 현재 회차가 열려 있거나 리워드가 남았다는 뜻은 아닙니다.</p></section>'
+        appbody+='<section class="info"><h2>어디서 참여하나요?</h2><p>'+e(instructions)+'</p><p>공개 정답이 등록돼도 현재 회차가 열려 있거나 리워드가 남았다는 뜻은 아닙니다.</p>'
+        if slug in OFFICIAL:
+            appbody+='<p>'+link("공식 홈페이지 열기 ↗",OFFICIAL[slug],"source-link",
+                               'target="_blank" rel="noopener noreferrer" data-event="official_site_click" data-app="'+e(slug)+'"')+'</p>'
+        appbody+='</section>'
         appbody+='<section class="section">'+heading("날짜별 확인","퀴즈 날짜 선택","정답이 등록된 날짜만 표시합니다.")
         appbody+='<div class="days">'+quiz_group(slug,dated)+'</div></section>'
         appbody+='<p class="inline-action">'+link("다른 앱테크 퀴즈 둘러보기 →",local("apps"))+'</p>'
@@ -229,7 +234,7 @@ def main():
         rs.sort(key=lambda x: (x.get("time") or "",x["id"]),reverse=True)
         body=breadcrumb(("홈",local()),(name,app_path(slug)))
         body+=heading("DATE · "+date,name+" "+date+" 퀴즈 회차","날짜와 문제 요약을 비교하고 해당 정답 페이지를 선택하세요.")
-        body+='<p class="notice">지난 회차 및 출처에 게시된 정보입니다. 현재 참여 가능 여부나 적립 보상을 보장하지 않습니다.</p>'
+        body+='<p class="notice">'+("오늘 게시된 외부 참고 정보입니다." if date==TODAY.isoformat() else "지난 회차의 외부 참고 정보입니다.")+' 현재 참여 가능 여부나 적립 보상을 보장하지 않습니다.</p>'
         body+='<div class="quizlist">'+''.join(item_card(x) for x in rs)+'</div>'
         body+='<p class="inline-action">'+link("← "+name+" 날짜 목록",app_path(slug))+'</p>'
         write(day_path(slug,date).removeprefix(BASE+"/").strip("/"),
@@ -246,6 +251,9 @@ def main():
             body+='<section class="info"><h2>참여 방법과 확인 사항</h2><p>'+e(APPS[slug][3])+'</p>'
             body+='<p>정답 출처: '+e(row.get("source","외부 공개 자료"))+' · '+e(row.get("confidence_label","외부 미검증"))+'</p>'
             body+='<p>현재 회차 참여·지급 여부: 미확인. 보상은 원본 앱에서 지급되며 시간·대상·잔여 수량에 따라 달라질 수 있습니다.</p>'
+            if slug in OFFICIAL:
+                body+='<p>'+link("해당 앱 공식 홈페이지 ↗",OFFICIAL[slug],"source-link",
+                                 'target="_blank" rel="noopener noreferrer" data-event="official_site_click" data-app="'+e(slug)+'"')+'</p>'
             body+='<p>'+link("게시된 원문 확인 ↗",source,"source-link", 'target="_blank" rel="noopener noreferrer" data-event="source_open" data-app="'+e(slug)+'"')+'</p></section>'
             rec=[x for x in rs if x["id"]!=row["id"]][:3]
             if rec:
