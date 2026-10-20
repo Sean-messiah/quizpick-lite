@@ -39,18 +39,18 @@ APPS = {
     "cashdoc": ("캐시닥", "🩺", "캐시", "캐시닥 앱에서 용돈퀴즈를 확인하세요.", "용돈퀴즈"),
 }
 
-# App Store artwork URLs, confirmed against the publishers' live listings on 2026-10-20.
-# Icons are displayed unchanged to identify third-party services, never as QuizPick marks.
+# Original third-party service icons from Toss/KakaoBank branding and developer-published Google Play listings.
+# Unmodified source images are presented only as app identifiers, with text/emoji fallbacks.
 APP_ICONS = {
-    "toss": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c5/b2/9e/c5b29ed5-ff8b-0219-e1be-9ef653d783bc/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "kakaobank": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/36/a9/73/36a9738b-1e00-4bdd-cdcc-778896cc6ac5/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "cashwalk": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0b/a9/ea/0ba9ea4c-f992-1651-f2e7-309b99eb7015/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "okquiz": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ba/d7/dd/bad7dd4e-e366-d50b-46d2-b239ea9814f1/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "shinhanpay": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/18/fe/62/18fe629d-9807-6aa4-d00d-089400672217/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "shinhanbank": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/0a/43/9e0a435b-7d8d-ed26-b323-cdae76c6f499/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "kbpay": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/12/26/df12269d-a752-25d2-d67f-28bb3829db7e/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "kbstar": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/19/5b/57/195b57a2-0e28-4ec7-3f3c-c893f6468d85/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
-    "cashdoc": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3a/b0/54/3ab05437-bec1-2973-66af-4f181ecc73d6/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "toss": "https://static.toss.im/icons/png/4x/icon-toss-logo.png",
+    "kakaobank": "https://m.kakaobank.com/view/images/sub/symbol-logo.svg",
+    "cashwalk": "https://play-lh.googleusercontent.com/AtjN8ZCMqB0OZF2jjKetQscmLGDVVUat_rbQgJJ2Y_sJMp_haQ_RMFVllMit6J2I2f5s7pqWIOirPw69mRjh=w240-h480-rw",
+    "okquiz": "https://play-lh.googleusercontent.com/qxw_pDtrlO7BDgJJdPl802eog8dfws1kXrzLXmOGr8kE2AQwiUT88KGwwJOkZUqWDhyYolauN06iGXHVHelGbA=w240-h480-rw",
+    "shinhanpay": "https://play-lh.googleusercontent.com/Y2-sVm4TNp5QG__Ac8Ysug7Il9sfBM61L0sJ7zb4vuu98793AG21gaekossyHcOzOrwjHCZ-bXarM4eCzv8nBg=w240-h480-rw",
+    "shinhanbank": "https://play-lh.googleusercontent.com/VoHoGvh399BRPls8rz-UpqshdPrZd04kEUTaTwy8bwP2iWBGUPElL0gf9EWDDOSVj7E_gUk3AlQDoFUpqXBwspY=w240-h480-rw",
+    "kbpay": "https://play-lh.googleusercontent.com/mHMuGEBy_hFqLdL3BG-Jas0hMX41b0KOaaxHvPLCrhKBcbkhAwX-4d4P_QFjkuie9XPheHq2MAgJ38zJnNvbhg=w240-h480-rw",
+    "kbstar": "https://play-lh.googleusercontent.com/OmJa1eJ_ONHHa9SRuhiI2Ouzy7Cb_rhoGF-JQC1pnWxOcMtnNGOs7XrwPoldEJ0ar5eztMqBPn79H7AQDeyk=w240-h480-rw",
+    "cashdoc": "https://play-lh.googleusercontent.com/dT5y90tc7EepE9OG7QHi7LZ1lS5iRSDbK_idlmmxyLQZNJ1w4HB0bfyMoLT_1X479Wsu3r2Z1FX5a0QRXB36U1I=w240-h480-rw",
 }
 
 def app_icon(slug):
