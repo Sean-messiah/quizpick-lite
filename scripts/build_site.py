@@ -130,18 +130,18 @@ gtag('js',new Date());gtag('config','%s')</script>
 <link rel="stylesheet" href="%s"><script defer src="%s"></script></head>
 <body><a class="skip" href="#content">본문으로 이동</a>
 <header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">♥</span><span><span class="wordmark">QUIZ<em>PICK</em></span><small class="brand-ko">퀴즈픽</small></span></a>
-<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">챌린지</a><a href="%s">이용 안내</a></nav></div></header>
+<nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">이용 안내</a></nav></div></header>
 <main id="content" class="main">%s</main>
 <footer class="footer"><div>퀴즈픽은 공식 앱과 무관한 독립 정보 서비스입니다. 원본 앱에서 정답과 리워드 지급 조건을 최종 확인하세요.</div><div>각 서비스명 및 심볼의 권리는 해당 운영사에 있으며, 퀴즈 정보를 구분하기 위한 목적으로만 표시합니다. 공식 제휴·후원을 의미하지 않습니다.</div>
 <div class="footnav"><a href="%s">서비스 소개</a><a href="%s">개인정보 처리 안내</a><a href="%s">정답 검증 기준</a><a href="%s">문의·정정</a></div>
 <div>© QuizPick Lite · 보상 지급 주체가 아닙니다</div></footer>
-<nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">◎</span>챌린지</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
+<nav class="mobile-nav" aria-label="모바일 하단 메뉴"><a href="%s"><span class="tab-icon" aria-hidden="true">⌂</span>홈</a><a href="%s"><span class="tab-icon" aria-hidden="true">☷</span>전체퀴즈</a><a href="%s"><span class="tab-icon" aria-hidden="true">♡</span>즐겨찾기</a><a href="%s"><span class="tab-icon" aria-hidden="true">☰</span>메뉴</a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div></body></html>
 ''' % (e(title),e(description),e(canonical),e(title),e(description),
        e(canonical),robots,breadcrumb_schema(path,title),e(GA_ID),e(GA_ID),e(static_url("assets","style.css")),
        e(static_url("assets","app.js")),e(local()),e(local()),e(local("apps")),
-       e(local("challenge")),e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
-       e(local()),e(local("apps")),e(local("challenge")),e(local("saved")),e(local("menu")))
+       e(local("about")),body,e(local("about")),e(local("privacy")),e(local("editorial-policy")),e(local("contact")),
+       e(local()),e(local("apps")),e(local("saved")),e(local("menu")))
 
 def write(path, html):
     dest=SITE/path.strip("/")/"index.html" if path else SITE/"index.html"
@@ -329,8 +329,10 @@ def main():
     others=heading("🎁 앱테크 더보기","다른 퀴즈도 확인해요","최근 7일 공개 정답 참고 자료가 있는 앱만 표시합니다.",level="h2")
     others+='<div class="apps-grid">'+''.join(app_summary(x,byapp[x]) for x in remaining)+'</div>'
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
-    challengepromo='<section class="challenge-promo" aria-label="매일 앱테크 참여 체크"><div><span class="eyebrow">✅ 오늘의 퀴즈 참여 체크</span><h2>오늘 몇 개 참여했나요?</h2><p>실제 참여한 퀴즈를 체크하고 받은 포인트를 앱별로 기록하세요. 예상 금액도 직접 계산할 수 있습니다.</p></div>'+link("참여 체크하기 →",local("challenge"),"primary-action")+'</section>'
-    sections='<section class="section">'+homes+'</section>'+challengepromo+'<section class="section">'+others+'</section>'
+    # Keep the familiar order: pink hero → priority Toss/Kakao → other quiz cards.
+    # The challenge is secondary, not a large block interrupting the main directory.
+    challengepromo='<aside class="challenge-promo challenge-promo-compact" aria-label="앱테크 참여 체크"><div><span class="eyebrow">✅ 오늘의 퀴즈 참여 체크</span><h2>오늘 몇 개 참여했나요?</h2><p>체크리스트에서 참여 기록과 실제 받은 포인트를 관리해 보세요.</p></div>'+link("체크리스트 열기 →",local("challenge"),"primary-action")+'</aside>'
+    sections='<section class="section">'+homes+'</section><section class="section">'+others+'</section>'+challengepromo
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
     guide+='<p class="inline-action">'+link("매일 앱테크 퀴즈 확인하는 방법 →",local("guide","apptech-routine"))+'</p>'
     homebody=hero+sections+guide
