@@ -39,6 +39,32 @@ APPS = {
     "cashdoc": ("캐시닥", "🩺", "캐시", "캐시닥 앱에서 용돈퀴즈를 확인하세요.", "용돈퀴즈"),
 }
 
+# App Store artwork URLs, confirmed against the publishers' live listings on 2026-10-20.
+# Icons are displayed unchanged to identify third-party services, never as QuizPick marks.
+APP_ICONS = {
+    "toss": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c5/b2/9e/c5b29ed5-ff8b-0219-e1be-9ef653d783bc/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "kakaobank": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/36/a9/73/36a9738b-1e00-4bdd-cdcc-778896cc6ac5/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "cashwalk": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0b/a9/ea/0ba9ea4c-f992-1651-f2e7-309b99eb7015/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "okquiz": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ba/d7/dd/bad7dd4e-e366-d50b-46d2-b239ea9814f1/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "shinhanpay": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/18/fe/62/18fe629d-9807-6aa4-d00d-089400672217/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "shinhanbank": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/0a/43/9e0a435b-7d8d-ed26-b323-cdae76c6f499/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "kbpay": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/12/26/df12269d-a752-25d2-d67f-28bb3829db7e/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "kbstar": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/19/5b/57/195b57a2-0e28-4ec7-3f3c-c893f6468d85/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+    "cashdoc": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3a/b0/54/3ab05437-bec1-2973-66af-4f181ecc73d6/Placeholder.mill/400x400Icon.ApSiOS01-75.webp",
+}
+
+def app_icon(slug):
+    name, emoji = APPS[slug][0], APPS[slug][1]
+    src = APP_ICONS.get(slug)
+    if not src:
+        return '<span class="appicon" aria-hidden="true">'+e(emoji)+'</span>'
+    loading = "eager" if slug in ("toss", "kakaobank") else "lazy"
+    return ('<span class="appicon has-logo" aria-hidden="true"><span class="appicon-fallback">'+e(emoji)+'</span>'
+            '<img class="app-brand-logo" alt="" src="'+e(src)+'" width="64" height="64" loading="'+loading+'" decoding="async"></span>')
+
+def brand_strip(slug):
+    return '<div class="brand-strip">'+app_icon(slug)+'<span><small>QUIZPICK · 앱별 퀴즈</small><strong>'+e(APPS[slug][0])+'</strong></span></div>'
+
 def e(value):
     return escape(str(value or ""), quote=True)
 
@@ -155,9 +181,9 @@ def app_summary(slug, rows):
     report=("오늘 공개 참고 정답 %d건 · 현재 참여 여부 미확인"%current) if current else "최근 7일 참고 기록 · 오늘 출제 여부 미확인"
     cta='<span class="card-cta">회차별 정답 확인하기 →</span>' if slug in ("toss","kakaobank") else ""
     return '''<a class="appcard" data-app="%s" href="%s" data-event="home_app_click">
-    <span class="appicon" aria-hidden="true">%s</span><span><strong>%s</strong><small>%s</small>
+    %s<span><strong>%s</strong><small>%s</small>
     <span class="appstat">%s</span></span><span class="chevron" aria-hidden="true">›</span>%s</a>'''%(
-        e(slug),e(app_path(slug)),icon,e(name),e(sub),e(report),cta)
+        e(slug),e(app_path(slug)),app_icon(slug),e(name),e(sub),e(report),cta)
 
 def breadcrumb(*nodes):
     links=[]
@@ -224,7 +250,7 @@ def main():
         for q in arr:
             dated[q["date"]].append(q)
         appbody=breadcrumb(("홈",local()),("전체 앱",local("apps")))
-        appbody+=heading(subtitle,icon+" "+name+" 퀴즈 정답","오늘의 회차와 지난 7일 공개 기록을 날짜별로 확인하세요.")
+        appbody+=brand_strip(slug)+heading(subtitle,name+" 퀴즈 정답","오늘의 회차와 지난 7일 공개 기록을 날짜별로 확인하세요.")
         if slug in p0:
             types=sorted(set(label(r) for r in arr))
             if types:
@@ -244,7 +270,7 @@ def main():
         name=APPS[slug][0]
         rs.sort(key=lambda x: (x.get("time") or "",x["id"]),reverse=True)
         body=breadcrumb(("홈",local()),(name,app_path(slug)))
-        body+=heading("DATE · "+date,name+" "+date+" 퀴즈 회차","날짜와 문제 요약을 비교하고 해당 정답 페이지를 선택하세요.")
+        body+=brand_strip(slug)+heading("DATE · "+date,name+" "+date+" 퀴즈 회차","날짜와 문제 요약을 비교하고 해당 정답 페이지를 선택하세요.")
         body+='<p class="notice">'+("오늘 게시된 외부 참고 정보입니다." if date==TODAY.isoformat() else "지난 회차의 외부 참고 정보입니다.")+' 현재 참여 가능 여부나 적립 보상을 보장하지 않습니다.</p>'
         body+='<div class="quizlist">'+''.join(item_card(x) for x in rs)+'</div>'
         body+='<p class="inline-action">'+link("← "+name+" 날짜 목록",app_path(slug))+'</p>'
@@ -255,7 +281,7 @@ def main():
             qpath=quiz_path(row)
             qtitle=label(row)+" "+row["date"]+" 정답"
             body=breadcrumb(("홈",local()),(name,app_path(slug)),(date,day_path(slug,date)))
-            body+=heading(label(row),name+" "+row["date"]+" 정답 확인","회차: "+(row.get("time") or "출제시각 미확인")+" · "+state(row))
+            body+=brand_strip(slug)+heading(label(row),name+" "+row["date"]+" 정답 확인","회차: "+(row.get("time") or "출제시각 미확인")+" · "+state(row))
             body+='<div class="detail-actions"><span class="pills"><span>💗 외부 공개 참고 자료</span></span><button class="savebtn" type="button" aria-pressed="false" data-save-quiz data-app="'+e(slug)+'" data-url="'+e(qpath)+'" data-title="'+e(name+" "+row["date"]+" "+label(row))+'">♡ 즐겨찾기에 저장</button></div>'
             body+='<section class="question-detail"><h2>문제 정보</h2><p>'+e(summary(row))+'</p></section>'
             body+='<section class="answer-detail"><div class="eyebrow">✅ 외부 공개 자료에 게시된 참고 정답</div><div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button><p>원본 앱의 문제·회차가 같은지 꼭 확인하세요. 보상 지급은 퀴즈픽이 아닌 해당 앱에서 이루어집니다.</p></section>'
