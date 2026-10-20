@@ -58,7 +58,7 @@ def app_icon(slug):
     src = APP_ICONS.get(slug)
     if not src:
         return '<span class="appicon" aria-hidden="true">'+e(emoji)+'</span>'
-    loading = "eager" if slug in ("toss", "kakaobank") else "lazy"
+    loading = "eager"  # load compact app symbols immediately so they do not look like emoji placeholders
     return ('<span class="appicon has-logo" aria-hidden="true"><span class="appicon-fallback">'+e(emoji)+'</span>'
             '<img class="app-brand-logo" alt="" src="'+e(src)+'" width="64" height="64" loading="'+loading+'" decoding="async"></span>')
 
