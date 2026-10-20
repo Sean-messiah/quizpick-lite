@@ -1,35 +1,42 @@
-# 퀴즈픽 Lite — 앱테크 퀴즈 정보 허브
+# 퀴즈픽 Lite — 앱테크 퀴즈 허브 & 100일 챌린지
 
-무료 정적 웹사이트: https://sean-messiah.github.io/quizpick-lite/
+공개 사이트: https://sean-messiah.github.io/quizpick-lite/
+챌린지: https://sean-messiah.github.io/quizpick-lite/challenge/
+앱테크 가이드: https://sean-messiah.github.io/quizpick-lite/guide/apptech-routine/
 
-## 현재 구현 현황 (2026-10-19)
+## 구현 기능 (2026-10-20)
 
-- `site/catalog.json`: 국내 앱테크 퀴즈·리워드 관련 **44개 항목**의 목록과 공개 출처 링크를 정리했습니다. 일부 항목은 현재 운영/정답 공개 여부를 확인 중입니다.
-- `site/index.html`: 모바일 퀴즈 정답 검색·앱별 필터·정답 복사, 전체 앱 목록 펼치기, 공개 출처 이동.
-- `site/data.json`: 실제 수집된 정답만 표시합니다. 출처는 앱 운영사의 공식 API가 아닌 외부 공개 페이지이며 정답은 미검증입니다.
-- `scraper/collect.py`: 살보픽 공개 페이지를 2시간 간격 확인. `--days 7`로 최근 7일 보충 수집 지원.
-- `scraper/collect_focus.py`: 카카오뱅크 AI이모지·토스 퀴즈의 공개 정보 수집.
-- `scraper/collect_expanded.py`: QUIZDAY의 35개 공개 월간 경로 테스트용 수집기. **GitHub Actions 서버에서 35개 요청 모두 HTTP 403**을 받아 현재 자동 실행을 비활성화했습니다. 차단 우회 금지.
-- `.github/workflows/crawl.yml`: 정상 동작 확인된 수집기만 2시간 간격 실행.
-- `.github/workflows/crawl-backfill.yml`: 매일 오전 10:42(KST) 최근 7일 데이터를 보충하고 재배포.
-- `.github/workflows/crawl-expanded.yml`: 문제 원인 확인을 위한 수동 실행만 허용.
-- `.github/workflows/deploy-pages.yml`: 정답 JSON 갱신 후 GitHub Pages 배포.
-- Google Analytics GA4 측정 ID는 `site/index.html`에 설치되어 있습니다.
+- 분홍색 모바일 UI, 홈(토스·카카오뱅크 우선) → 앱별 페이지 → 날짜별 회차 → 정답 복사.
+- 100일 챌린지: 50원/100원/금 0.1돈(0.375g) 목표. 사용자가 실제 모은 금액을 하루 한 번 직접 기록하며 누적액·달성률·연속 체크·7/30/100일 마일스톤 확인.
+- 닉네임으로 시작하고 기록을 로컬 브라우저에만 저장. JSON 백업·복원·삭제 제공. 실제 회원가입·서버 동기화는 미구현.
+- 퀴즈픽은 사용자에게 포인트·현금·금을 지급하지 않습니다. 챌린지 입력 금액은 자체 기록이며 원본 앱 적립이 검증된 값이 아닙니다.
+- SEO: 실제 탐색 URL, 정규 주소(canonical), 사이트맵, BreadcrumbList 구조화 데이터, 앱테크 루틴 독창적인 가이드 페이지.
+- 44개 카탈로그 목록 중 실제 공개 정답이 확인된 앱만 기본 표시. 원본 앱의 이벤트 지급 여부는 보증하지 않음.
+- 기존 공개 출처 기반 수집: scraper/collect.py 및 scraper/collect_focus.py, 정상 허용된 수집만 주기적으로 실행.
+- QUIZDAY의 35개 경로는 GitHub Actions 서버에서 HTTP 403을 반환하여 자동 작업 비활성화. 차단 우회 금지.
+- site/manual-quizzes.json: 검수된 짧은 문제·정답 참조를 입력하는 데이터 소스. reviewed=true, 정상 HTTPS 출처와 필수 필드를 갖춘 자료만 생성기에 반영.
+- 비트버니·H.Point·케이뱅크·모니모는 수집원 확보 후 앱별 페이지를 자동으로 만들 수 있도록 지원 준비. 현재 자동 수집되는 것은 아님.
+- Github Pages 배포 시 Python 테스트 + JavaScript 구문 검사 + 수집 설정 JSON 검사 + 정적 페이지 생성 및 검증.
+- GA4 측정 ID G-3Y68828WYZ; 닉네임/기록 금액을 분석 이벤트로 전송하지 않음.
 
-## 유의점
+## 수집 확대
 
-**44개 앱·항목이 모두 자동 수집되는 것은 아닙니다.** 실제 정답 수집은 일부 항목에만 연결되어 있으며, 홈페이지 카탈로그의 '출처 보기'는 수동 확인용 링크입니다. '당근 모임 퀴즈'는 과거 보상 퀴즈 사례를 확인했지만 현재 진행되는지 미확인인 상태로 표시합니다. 2026-10-19에 7일치 보충 수집으로 116건의 공개 기록이 저장됐습니다. 정답을 지금 제출하여 리워드를 받을 수 있다는 보장은 없습니다.
+운영자의 검수 데이터는 site/manual-quizzes.json에 입력. 새 레코드는 ID, app, date, question_hint, answer, source_url, reviewed 필드와 실제 이용 허가/출처 검증이 필요합니다. reviewed=false 는 게시되지 않습니다.
+지원 앱 목록에 없으면 scripts/build_site.py 의 APPS 항목을 먼저 추가하고 검사합니다.
+자동 수집 확대는 데이터 공급자의 이용 허가와 robots/약관 및 요청 제한을 검증한 뒤에만 진행합니다.
 
-공개 페이지의 robots 허용은 콘텐츠 재게시 권한을 의미하지 않습니다. 웹사이트 이용약관 및 저작권을 확인하고 접근거부 HTTP 403을 우회하지 않습니다. 정답은 원본 앱에서 최종 확인하세요.
+## 향후 기능
 
-## 로컬 개발
+- 실제 이메일 매직링크 또는 소셜 로그인을 통한 회원가입 및 클라우드 동기화. DB에 본인 소유 기록만 보이는 RLS 정책 필수.
+- 미니게임과 장보기 서비스는 각기 따로 배포. 공개 주소가 확정되면 상호 배너 링크 연결. 현재는 준비 중 안내만 표기.
+- 설계: docs/CHALLENGE_CLOUD_AUTH_PLAN.md
 
-```bash
-python -m pip install -r requirements.txt
-python -m unittest discover -s tests -v
-python scraper/collect.py
-python scraper/collect_focus.py
-python -m http.server 8000 -d site
-```
+## 로컬 검증
 
-GitHub 저장소에 비밀번호와 비공개 API 키를 업로드하지 마세요.
+1. python -m pip install -r requirements.txt
+2. python -m unittest discover -s tests -v
+3. node --check site/assets/challenge.js
+4. python scripts/build_site.py
+5. python -m http.server 8000 -d site
+
+외부 공개 자료의 접근 허용은 콘텐츠 재게시 권한을 의미하지 않습니다. 광고 클릭이나 광고 시청은 챌린지 실적과 전혀 연관시키지 않습니다.
