@@ -60,7 +60,7 @@ class BuildSiteTests(unittest.TestCase):
         for app in b.APPS:
             icon = b.app_icon(app)
             self.assertIn('class="app-brand-logo"', icon)
-            self.assertIn('src="https://is1-ssl.mzstatic.com/', icon)
+            self.assertTrue(any(host in icon for host in ("static.toss.im", "m.kakaobank.com", "play-lh.googleusercontent.com")))
             self.assertIn('class="appicon-fallback"', icon)
             self.assertIn('width="64"', icon)
             self.assertIn("QUIZPICK", b.brand_strip(app))
