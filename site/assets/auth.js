@@ -89,12 +89,49 @@ if (root) {
       }
       return {version:1,nickname:p.data?.nickname||store()?.snapshot().nickname||'퀴즈픽 회원',goals};
     }
+    const dailyStore=()=>window.QuizPickDailyStore;
+    async function uploadDaily(userId){
+      if(!current||current.id!==userId)throw new Error('계정 세션이 변경됐습니다.');
+      const snapshot=dailyStore()?.snapshot();
+      if(!snapshot||!snapshot.records)return;
+      const rows=[];
+      for(const r of Object.values(snapshot.records)){
+        if(!r||typeof r.quizId!=='string'||!r.quizId||
+           typeof r.date!=='string'||typeof r.app!=='string'||
+           typeof r.title!=='string'||!['원','P','캐시','기타'].includes(r.unit))continue;
+        rows.push({
+          user_id:userId,quiz_id:r.quizId,quiz_date:r.date,
+          app_slug:r.app,app_name:String(r.appName||r.app).slice(0,100),
+          quiz_title:r.title.slice(0,200),is_done:!!r.done,
+          reward_amount:Number(r.amount)||0,reward_unit:r.unit,
+          updated_at:r.updatedAt||new Date().toISOString()
+        });
+      }
+      for(let i=0;i<rows.length;i+=100){
+        const {error}=await client.from('quizpick_daily_activities').upsert(
+          rows.slice(i,i+100),{onConflict:'user_id,quiz_id'}
+        );
+        if(error)throw error;
+      }
+    }
+    async function readDailyCloud(userId){
+      const {data,error}=await client.from('quizpick_daily_activities')
+        .select('quiz_id,quiz_date,app_slug,app_name,quiz_title,is_done,reward_amount,reward_unit,updated_at')
+        .eq('user_id',userId).order('quiz_date',{ascending:false}).limit(5000);
+      if(error)throw error;
+      return (data||[]).map(x=>({
+        quizId:x.quiz_id,date:x.quiz_date,app:x.app_slug,
+        appName:x.app_name,title:x.quiz_title,
+        done:x.is_done,amount:x.reward_amount,unit:x.reward_unit,
+        updatedAt:x.updated_at
+      }));
+    }
     async function uploadSnapshot(userId) {
       if(current?.id!==userId)throw new Error('로그인 계정이 변경되어 저장을 중지했습니다.');
       const source=store()?.snapshot();
       if(!source)throw new Error('로컬 챌린지 정보를 불러올 수 없습니다.');
       const parsed=validateLocal(source);
-      if(parsed.nickname.trim().length<2)throw new Error('먼저 챌린지 닉네임을 설정해 주세요.');
+      if(parsed.nickname.trim().length>=2){
       const profile=await client.from('quizpick_profiles').upsert({
         user_id:userId,nickname:parsed.nickname
       },{onConflict:'user_id'});
@@ -111,6 +148,8 @@ if (root) {
           {onConflict:'user_id,kind,entry_date'});
         if(entries.error)throw entries.error;
       }
+      }
+      await uploadDaily(userId);
     }
     async function sync() {
       const userId=enabledForUser;
@@ -120,9 +159,11 @@ if (root) {
       try {
         await uploadSnapshot(userId);
         const merged=await readCloud(userId);
+        const daily=await readDailyCloud(userId);
         if(enabledForUser!==userId)return;
-        enabledForUser=null; // don't recursively sync the import event
+        enabledForUser=null; // don't recursively sync import events
         store()?.replace(merged);
+        dailyStore()?.mergeCloud(daily);
         enabledForUser=userId;
         status('클라우드에 동기화했습니다. 다른 기기에서도 같은 계정으로 로그인해 불러올 수 있습니다.');
       }catch(e){status('동기화 실패: '+(e.message||'다시 시도해 주세요.'),true);}
@@ -133,17 +174,20 @@ if (root) {
       syncQueue=syncQueue.then(sync).catch(e=>status(String(e),true));
     }
     document.addEventListener('quizpick:local-change',requestSync);
+    document.addEventListener('quizpick:daily-change',requestSync);
     async function startSync() {
       if(!current)return;
-      if(!window.confirm('이 기기의 현재 기록을 계정에 병합할까요? 같은 날짜·챌린지는 이 기기의 금액이 우선하고 다른 날짜는 보존합니다.'))return;
+      if(!window.confirm('이 기기의 퀴즈 참여 기록과 이전 챌린지 기록을 계정에 병합할까요? 같은 퀴즈·날짜는 이 기기의 기록이 우선합니다. 이후 자동 동기화가 켜집니다.'))return;
       const userId=current.id;
       try {
         status('현재 기록을 서버에 저장하는 중입니다.');
         await uploadSnapshot(userId);
         const merged=await readCloud(userId);
+        const daily=await readDailyCloud(userId);
         if(current?.id!==userId)return;
         enabledForUser=null;
         store()?.replace(merged);
+        dailyStore()?.mergeCloud(daily);
         enabledForUser=userId;
         status('계정 동기화가 켜졌습니다. 앞으로 체크 변경 시 저장됩니다.');
         renderSignedIn();
@@ -151,19 +195,23 @@ if (root) {
     }
     async function downloadCloud() {
       if(!current)return;
-      if(!window.confirm('이 기기에 저장된 챌린지 기록을 계정에 있는 내용으로 교체할까요? 필요한 기록은 먼저 JSON 파일로 백업하세요.'))return;
+      if(!window.confirm('계정에 저장된 퀴즈 참여 기록을 이 기기에 병합할까요? 기존 50원·100원 목표 기록은 계정 정보로 교체될 수 있으니 필요한 기록은 먼저 백업하세요.'))return;
       try{
         enabledForUser=null;
         const remote=await readCloud(current.id);
+        const daily=await readDailyCloud(current.id);
         store()?.replace(remote);
-        status('계정 기록을 이 기기로 가져왔습니다. 이후 변경도 동기화하려면 동기화 켜기를 눌러 주세요.');
+        dailyStore()?.mergeCloud(daily);
+        status('계정의 퀴즈 참여 기록을 이 기기에 병합했습니다. 자동 동기화는 별도로 켜야 합니다.');
         renderSignedIn();
       }catch(e){status('계정 기록을 가져오지 못했습니다: '+(e.message||''),true);}
     }
     async function deleteCloud() {
-      if(!current||!window.confirm('클라우드에 저장된 챌린지 기록과 닉네임을 모두 삭제할까요? 현재 브라우저 기록은 남습니다. 이 작업은 되돌릴 수 없습니다.'))return;
+      if(!current||!window.confirm('클라우드의 퀴즈 참여 기록·챌린지·닉네임을 모두 삭제할까요? 현재 브라우저 기록은 남습니다. 이 작업은 되돌릴 수 없습니다.'))return;
       enabledForUser=null;
       try {
+        const daily=await client.from('quizpick_daily_activities').delete().eq('user_id',current.id);
+        if(daily.error)throw daily.error;
         const goals=await client.from('quizpick_goals').delete().eq('user_id',current.id);
         if(goals.error)throw goals.error; // cascade deletes entries
         const p=await client.from('quizpick_profiles').delete().eq('user_id',current.id);
