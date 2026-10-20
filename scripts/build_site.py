@@ -122,7 +122,7 @@ def write(path, html):
 def split_toss_prizes(answer):
     """Separate published first/second choices without inventing any response."""
     raw = str(answer or "").strip()
-    matches = list(re.finditer(r"(?<!\\S)(일등|1등|이등|2등)\\s*[:：]?\\s*", raw))
+    matches = list(re.finditer(r"(?<!\S)(일등|1등|이등|2등)\s*[:：]?\s*", raw))
     if len(matches) != 2 or matches[0].start() != 0:
         return []
     first = matches[0].group(1)
