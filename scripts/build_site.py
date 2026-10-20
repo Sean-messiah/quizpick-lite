@@ -410,9 +410,9 @@ def main():
             body+='<section class="answer-detail"><div class="eyebrow">✅ 외부 공개 자료에 게시된 참고 정답</div>'
             if prize_options:
                 for rank, value in prize_options:
-                    body+='<div class="answer-option"><strong>'+e(rank)+' 상품</strong><div class="answer-value">'+e(value)+'</div><button class="copybtn" type="button" data-copy-answer data-copy-text="'+e(value)+'" data-app="'+e(slug)+'">📋 '+e(rank)+' 항목 복사</button></div>'
+                    body+='<div class="answer-option"><strong>'+e(rank)+' 상품</strong><div class="answer-value">'+e(value)+'</div><button class="copybtn" type="button" data-event="answer_copy_click" data-copy-answer data-copy-text="'+e(value)+'" data-app="'+e(slug)+'">📋 '+e(rank)+' 항목 복사</button></div>'
             else:
-                body+='<div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button>'
+                body+='<div class="answer-value" id="answer-value">'+e(row["answer"])+'</div><button class="copybtn" type="button" data-event="answer_copy_click" data-copy-answer data-app="'+e(slug)+'">📋 정답 복사하기</button>'
             body+='<p>원본 앱의 문제·회차가 같은지 꼭 확인하세요. 보상 지급은 퀴즈픽이 아닌 해당 앱에서 이루어집니다.</p></section>'
             source=row.get("source_url","")
             body+='<div class="steps" aria-label="퀴즈 참여 절차"><div class="step"><strong>① 문제 확인</strong>앱과 회차를 확인해요</div><div class="step"><strong>② 정답 복사</strong>정답을 복사해요</div><div class="step"><strong>③ 공식 앱 참여</strong>해당 앱에서 직접 참여해요</div></div>'
