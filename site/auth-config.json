@@ -1,7 +1,7 @@
 {
-  "enabled": true,
+  "enabled": false,
   "projectUrl": "https://ngozrhjczaattarydgnr.supabase.co",
   "publishableKey": "sb_publishable_hk3-eeAs0MFAfnZ5lkGL5g_SesxLkIl",
-  "notes": "Email login beta enabled after owner reports Supabase Site URL + redirect URL are configured. Default Supabase SMTP is team-only and limited; use custom SMTP before open public launch. No automatic local data transfer.",
-  "emailBeta": true
+  "notes": "Owner opted for no-signup QuizPick. Public account UI removed; keep project and historic test data unused, do not delete without explicit request.",
+  "emailBeta": false
 }
