@@ -6,6 +6,10 @@
   const root=document.getElementById('daily-challenge');
   if (!root) return;
   const KEY='quizpick_daily_quizzes_v1', HOST='/quizpick-lite';
+  const NICK_KEY='quizpick_public_nickname_v1';
+  let nickname='';
+  try { nickname=(localStorage.getItem(NICK_KEY)||'').slice(0,16); }catch(_){}
+  let editingNickname=false;
   const UNITS=['원','P','캐시','기타'];
   const kst=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const isDate=s=>typeof s==='string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(Date.parse(s));
@@ -103,6 +107,35 @@
     intro.append(node('h2','','오늘의 앱테크 체크리스트'));
     intro.append(node('p','daily-muted','퀴즈픽에 등록된 정답 기준입니다. 실제 참여 가능 여부와 보상 지급 여부를 뜻하지 않습니다.'));
     root.append(intro);
+    // Optional nickname, never a signup gate. Save under a separate browser key.
+    const profile=node('section','daily-nickname');
+    if(editingNickname){
+      const form=node('form','daily-nickname-form');
+      const input=node('input');input.type='text';input.maxLength=16;
+      input.value=nickname;input.placeholder='닉네임을 입력하세요 (선택)';
+      input.setAttribute('aria-label','선택 닉네임');
+      const saveName=node('button','challenge-start','저장');saveName.type='submit';
+      const cancel=node('button','challenge-undo','취소');cancel.type='button';
+      cancel.addEventListener('click',()=>{editingNickname=false;render();});
+      form.addEventListener('submit',event=>{
+        event.preventDefault();
+        const name=input.value.trim();
+        if(name.length===1){window.alert('닉네임을 입력하려면 두 글자 이상 사용해 주세요.');return;}
+        try {
+          if(name)localStorage.setItem(NICK_KEY,name);
+          else localStorage.removeItem(NICK_KEY);
+          nickname=name;editingNickname=false;render();
+        }catch(_){window.alert('닉네임을 저장할 수 없습니다. 브라우저 설정을 확인해 주세요.');}
+      });
+      form.append(input,saveName,cancel);
+      profile.append(node('span','daily-muted','이름은 입력하지 않아도 체크리스트를 이용할 수 있습니다.'),form);
+    }else{
+      profile.append(node('span','daily-muted',nickname?nickname+'님의 참여 기록 · 이 브라우저에만 저장':'닉네임 없이 바로 참여할 수 있어요.'));
+      const edit=node('button','challenge-textbutton',nickname?'닉네임 변경·삭제':'닉네임 만들기 (선택)');
+      edit.type='button';edit.addEventListener('click',()=>{editingNickname=true;render();});
+      profile.append(edit);
+    }
+    root.append(profile);
     if(!feed.length) {
       root.append(node('p','notice','현재 공개된 퀴즈 목록을 불러오지 못했거나 등록된 퀴즈가 없습니다. 잠시 후 다시 확인해 주세요.'));return;
     }
