@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "퀴즈픽 관리자가 직접 검증한 문제/정답 정보. reviewed=true 와 source_url=https URL 필수. 출처·이용허가를 확인한 사실 데이터만 등록합니다.",
+  "quizzes": []
+}
