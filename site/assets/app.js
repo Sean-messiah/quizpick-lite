@@ -41,6 +41,7 @@ document.addEventListener('click', async (event) => {
     ga('answer_copy', target.dataset.app);
     toast('정답을 복사했어요. 원본 앱의 회차를 확인해 주세요!');
   } catch (error) {
+    ga('answer_copy_fail', target.dataset.app);
     toast('복사할 수 없습니다. 정답을 길게 눌러 복사해 주세요.');
   }
 });
