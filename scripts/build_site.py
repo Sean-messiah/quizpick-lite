@@ -297,6 +297,16 @@ def main():
         json.dumps({"date":TODAY.isoformat(),"paths":[quiz_path(q) for q in rows]},ensure_ascii=False),
         encoding="utf-8"
     )
+    # Public quiz checklist contains no reward guesses and no personal activity.
+    # Construct from published (already curated) quiz rows, not raw scrape input.
+    activity_feed={"date":TODAY.isoformat(),"quizzes":[{
+        "id":row["id"],"date":row["date"],"app":row["app"],
+        "appName":APPS[row["app"]][0],"question":summary(row)[:200],
+        "time":row.get("time"),"url":quiz_path(row)
+    } for row in rows]}
+    (SITE/"challenge-feed.json").write_text(
+        json.dumps(activity_feed,ensure_ascii=False,separators=(",",":")),encoding="utf-8"
+    )
     byapp=defaultdict(list)
     byday=defaultdict(list)
     for row in rows:
@@ -319,7 +329,7 @@ def main():
     others=heading("🎁 앱테크 더보기","다른 퀴즈도 확인해요","최근 7일 공개 정답 참고 자료가 있는 앱만 표시합니다.",level="h2")
     others+='<div class="apps-grid">'+''.join(app_summary(x,byapp[x]) for x in remaining)+'</div>'
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
-    challengepromo='<section class="challenge-promo" aria-label="매일 앱테크 챌린지"><div><span class="eyebrow">🎯 100일 저축 챌린지</span><h2>오늘 50원, 100원 기록하기</h2><p>100일 체크로 나만의 목표를 채워 보세요. 금 0.1돈 모으기도 도전할 수 있어요.</p></div>'+link("챌린지 시작 →",local("challenge"),"primary-action")+'</section>'
+    challengepromo='<section class="challenge-promo" aria-label="매일 앱테크 참여 체크"><div><span class="eyebrow">✅ 오늘의 퀴즈 참여 체크</span><h2>오늘 몇 개 참여했나요?</h2><p>실제 참여한 퀴즈를 체크하고 받은 포인트를 앱별로 기록하세요. 예상 금액도 직접 계산할 수 있습니다.</p></div>'+link("참여 체크하기 →",local("challenge"),"primary-action")+'</section>'
     sections='<section class="section">'+homes+'</section>'+challengepromo+'<section class="section">'+others+'</section>'
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
     guide+='<p class="inline-action">'+link("매일 앱테크 퀴즈 확인하는 방법 →",local("guide","apptech-routine"))+'</p>'
@@ -429,21 +439,25 @@ def main():
         "토스·카카오뱅크 퀴즈 날짜·회차 구분, 정답 복사와 50원·100원 100일 기록 방법을 알아보세요.",
         routine,local("guide","apptech-routine")))
 
-    challengebody=breadcrumb(("홈",local()))+heading("QUIZPICK · 100 DAYS","매일 50원·100원 모으기 챌린지",
-        "내가 앱테크로 모은 금액을 100일간 직접 기록하고, 작은 목표가 얼마나 쌓이는지 확인하세요.")
-    challengebody+='''<div class="challenge-stats"><div><strong>50원 × 100일</strong><span>5,000원</span></div>
-      <div><strong>100원 × 100일</strong><span>10,000원</span></div>
-      <div><strong>금 0.1돈</strong><span>0.375g</span></div></div>
-      <p class="notice">⚠️ 이 챌린지는 <strong>직접 기록하는 목표 관리 도구</strong>입니다. 퀴즈픽이 포인트·현금·금을 지급하거나 실제 앱 적립을 인증하지 않습니다.</p>
-      <section class="cloud-intro"><h2>☁️ 계정으로 기록 이어가기</h2><p>기기만 이용할 때는 가입이 필요하지 않습니다. 서버 연결 후 이메일 로그인과 기록 동기화를 선택할 수 있습니다.</p><div id="account-sync" aria-live="polite"></div></section>
-      <div id="challenge-app" class="challenge-app"><noscript>챌린지 기록 기능은 자바스크립트가 켜진 브라우저에서 이용할 수 있습니다.</noscript></div>'''
-    challengebody+='<section class="info challenge-guide"><h2>100일 챌린지는 어떻게 진행하나요?</h2><p>닉네임을 입력해 이 기기에서 시작하세요. 하루 50원 또는 100원을 목표로 정하고 실제로 모은 금액을 매일 직접 기록하면 체크 수와 누적 금액이 계산됩니다. 하루에 여러 번 눌러도 해당 날짜의 기록이 중복되지 않고 수정할 수 있습니다.</p><p>금 0.1돈은 무게로 0.375g입니다. 실제 금 가격, 구매 수수료 등은 달라질 수 있으므로 구매에 필요한 예산을 직접 정하고 그 금액을 향해 모은 돈을 기록해 주세요.</p><p>현재 계정 서비스가 비활성 상태인 경우 브라우저 저장 방식으로만 이용할 수 있습니다. 브라우저 데이터 삭제 시 기록이 사라질 수 있으니 기록 관리에서 백업하세요. 서버 연결 후에는 선택적으로 이메일 로그인 및 동기화를 활성화할 수 있으며, 로컬 기록은 이용자의 확인 없이 자동으로 계정에 전송하지 않습니다.</p></section>'
-    challengebody+='<section class="challenge-partners"><h2>함께 준비 중인 서비스</h2><div class="challenge-grid"><div class="challenge-partner"><strong>🎮 가벼운 미니게임</strong><p>별도로 배포하고, 실제 서비스 주소가 생기면 상호 배너로 연결합니다.</p><span>준비 중</span></div><div class="challenge-partner"><strong>🛒 장보기 서비스</strong><p>기존 장보기 프로젝트가 공개되면 관련 배너와 서비스 이동을 연결합니다.</p><span>연동 준비 중</span></div></div></section>'
+    challengebody=breadcrumb(("홈",local()))+heading(
+        "QUIZPICK · DAILY CHECK",
+        "오늘의 앱테크 퀴즈 체크리스트",
+        "퀴즈픽에 등록된 퀴즈 중 오늘 참여한 항목을 체크하고, 실제로 받은 포인트를 기록하세요."
+    )
+    challengebody+='<p class="notice">퀴즈픽은 현금·포인트를 지급하지 않습니다. 퀴즈 정답 등록 건수는 지급 가능 횟수와 다를 수 있습니다. 체크와 보상 수량은 이용자가 직접 기록하며 앱별 포인트를 원화로 자동 환산하지 않습니다.</p>'
+    challengebody+='<div id="daily-challenge"><p>오늘 퀴즈 목록을 불러오는 중입니다.</p></div>'
+    challengebody+='<section class="cloud-intro"><h2>☁️ 계정으로 기록 이어가기</h2><p>로그인한 경우 직접 동의하여 로컬 참여 기록을 계정에 병합할 수 있습니다. 기기에만 저장하며 이용할 수도 있습니다.</p><div id="account-sync" aria-live="polite"></div></section>'
+    challengebody+='<details class="legacy-challenge"><summary>📁 기존 50원·100원·금 0.1돈 목표 기록 보기</summary><p>이전 챌린지의 기록은 삭제하지 않았습니다. 필요할 때 백업하거나 내용을 확인할 수 있습니다.</p><div id="challenge-app" class="challenge-app"></div></details>'
+    challengebody+='<section class="info challenge-guide"><h2>오늘의 퀴즈를 얼마까지 기록할 수 있나요?</h2><p>체크할 수 있는 개수는 퀴즈픽에 오늘 등록된 퀴즈 수에 따라 바뀝니다. 같은 퀴즈는 하루에 한 번 체크하며, 실제로 받은 보상 수량을 직접 입력할 수 있습니다. 예를 들어 원화 10원과 어떤 앱의 10P를 받았다면 서로 합산하지 않습니다.</p><h2>30일·100일 예상 금액은 어떻게 계산하나요?</h2><p>사용자가 지정한 참여 개수와 한 건당 원화 환산액을 곱한 단순 가정입니다. 실제 지급액이 아니며 각 앱의 보상·참여 조건에 따라 달라질 수 있습니다.</p><h2>기존 챌린지와 새 참여 기록이 섞이나요?</h2><p>아니요. 기존 50원·100원·금 목표는 별도 이전 기록으로 유지하고, 새 참여 체크리스트에는 같은 금액을 중복 이관하지 않습니다. 회원 계정으로 저장할 때도 직접 병합을 선택해야 합니다.</p></section>'
+    challengebody+='<section class="challenge-partners"><h2>함께 준비 중인 서비스</h2><div class="challenge-grid"><div class="challenge-partner"><strong>🎮 가벼운 미니게임</strong><p>별도 배포한 뒤 주소가 확인되면 상호 배너로 연결합니다.</p><span>준비 중</span></div><div class="challenge-partner"><strong>🛒 장보기 서비스</strong><p>서비스 공개 후 배너와 링크를 연결합니다.</p><span>연동 준비 중</span></div></div></section>'
+    challengebody+='<script defer src="'+e(static_url("assets","daily-challenge.js"))+'"></script>'
     challengebody+='<script defer src="'+e(static_url("assets","challenge.js"))+'"></script>'
     challengebody+='<script type="module" src="'+e(static_url("assets","auth.js"))+'"></script>'
-    write("challenge",page("100일 앱테크 50원·100원 챌린지 · 금 0.1돈 목표",
-        "매일 50원·100원을 기록하고 100일 누적 금액을 계산하는 앱테크 도전. 금 0.1돈(0.375g) 예산 목표도 직접 설정하세요.",
-        challengebody,local("challenge")))
+    write("challenge",page(
+        "오늘의 앱테크 퀴즈 참여 체크·실제 적립 기록",
+        "오늘 등록된 앱테크 퀴즈 중 참여한 항목을 체크하고 실제 받은 원화·포인트를 앱별로 기록하세요. 예상 수익은 직접 입력한 가정값으로 계산합니다.",
+        challengebody,local("challenge")
+    ))
 
     info_pages=[
       ("about","퀴즈픽 소개","퀴즈픽은 앱테크 퀴즈의 공개 정답 참고 자료와 참여 방법을 모아 제공하는 독립 서비스입니다. 토스·카카오뱅크를 먼저 보여주며, 각 운영사와 제휴하거나 이들로부터 리워드를 지급받는 서비스가 아닙니다."),
