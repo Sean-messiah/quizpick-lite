@@ -141,3 +141,11 @@ function renderSaved() {
 }
 syncSaveButtons();
 renderSaved();
+
+
+// Broken or blocked third-party artwork falls back to the existing text symbol.
+document.addEventListener('error', (event) => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement) || !image.matches('.app-brand-logo')) return;
+  image.hidden = true;
+}, true);
