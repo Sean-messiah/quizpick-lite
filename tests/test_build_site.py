@@ -102,6 +102,8 @@ class BuildSiteTests(unittest.TestCase):
             self.assertIn("비트버니 퀴즈",apps)
             self.assertIn("운영 확인 대기",apps)
             self.assertTrue((root/"menu/index.html").is_file())
+            published=json.loads((root/"active-quizzes.json").read_text(encoding="utf-8"))
+            self.assertIn("/quizpick-lite/quiz/toss/2026-10-20/qb-1234test/",published["paths"])
             self.assertIn("menu/",home)
             self.assertIn("sitemap.xml",(root/"robots.txt").read_text(encoding="utf-8"))
 
