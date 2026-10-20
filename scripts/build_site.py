@@ -475,7 +475,7 @@ def main():
     savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
     write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
     menubody=breadcrumb(("홈",local()))+heading("QUIZPICK","전체 메뉴","퀴즈픽의 앱테크 정답과 이용 정보를 빠르게 찾으세요.")
-    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("100일 챌린지",local("challenge")),("매일 앱테크 가이드",local("guide","apptech-routine")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
+    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("오늘의 참여 체크",local("challenge")),("매일 앱테크 가이드",local("guide","apptech-routine")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
     write("menu",page("전체 메뉴","퀴즈픽 앱테크 서비스 메뉴",menubody,local("menu")))
     notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
     notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
