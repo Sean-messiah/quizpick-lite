@@ -42,7 +42,9 @@ def e(value):
     return escape(str(value or ""), quote=True)
 
 def local(*parts):
-    return BASE + "/" + "/".join(str(x).strip("/") for x in parts if x != "") + ("/" if parts else "/")
+    if not parts:
+        return BASE + "/"
+    return BASE + "/" + "/".join(str(x).strip("/") for x in parts if x != "") + "/"
 
 def absolute(path):
     return ORIGIN + path
