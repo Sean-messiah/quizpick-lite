@@ -214,3 +214,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
 
 .challenge-restore-label{display:inline-flex;flex-direction:column;gap:5px;margin:5px;padding:9px 12px;border-radius:11px;background:#fff7fa;color:#a63270;font-size:12px;font-weight:800;border:1px solid #efcddd;vertical-align:middle}
 .challenge-restore{display:block;max-width:260px;font-size:11px;color:#855e77}
+
+/* Optional authenticated challenge sync; hidden login while no backend is configured. */
+.cloud-intro{margin:22px 0;border:1px solid #f3d2e0;background:#fff;border-radius:19px;padding:19px 22px}
+.cloud-intro h2{font-size:19px;margin:0 0 6px}.cloud-intro>p{font-size:13px;color:#776377;margin:0 0 10px}
+.cloud-panel{padding-top:9px}.cloud-note{font-size:12px;color:#6f5c71;margin:9px 0}
+.cloud-error{font-size:13px;color:#aa294c;background:#fff1f1;border-radius:10px;padding:12px}
+.cloud-form,.cloud-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px}
+.cloud-form input{flex:1;min-width:180px;height:46px;padding:10px 13px;border:1px solid #edcbda;border-radius:11px}
+.cloud-actions button{white-space:normal;min-height:44px;line-height:1.4}
+@media(max-width:440px){.cloud-form input,.cloud-form .challenge-start{width:100%}.cloud-intro{padding:16px}}
