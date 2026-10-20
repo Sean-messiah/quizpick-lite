@@ -37,6 +37,10 @@ APPS = {
     "kbpay": ("KB Pay", "💰", "금융", "KB Pay 앱에서 오늘의 퀴즈를 확인하세요.", "오늘의 퀴즈"),
     "kbstar": ("KB스타뱅킹", "⭐", "금융", "KB스타뱅킹 앱에서 스타퀴즈를 확인하세요.", "스타퀴즈"),
     "cashdoc": ("캐시닥", "🩺", "캐시", "캐시닥 앱에서 용돈퀴즈를 확인하세요.", "용돈퀴즈"),
+    "bitbunny": ("비트버니", "🐰", "캐시", "비트버니 앱에서 오늘의 퀴즈를 확인하세요.", "오늘의 퀴즈"),
+    "hpoint": ("H.Point", "🎟️", "생활", "H.Point 앱에서 해당 날짜 퀴즈를 확인하세요.", "H.Point 퀴즈"),
+    "kbank": ("케이뱅크", "🏦", "금융", "케이뱅크 앱의 퀴즈·이벤트 메뉴를 확인하세요.", "AI 퀴즈"),
+    "monimo": ("모니모", "🪙", "생활", "모니모 앱에서 모니스쿨 퀴즈를 확인하세요.", "모니스쿨"),
 }
 
 # Original third-party service icons from Toss/KakaoBank branding and developer-published Google Play listings.
@@ -163,9 +167,20 @@ def curate_rows(rows):
 
 def verified_rows():
     payload=json.loads((SITE/"data.json").read_text(encoding="utf-8"))
+    incoming=list(payload.get("quizzes", []))
+    curated=SITE/"manual-quizzes.json"
+    if curated.exists():
+        manual=json.loads(curated.read_text(encoding="utf-8"))
+        for item in manual.get("quizzes", []):
+            if item.get("reviewed") is not True:
+                continue
+            cleaned=dict(item)
+            cleaned.setdefault("source","관리자 직접 확인")
+            cleaned.setdefault("confidence_label","관리자 검수 참고 정보")
+            incoming.append(cleaned)
     earliest=TODAY-timedelta(days=6)
     rows=[]
-    for raw in payload.get("quizzes",[]):
+    for raw in incoming:
         slug=raw.get("app")
         day=raw.get("date","")
         rid=raw.get("id","")
@@ -264,7 +279,7 @@ def main():
     for value in byapp.values():
         value.sort(key=lambda x:(x["date"],x.get("time") or "",x["id"]),reverse=True)
     p0=["toss","kakaobank"]
-    remaining=[x for x in ("cashwalk","okquiz","shinhanpay","shinhanbank","cashdoc","kbpay","kbstar") if byapp[x]]
+    remaining=[x for x in APPS if x not in p0 and byapp[x]]
     apporder=p0+remaining
 
     hero='''<section class="hero"><div class="hero-copy"><span class="eyebrow light">💕 오늘도 퀴즈픽!</span>
