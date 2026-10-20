@@ -32,7 +32,11 @@
   }
   let data = load();
   const persist = () => {
-    try { localStorage.setItem(KEY, JSON.stringify(data)); return true; }
+    try {
+      localStorage.setItem(KEY, JSON.stringify(data));
+      document.dispatchEvent(new Event('quizpick:local-change'));
+      return true;
+    }
     catch (_) { window.alert('기기에 기록을 저장할 수 없습니다. 브라우저 저장공간을 확인해 주세요.'); return false; }
   };
   const el = (tag, klass, text) => {
@@ -223,5 +227,16 @@
     restoreLabel.append(upload);
     manage.append(exportBtn,restoreLabel,deleteBtn);root.append(manage);
   }
+  // Explicit, local-first bridge to optional cloud auth. No storage sent automatically.
+  window.QuizPickChallengeStore = Object.freeze({
+    snapshot: () => JSON.parse(JSON.stringify(data)),
+    replace: incoming => {
+      if (!incoming || incoming.version !== 1 ||
+          typeof incoming.nickname !== 'string' || !incoming.goals ||
+          typeof incoming.goals !== 'object') throw new Error('기록 형식이 올바르지 않습니다.');
+      data = JSON.parse(JSON.stringify(incoming));
+      if (persist()) render();
+    }
+  });
   render();
 })();
