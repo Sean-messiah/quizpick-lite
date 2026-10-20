@@ -44,7 +44,11 @@
   }
   const recordsList=()=>Object.values(records).filter(checkRecord);
   const active=r=>r.done===true;
-  const selectedRows=()=>feed.filter(q=>q.date===chosenDate);
+  // Keep Toss and KakaoBank first, consistent with QuizPick's navigation priority.
+  const selectedRows=()=>feed.filter(q=>q.date===chosenDate).sort((a,b)=>{
+    const priority=x=>x.app==='toss'?0:x.app==='kakaobank'?1:2;
+    return priority(a)-priority(b)||(b.time||'').localeCompare(a.time||'')||a.id.localeCompare(b.id);
+  });
   function summary(day) {
     const all=recordsList().filter(r=>active(r)&&(!day||r.date===day));
     let earnedWon=0;const other={};
