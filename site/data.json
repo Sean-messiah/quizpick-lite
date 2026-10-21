@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-21T15:33:28+09:00",
+  "updated_at": "2026-10-21T16:40:39+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -57,6 +57,32 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-5322a032cc9e33e6",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "경적",
+      "date": "2026-10-21",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-336cccee7014cdd2",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "경적",
+      "date": "2026-10-21",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-f6bd12fb78b9b201",
       "app": "kbstar",
       "app_name": "KB스타뱅킹",
@@ -96,6 +122,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-90377ce98b28049c",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "영수증",
+      "date": "2026-10-21",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-af0bbbcd3e0b0c3c",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
@@ -119,6 +158,45 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-21",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-f8b1548d3f026d35",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "제주항공 J멤버스위크",
+      "answer": "2, 50",
+      "date": "2026-10-21",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-b1adb532e9a0f126",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스 타임머신을 타고 과거로 가면 가져갈 상품은? 10월21일 두근두근 일등 1등찍기",
+      "answer": "1등 금강만두 육개장 이등 비비고 사골곰탕",
+      "date": "2026-10-21",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-54d402dc0bb67a4d",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "10월21일 토스 행운퀴즈 정답 제주항공 J멤버스위크",
+      "answer": "2 8 50 2600",
+      "date": "2026-10-21",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
