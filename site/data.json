@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-22T03:39:54+09:00",
+  "updated_at": "2026-10-22T08:20:44+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-b7af821ea3b092ca",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "금융사기를 예방하기 위한 금융거래한도계좌의 출금 및 이체 한도로 틀린 것은 무엇일까요?",
+      "answer": "1번 은행 지점 출금 100만원",
+      "date": "2026-10-22",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-22",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-0425759717d0135b",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "절약",
+      "date": "2026-10-22",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-c5d309dea62cfc2f",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "가을•겨울 여행은 제주신화월드에서! 신한카드 기획전 객실 상품 중 가장 높은 할인율은 몇 % 일까요?",
+      "answer": "81%",
+      "date": "2026-10-22",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-22",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-140c29a7d06bfd54",
       "app": "shinhanbank",
