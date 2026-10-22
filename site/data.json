@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-22T13:47:57+09:00",
+  "updated_at": "2026-10-22T15:34:06+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-5e0bdd8e71b709ca",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "단 3시간! \"캐시딜\" 에서 모나리자 프리미엄 천연펄프 하이엔드 40m x 30롤 상품이 19,900원+무료배송으로…",
+      "answer": "40",
+      "date": "2026-10-22",
+      "time": "15:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-22",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-42a65fb82c8d24df",
       "app": "cashdoc",
