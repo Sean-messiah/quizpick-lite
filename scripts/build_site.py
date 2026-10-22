@@ -127,7 +127,7 @@ def page(title, description, body, path, *, noindex=False):
 <script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());gtag('config','%s')</script>
-<link rel="manifest" href="/quizpick-lite/manifest.webmanifest"><link rel="icon" href="/quizpick-lite/assets/qp-icon.svg" type="image/svg+xml"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="퀴즈픽"><link rel="stylesheet" href="%s"><script defer src="%s"></script><script defer src="/quizpick-lite/assets/push.js"></script></head>
+<link rel="manifest" href="/quizpick-lite/manifest.webmanifest"><link rel="icon" href="/quizpick-lite/assets/qp-icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/quizpick-lite/assets/qp-icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="퀴즈픽"><link rel="stylesheet" href="%s"><script defer src="%s"></script><script defer src="/quizpick-lite/assets/push.js"></script></head>
 <body><a class="skip" href="#content">본문으로 이동</a>
 <header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">♥</span><span><span class="wordmark">QUIZ<em>PICK</em></span><small class="brand-ko">퀴즈픽</small></span></a>
 <nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">이용 안내</a></nav></div></header>
