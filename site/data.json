@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-23T02:11:33+09:00",
+  "updated_at": "2026-10-23T06:36:42+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -12,6 +12,19 @@
       "answer": "보안카드",
       "date": "2026-10-23",
       "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-72fc6d327f673b0a",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "여행 고수만 아는 혜택! 모두투어 전세기 예약 시 즉시할인 받을 수 있는 최대 금액은 얼마일까요?",
+      "answer": "10만원",
+      "date": "2026-10-23",
+      "time": "01:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
       "source_status": "마감 표시",
