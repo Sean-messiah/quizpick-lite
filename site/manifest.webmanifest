@@ -1,0 +1,20 @@
+{
+  "id": "/quizpick-lite/",
+  "name": "퀴즈픽 | 오늘의 앱테크 퀴즈",
+  "short_name": "퀴즈픽",
+  "description": "새 정답 알림과 앱테크 퀴즈 정답을 편리하게 확인하세요.",
+  "lang": "ko",
+  "start_url": "/quizpick-lite/",
+  "scope": "/quizpick-lite/",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#fa3283",
+  "icons": [
+    {
+      "src": "/quizpick-lite/assets/qp-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
