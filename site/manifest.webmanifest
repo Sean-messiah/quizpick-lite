@@ -11,10 +11,22 @@
   "theme_color": "#fa3283",
   "icons": [
     {
+      "src": "/quizpick-lite/assets/qp-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/quizpick-lite/assets/qp-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
       "src": "/quizpick-lite/assets/qp-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
