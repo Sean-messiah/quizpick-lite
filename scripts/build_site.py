@@ -127,7 +127,7 @@ def page(title, description, body, path, *, noindex=False):
 <script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());gtag('config','%s')</script>
-<link rel="stylesheet" href="%s"><script defer src="%s"></script></head>
+<link rel="manifest" href="/quizpick-lite/manifest.webmanifest"><link rel="icon" href="/quizpick-lite/assets/qp-icon.svg" type="image/svg+xml"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="퀴즈픽"><link rel="stylesheet" href="%s"><script defer src="%s"></script><script defer src="/quizpick-lite/assets/push.js"></script></head>
 <body><a class="skip" href="#content">본문으로 이동</a>
 <header class="header"><div class="topbar"><a class="logo" href="%s"><span class="logomark">♥</span><span><span class="wordmark">QUIZ<em>PICK</em></span><small class="brand-ko">퀴즈픽</small></span></a>
 <nav class="nav" aria-label="주요 메뉴"><a href="%s">홈</a><a href="%s">전체 퀴즈</a><a href="%s">이용 안내</a></nav></div></header>
@@ -335,7 +335,8 @@ def main():
     sections='<section class="section">'+homes+'</section><section class="section">'+others+'</section>'+challengepromo
     guide='''<section class="info"><h2>퀴즈픽 이용 방법</h2><p>앱 이름을 선택한 뒤 날짜와 회차를 확인하세요. 정답 상세에서 복사한 내용은 반드시 원본 앱에서 다시 확인해 주세요. 퀴즈는 마감·변경될 수 있으며 퀴즈픽이 포인트를 지급하지 않습니다.</p></section>'''
     guide+='<p class="inline-action">'+link("매일 앱테크 퀴즈 확인하는 방법 →",local("guide","apptech-routine"))+'</p>'
-    homebody=hero+sections+guide
+    push_cta='<a class="push-home-cta" href="'+e(local("alerts"))+'"><span class="push-home-icon" aria-hidden="true">🔔</span><span><strong>새 정답, 이제 알림으로 받으세요</strong><small>토스·카뱅 등 원하는 앱만 선택 · 가입 없이 무료 구독</small></span><span class="arr">설정 →</span></a>'
+    homebody=hero+push_cta+sections+guide
     write("",page("오늘의 토스·카카오뱅크 앱테크 퀴즈", "토스 행운퀴즈와 카카오뱅크 AI 이모지 퀴즈부터 날짜와 회차별 공개 정답을 확인하세요. 리워드는 원본 앱에서 제공합니다.",homebody,local()))
 
     allbody=breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
@@ -462,7 +463,7 @@ def main():
 
     info_pages=[
       ("about","퀴즈픽 소개","퀴즈픽은 앱테크 퀴즈의 공개 정답 참고 자료와 참여 방법을 모아 제공하는 독립 서비스입니다. 토스·카카오뱅크를 먼저 보여주며, 각 운영사와 제휴하거나 이들로부터 리워드를 지급받는 서비스가 아닙니다."),
-      ("privacy","개인정보 및 방문 통계 안내","퀴즈픽은 회원가입·로그인 없이 이용할 수 있습니다. 참여 체크와 보상 기록, 즐겨찾기, 선택적으로 설정한 닉네임은 이용 중인 브라우저의 저장 공간에만 보관하며 다른 기기와 자동 동기화되지 않습니다. 사용자는 브라우저 데이터 삭제 또는 제공된 기록 관리 기능으로 데이터를 지울 수 있습니다. Google Analytics 4로 페이지 방문과 비식별 클릭 통계를 집계할 수 있지만 닉네임과 기록한 적립 금액은 분석 이벤트에 전송하지 않습니다. 브라우저의 추적 방지 기능으로 통계를 제한할 수 있습니다."),
+      ("privacy","개인정보 및 방문 통계 안내","퀴즈픽은 회원가입·로그인 없이 이용할 수 있습니다. 참여 체크와 보상 기록, 즐겨찾기, 선택적으로 설정한 닉네임은 브라우저에 보관합니다. 푸시 알림 구독을 이용자가 별도 동의한 경우 브라우저 푸시 전송 주소(endpoint), 암호화 공개키 및 인증 키, 기기별 식별 토큰의 해시, 선택 앱, 동의·갱신·발송 시각을 Supabase(대한민국 리전)에서 처리합니다. 이메일·전화번호를 수집하지 않으며 알림 해지 시 발송 대상에서 즉시 제외됩니다. 서버 기록은 보안 및 운영상 필요한 기간만 보관하고 삭제 정책을 정비합니다. 기기별 구독으로 다른 기기에서 따로 허용해야 합니다. Google Analytics 4로 페이지 방문과 비식별 클릭 통계를 집계할 수 있지만 닉네임·적립 금액·푸시 주소·암호화 키를 분석 이벤트에 전송하지 않습니다. 브라우저 설정에서 추적과 알림 권한을 제한할 수 있습니다."),
       ("editorial-policy","정답 검증·정정 기준","퀴즈픽은 원본 앱이 아닌 공개 자료를 참고합니다. 게시된 답은 변경될 수 있으며 원본 앱에서 최종 확인해야 합니다. 회차 마감·보상 지급 가능 여부를 앱에서 실시간 확인하지 않은 경우 '미확인'으로 표시합니다. 잘못된 답이나 출처 정정은 GitHub 저장소의 공개 이슈로 제보해 주세요."),
       ("contact","문의 및 정정 요청","잘못된 정답이나 출처, 서비스 이용 문의는 아래 GitHub 프로젝트의 이슈 기능을 통해 접수할 수 있습니다. 문제 발생 날짜·앱 이름·페이지 주소를 함께 남겨주시면 확인에 도움이 됩니다."),
     ]
@@ -471,11 +472,15 @@ def main():
         text+='<p class="inline-action">'+link("GitHub 프로젝트와 정정 요청 ↗","https://github.com/Sean-messiah/quizpick-lite/issues","source-link",'target="_blank" rel="noopener noreferrer"')+'</p>'
         write(path,page(title,description,text,local(path)))
 
+    alertbody=breadcrumb(("홈",local()))+heading("QUIZPICK · ALERTS","🔔 새 정답 알림 설정","매번 들어오지 않아도, 선택한 앱의 새 정답이 검수되면 알림을 받아보세요.")
+    alertbody+='<section class="push-panel" id="push-settings"><div class="push-panel-head"><span class="push-panel-icon">💌</span><div><h2>내가 원하는 퀴즈만 알림 받기</h2><p>전화번호·회원가입 없이 이 기기의 브라우저 알림을 이용합니다.</p></div></div><p class="push-fine">외부 자동 수집 답은 바로 발송하지 않고, 사람이 검토해 등록 시각까지 기록한 항목만 발송합니다. 원본 앱 참여·보상은 별도 확인해야 합니다.</p><h3>알림 받을 서비스 선택</h3><div id="push-topics" class="push-topics"><span>서비스 목록 불러오는 중…</span></div><label class="push-consent"><input id="push-consent" type="checkbox"><span>선택한 앱의 새 정답 웹 푸시 수신에 동의합니다. 알림 전송용 브라우저 정보와 선택 앱을 저장하며, 언제든 해지할 수 있습니다. <a href="'+e(local("privacy"))+'">개인정보 안내</a></span></label><div class="push-buttons"><button type="button" class="primary-action" id="push-enable" disabled>🔔 알림 받기 · 설정 저장</button><button type="button" class="savebtn" id="push-disable" disabled>알림 구독 해지</button><button type="button" class="savebtn" id="push-test" disabled>테스트 알림 보내기</button></div><p id="push-status" role="status" aria-live="polite">푸시 사용 가능 여부를 확인하고 있어요.</p></section>'
+    alertbody+='<section class="info"><h2>📱 갤럭시에서 사용하는 방법</h2><p>Chrome 또는 삼성 인터넷으로 퀴즈픽에 접속한 다음 서비스 선택 → 수신 동의 → 알림 받기를 누르세요. 브라우저의 알림 권한을 허용해야 하며, 기기의 절전·알림 차단 설정에 따라 도착이 늦어질 수 있습니다.</p><h2>홈 화면에 앱처럼 추가하기</h2><p>브라우저 메뉴의 홈 화면에 추가를 누르면 퀴즈픽을 앱처럼 열 수 있습니다. 설치가 지원되는 브라우저에서는 아래 설치 버튼이 나타납니다.</p><button type="button" id="push-install" class="savebtn" hidden>홈 화면에 퀴즈픽 설치</button><h2>아이폰은 어떻게 하나요?</h2><p>iPhone에서는 Safari의 공유 메뉴 → 홈 화면에 추가한 웹앱에서 알림을 허용해야 웹 푸시를 받을 수 있습니다.</p><h2>카카오톡 알림도 오나요?</h2><p>현재는 무료 웹 푸시 1차 운영 단계입니다. 카카오톡 채널 메시지는 별도 메시지 정책 검토 후 제공할 예정이며 알림톡 발송이나 전화번호 수집은 하지 않습니다.</p></section>'
+    write("alerts",page("새 정답 알림 구독 · 토스·카카오뱅크","퀴즈픽에서 원하는 앱테크 퀴즈만 선택해 웹 푸시 알림을 무료로 구독하세요.",alertbody,local("alerts"),noindex=True))
     savedbody=breadcrumb(("홈",local()))+heading("MY QUIZ","즐겨찾기한 퀴즈","나중에 다시 볼 정답 상세 페이지를 이 브라우저에만 보관합니다.")
     savedbody+='<div class="saved-list" id="saved-list" aria-live="polite"></div><div class="empty-panel" id="saved-empty"><strong>저장한 퀴즈가 없어요 ♡</strong><p>정답 상세 화면에서 하트 버튼을 눌러 저장해 보세요.</p><p>'+link("퀴즈 둘러보기 →",local("apps"),"source-link")+'</p></div>'
     write("saved",page("내 즐겨찾기","브라우저에 저장된 퀴즈픽 정답 목록",savedbody,local("saved"),noindex=True))
     menubody=breadcrumb(("홈",local()))+heading("QUIZPICK","전체 메뉴","퀴즈픽의 앱테크 정답과 이용 정보를 빠르게 찾으세요.")
-    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("오늘의 참여 체크",local("challenge")),("매일 앱테크 가이드",local("guide","apptech-routine")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy"))))+'</div>'
+    menubody+='<div class="apps-grid">'+''.join('<a class="daycard" href="'+e(path)+'"><strong>'+e(title)+'</strong><span class="arr">열기 →</span></a>' for title,path in (("오늘의 퀴즈",local()),("전체 앱테크 퀴즈",local("apps")),("즐겨찾기",local("saved")),("오늘의 참여 체크",local("challenge")),("매일 앱테크 가이드",local("guide","apptech-routine")),("서비스 소개",local("about")),("정답 검증 기준",local("editorial-policy")),("문의·정정",local("contact")),("개인정보 안내",local("privacy")),("새 정답 알림 설정",local("alerts"))))+'</div>'
     write("menu",page("전체 메뉴","퀴즈픽 앱테크 서비스 메뉴",menubody,local("menu")))
     notfound=heading("404 · NOT FOUND","페이지를 찾을 수 없어요","주소가 잘못됐거나 오래된 퀴즈 기록일 수 있어요. 다른 퀴즈를 찾아보세요.")
     notfound+='<div class="empty-panel"><strong>길을 잃었나요? 🐰</strong><p>'+link("홈으로 돌아가기 →",local(),"primary-action")+'</p></div>'
