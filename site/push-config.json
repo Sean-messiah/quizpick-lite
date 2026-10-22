@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "apiUrl": "https://ngozrhjczaattarydgnr.supabase.co/functions/v1/quizpick-push",
+  "version": "2026-10-v1",
+  "announcement": "검수한 새 정답 알림만 발송합니다. 기존 외부 수집 정답은 자동 발송하지 않습니다."
+}
