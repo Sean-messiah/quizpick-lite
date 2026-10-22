@@ -207,5 +207,19 @@ class BuildSiteTests(unittest.TestCase):
         self.assertNotIn("/view/images/sub/symbol-logo.svg", kb_icon)
         self.assertIn("play-lh.googleusercontent.com/RM-EqEESDLBixB", b.app_summary("kakaobank", []))
 
+
+    def test_push_pwa_has_opt_in_assets_on_all_pages(self):
+        html = b.page("새 정답 알림", "테스트", "<p>푸시</p>", b.local("alerts"))
+        self.assertIn('rel="manifest"', html)
+        self.assertIn('/quizpick-lite/assets/push.js', html)
+        self.assertIn('/quizpick-lite/assets/qp-icon.svg', html)
+        self.assertIn('새 정답 알림', html)
+        self.assertNotIn('vapid_private', html)
+
+    def test_push_link_is_within_site_prefix(self):
+        self.assertEqual(b.local("alerts"), "/quizpick-lite/alerts/")
+        self.assertEqual(b.static_url("sw.js"), "/quizpick-lite/sw.js")
+        self.assertEqual(b.static_url("manifest.webmanifest"), "/quizpick-lite/manifest.webmanifest")
+
 if __name__ == "__main__":
     unittest.main()
