@@ -8,4 +8,4 @@ $cron$ select net.http_post(
  headers:=jsonb_build_object('Content-Type','application/json','x-quizpick-dispatch',
  (select decrypted_secret from vault.decrypted_secrets where name='quizpick_dispatch_token' limit 1)),
  body:='{}'::jsonb,timeout_milliseconds:=15000
-) $cron$);
+) where exists(select 1 from public.quizpick_push_subscriptions where active) $cron$);
