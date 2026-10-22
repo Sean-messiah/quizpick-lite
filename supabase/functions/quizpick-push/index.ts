@@ -48,7 +48,7 @@ function verifiedSubscription(v:any){
 function dateIsTodayOrYesterday(date:string){
   const now=new Date();
   const kst=new Date(now.getTime()+9*3600000).toISOString().slice(0,10);
-  const yest=new Date(now.getTime()+8*3600000-86400000).toISOString().slice(0,10);
+  const yest=new Date(now.getTime()+9*3600000-86400000).toISOString().slice(0,10);
   return date===kst||date===yest;
 }
 async function send(sub:any, payload:Record<string,string>, keys:any) {
@@ -89,12 +89,12 @@ async function dispatch(keys:any){
       if(claim.error)continue;
       try{
         const path="/quizpick-lite/quiz/"+encodeURIComponent(item.app)+"/"+encodeURIComponent(item.date)+"/"+encodeURIComponent(item.id)+"/";
-        await send(sub,{title:"퀴즈픽 · "+item.app+" 새 정답",body:"검수한 참고 정답이 등록됐어요. 앱에서 회차를 다시 확인하세요.",url:ALLOWED_ORIGIN+path,tag:"quizpick-"+item.id},keys);
+        await send(sub,{title:"퀴즈픽 · "+item.app+" 정답 알림",body:"참고 정답: "+String(item.answer).trim().slice(0,180)+" · 원본 앱에서 회차 재확인",url:ALLOWED_ORIGIN+path,tag:"quizpick-"+item.id},keys);
         await client.from("quizpick_push_delivery").update({status:"sent",sent_at:new Date().toISOString()}).eq("subscription_id",sub.id).eq("quiz_id",item.id);
         sent++;
       }catch(err){
         failed++;
-        if([404,410].includes(Number((err as any)?.statusCode)))await client.from("quizpick_push_subscriptions").update({active:false}).eq("id",sub.id);
+        if([404,410].includes(Number((err as any)?.statusCode)))await client.from("quizpick_push_subscriptions").delete().eq("id",sub.id);
         else await client.from("quizpick_push_delivery").delete().eq("subscription_id",sub.id).eq("quiz_id",item.id);
       }
     }
@@ -147,7 +147,7 @@ Deno.serve(async req=>{
     }
     if(action==="unsubscribe"){
       if(existing){
-        const {error}=await client.from("quizpick_push_subscriptions").update({active:false,updated_at:new Date().toISOString()}).eq("id",existing.id);
+        const {error}=await client.from("quizpick_push_subscriptions").delete().eq("id",existing.id);
         if(error)throw error;
       }
       return response({ok:true,subscribed:false});
