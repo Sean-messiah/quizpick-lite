@@ -162,7 +162,12 @@ Deno.serve(async req=>{
     }
     if(action==="test"){
       if(!existing?.active)return response({error:"subscribe first"},409);
-      if(existing.last_test_at && Date.now()-Date.parse(existing.last_test_at)<15*60*1000)return response({error:"test limit: 15 minutes"},429);
+      // Attempts recorded before the bug fix were all failed sends. Do not
+      // apply cooldown to those failed attempts.
+      const fixedAt = Date.parse("2026-10-23T17:30:00Z");
+      const priorTestAt = existing.last_test_at ? Date.parse(existing.last_test_at) : 0;
+      if(priorTestAt>=fixedAt && Date.now()-priorTestAt<15*60*1000)
+        return response({error:"테스트 알림은 성공 후 15분 간격으로 보낼 수 있습니다."},429);
       // Throttle only successful sends. A failed send must not lock the
       // user out for 15 minutes while troubleshooting.
       await send(sub,{title:"퀴즈픽 알림 테스트 💗",body:"정상 연결됐어요. 검수된 새 정답이 등록되면 알려드릴게요.",url:ALLOWED_ORIGIN+"/quizpick-lite/alerts/",tag:"quizpick-test"},keys);
