@@ -77,10 +77,14 @@
       }
       $('push-enable').disabled=false;
       const existing=await registration.pushManager.getSubscription();
-      if(existing){
+      if(existing && Notification.permission==='denied'){
+        $('push-disable').disabled=false;
+        $('push-test').disabled=true;
+        state('기존 구독은 있지만 브라우저 알림이 차단돼 있어요. 주소창 왼쪽의 사이트 설정에서 알림을 허용해 주세요.');
+      }else if(existing){
         $('push-disable').disabled=false;
         $('push-test').disabled=false;
-        state('이 브라우저에 푸시 구독이 있습니다. 수신 서비스를 변경하거나 해지할 수 있어요.');
+        state('이 브라우저에 푸시 구독이 있습니다. 아래 테스트 알림 버튼으로 수신 상태를 확인해 보세요.');
       }else if(Notification.permission==='denied'){
         state('알림 권한이 차단되어 있습니다. 브라우저의 사이트 설정에서 알림을 허용해 주세요.');
       }else{
@@ -132,7 +136,7 @@
         const sub=await (await getReg()).pushManager.getSubscription();
         if(!sub)throw Error('먼저 알림을 구독해 주세요.');
         await post('test',sub.toJSON(),selected());
-        state('서버에서 테스트 알림을 발송했습니다. 휴대폰 알림창을 확인해 주세요.');
+        state('테스트 알림을 발송했어요. PC 또는 휴대폰의 알림센터를 확인해 주세요.');
       }catch(err){state('테스트 실패: '+String(err.message||err).slice(0,100));}
       finally{$('push-test').disabled=false;}
     });
