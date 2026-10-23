@@ -52,6 +52,8 @@ jobs:
             echo "Forbidden secret credential marker in published auth configuration"
             exit 1
           fi
+      - name: Test human review approval gate
+        run: python -m unittest discover -s tests -p 'test_approve_quiz.py' -v
       - name: Build multi-page website
         run: python scripts/build_site.py
       - name: Verify output
