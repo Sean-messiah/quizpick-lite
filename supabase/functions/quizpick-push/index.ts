@@ -52,8 +52,16 @@ function dateIsTodayOrYesterday(date:string){
   return date===kst||date===yest;
 }
 async function send(sub:any, payload:Record<string,string>, keys:any) {
+  // Browser PushSubscription.toJSON() nests keys; DB rows store them flat.
+  // Support both shapes instead of sending undefined keys for browser tests.
+  const encryptionKeys = sub.keys && typeof sub.keys === "object"
+    ? { p256dh:sub.keys.p256dh, auth:sub.keys.auth }
+    : { p256dh:sub.p256dh, auth:sub.auth };
+  if (!encryptionKeys.p256dh || !encryptionKeys.auth) {
+    throw new Error("Missing browser push encryption keys");
+  }
   return await webpush.sendNotification(
-    {endpoint:sub.endpoint,keys:{p256dh:sub.p256dh,auth:sub.auth}},
+    {endpoint:sub.endpoint,keys:encryptionKeys},
     JSON.stringify(payload),
     {vapidDetails:{subject:ALLOWED_ORIGIN,publicKey:keys.public_key,privateKey:keys.private_key},
      TTL:14400,urgency:"normal",contentEncoding:"aes128gcm",timeout:10000}
@@ -155,10 +163,11 @@ Deno.serve(async req=>{
     if(action==="test"){
       if(!existing?.active)return response({error:"subscribe first"},409);
       if(existing.last_test_at && Date.now()-Date.parse(existing.last_test_at)<15*60*1000)return response({error:"test limit: 15 minutes"},429);
-      // Set throttle before delivery so failed requests can't trigger unlimited sends.
-      const {error}=await client.from("quizpick_push_subscriptions").update({last_test_at:new Date().toISOString()}).eq("id",existing.id);
-      if(error)throw error;
+      // Throttle only successful sends. A failed send must not lock the
+      // user out for 15 minutes while troubleshooting.
       await send(sub,{title:"퀴즈픽 알림 테스트 💗",body:"정상 연결됐어요. 검수된 새 정답이 등록되면 알려드릴게요.",url:ALLOWED_ORIGIN+"/quizpick-lite/alerts/",tag:"quizpick-test"},keys);
+      const {error}=await client.from("quizpick_push_subscriptions").update({last_test_at:new Date().toISOString()}).eq("id",existing.id);
+      if(error)console.error("test throttle update failed");
       return response({ok:true,delivery:"sent"});
     }
     return response({error:"invalid action"},400);
