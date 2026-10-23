@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-23T16:33:38+09:00",
+  "updated_at": "2026-10-23T22:27:55+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-fd63fe52bba9eca0",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "포인트앤 딥클린 포어 클렌징오일 100ml 2개 외 490ml 선택 구성까지! 캐시딜 단독 할인으로 10,900원부…",
+      "answer": "96",
+      "date": "2026-10-23",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-fa19826f403e9ff4",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "뱃고동",
+      "date": "2026-10-23",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-713b87fb4bfd6cdd",
       "app": "cashwalk",
