@@ -1,0 +1,73 @@
+name: Approve QuizPick reviewed answer
+on:
+  workflow_dispatch:
+    inputs:
+      quiz_id:
+        description: '수집된 오늘의 퀴즈 ID (빈 칸이면 후보 목록 출력)'
+        required: false
+        type: string
+      expected_answer:
+        description: '원본 앱 또는 공식 자료와 대조한 정답'
+        required: false
+        type: string
+      verification:
+        description: '직접 확인한 검증 경로'
+        required: true
+        type: choice
+        options:
+          - not_checked
+          - checked_original_app
+          - checked_official_source
+        default: not_checked
+      approval:
+        description: '실제로 확인했을 때만 APPROVE 선택'
+        required: true
+        type: choice
+        options:
+          - LIST_ONLY
+          - APPROVE
+        default: LIST_ONLY
+permissions:
+  contents: write
+concurrency:
+  group: quizpick-manual-approval
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Review candidates or approve an exact source
+        env:
+          QUIZ_ID: ${{ inputs.quiz_id }}
+          EXPECTED_ANSWER: ${{ inputs.expected_answer }}
+          VERIFICATION: ${{ inputs.verification }}
+          APPROVAL: ${{ inputs.approval }}
+        run: |
+          if [ "$APPROVAL" != "APPROVE" ]; then
+            python scripts/approve_quiz.py --list
+            exit 0
+          fi
+          test -n "$QUIZ_ID" || { echo "::error::퀴즈 ID를 입력해 주세요"; exit 1; }
+          python scripts/approve_quiz.py \
+            --quiz-id "$QUIZ_ID" \
+            --expected-answer "$EXPECTED_ANSWER" \
+            --verification "$VERIFICATION" \
+            --confirm "$APPROVAL"
+      - name: Commit human-reviewed answer
+        if: ${{ inputs.approval == 'APPROVE' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/manual-quizzes.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "content: one manually approved QuizPick reference"
+          git pull --rebase origin main
+          git push origin HEAD:main
