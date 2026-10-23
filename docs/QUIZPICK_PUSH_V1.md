@@ -59,3 +59,13 @@
 - 갤럭시 실기기: **동의→권한→등록→테스트 수신→해지** 절차의 최종 검증이 필요. 브라우저별 실행 여부를 과장하지 마세요.
 - KST 승인 날짜·세션, URL 이동, 캐시 무효화 확인
 - 약관/정책에 따라 수신 동의 문구와 보존 기간을 서비스 운영자가 최종 검토해야 함.
+
+## GitHub 관리자 수동 검수 (v1.3)
+- 관리 링크: https://github.com/Sean-messiah/quizpick-lite/actions/workflows/approve-quiz.yml
+- 저장소 쓰기 권한이 있는 운영자가 수동으로 실행합니다.
+1. Run workflow → approval=LIST_ONLY 실행 → 로그에서 후보 quiz_id·문제·출처 확인
+2. 원본 앱 또는 공식 자료에서 문제와 정답을 대조합니다. 공개 자동 수집 결과만으로 승인하지 않습니다.
+3. Run workflow 재실행: quiz_id와 직접 확인한 expected_answer, verification=checked_original_app 또는 checked_official_source, approval=APPROVE를 입력합니다.
+4. 승인은 site/manual-quizzes.json에 reviewed=true, KST 검수 시각과 확인 경로를 기록하고 GitHub Pages 배포 후 15분 주기로 발송 대상으로 검사됩니다.
+5. 과거 날짜·틀린 정답·중복 승인·검수되지 않은 항목은 자동 차단됩니다. 실제 리워드 보유 여부는 별개입니다.
+검수 스크립트: scripts/approve_quiz.py / 테스트: tests/test_approve_quiz.py
