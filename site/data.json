@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-23T06:36:42+09:00",
+  "updated_at": "2026-10-23T09:40:51+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -15,6 +15,84 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-e9e6e85ddf0dae31",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "소비복권 응모권은 최대 30장까지 지급되며, OOOO 활성화를 위해 비수도권 결제 실적에는 수도권보다 2배 많은 응…",
+      "answer": "지방소비",
+      "date": "2026-10-23",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-d2c4bc108a013ab9",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "1등 당첨자는 OOOO 소비실적에 따라 발행되는 소비복권을 대상으로 추첨하며, 1인 다회 당첨은 불가합니다. OOO…",
+      "answer": "비수도권",
+      "date": "2026-10-23",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-815a037115bcb75c",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "중소벤처기업부는 범부처 국가 단위 할인 행사 「코리아 그랜드 페스티벌」의 소비 참여를 확대하기 위해 10월 15일부…",
+      "answer": "상생소비복권",
+      "date": "2026-10-23",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-461d92344cf2ab99",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "당첨금은 디지털온누리 상품권으로 지급되며, 1등 당첨자 10명에게 각각 OOOO을 지급하는 등 총 17억원 규모의 …",
+      "answer": "삼천만원",
+      "date": "2026-10-23",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-25e558a009ce9720",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "전국의 오프라인 가맹점에서 OOOOOO 상품권으로 결제한 금액을 수도권·비수도권별로 각각 합산해, 누적 3만원 단위…",
+      "answer": "디지털온누리",
+      "date": "2026-10-23",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-425ba5e11b07a7f7",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "진료",
+      "date": "2026-10-23",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
