@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-25T03:47:53+09:00",
+  "updated_at": "2026-10-25T07:29:17+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -12,6 +12,19 @@
       "answer": "6",
       "date": "2026-10-25",
       "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-e569f139fb666aca",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "악성앱 설치 시 연결된 가족에게 알려주는 무료 서비스 '가족 피싱 지킴이'는 최대 몇명까지 연결할 수 있을까요?",
+      "answer": "4명",
+      "date": "2026-10-25",
+      "time": "01:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-25",
       "source_status": "마감 표시",
