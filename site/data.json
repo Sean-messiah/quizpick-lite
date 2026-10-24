@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-25T00:57:34+09:00",
+  "updated_at": "2026-10-25T03:47:53+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-b263f4c2d9611014",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "KB카드쓰담적금은 최근 O개월간 KB국민카드 이용실적이 없는 고객님이 카드를 이용하면 연 O%의 우대금리를 받을 수…",
+      "answer": "6",
+      "date": "2026-10-25",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-656d3c556226a64f",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "KBO 정규시즌에서 스포츠 정신에 입각한 진지한 경기태도와 판정승복으로 타의 모법이 되어 KBO리그 이미지 향상에 …",
+      "answer": "KBO 페어플레이상",
+      "date": "2026-10-25",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-c9ddfc20514486ef",
       "app": "kakaobank",
