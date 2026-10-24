@@ -46,6 +46,9 @@ jobs:
           node --check site/assets/daily-challenge.js
           node --check site/assets/app.js
           node --check site/assets/auth.js
+          node --check site/assets/push.js
+          node --check site/sw.js
+          python -m json.tool site/push-config.json > /dev/null
           python -m json.tool site/manual-quizzes.json > /dev/null
           python -m json.tool site/auth-config.json > /dev/null
           if grep -Eq 'sb_secret_|service_role' site/auth-config.json; then
