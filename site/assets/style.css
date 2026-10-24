@@ -355,3 +355,26 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
  .featured .appcard .card-cta{font-size:10px;border-radius:9px;padding:6px;margin-top:auto}
 }
 @media(max-width:359px){.featured .appcard{padding:9px 8px}.hero-art{opacity:.78}.push-topics{grid-template-columns:1fr}}
+
+/* Push diagnostics v1.4 */
+.push-diagnostics{margin-top:24px;padding:20px;border:1px solid #f2dce6;border-radius:19px;background:#fffbfd}
+.push-diagnostics-head h3{margin:0 0 4px;font-size:18px;color:#412a3a}
+.push-diagnostics-head p{margin:0 0 15px;font-size:13px;color:#8b7080}
+.push-health-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.push-health-cell{display:flex;min-width:0;flex-direction:column;gap:6px;border:1px solid #f1e1e9;background:#fff;padding:14px 13px;border-radius:13px}
+.push-health-cell small{font-size:11px;font-weight:760;color:#947c8a}
+.push-health-cell strong{font-size:13px;font-weight:830;overflow-wrap:anywhere;color:#776776;line-height:1.5}
+.push-health-cell strong[data-state="ok"]{color:#168454}
+.push-health-cell strong[data-state="bad"]{color:#d32f61}
+.push-diagnostic-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.push-diagnostic-actions button{font-size:12px;min-height:41px}
+.push-diagnostic-actions button:disabled{opacity:.45;cursor:not-allowed}
+.push-diagnostic-note{margin:12px 0 0;color:#877181;font-size:12px;line-height:1.75}
+@media(max-width:720px){
+ .push-diagnostics{padding:14px 11px;border-radius:15px}
+ .push-health-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .push-health-cell{padding:11px 9px}
+ .push-health-cell strong{font-size:12px}
+ .push-diagnostic-actions{display:grid;grid-template-columns:1fr 1fr}
+ .push-diagnostic-actions button{padding:9px 6px;font-size:11px}
+}
