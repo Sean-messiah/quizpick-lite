@@ -140,6 +140,13 @@ Deno.serve(async req=>{
       .select("id,device_hash,last_test_at,created_at,topics,active").eq("endpoint_hash",endpoint_hash).maybeSingle();
     if(readError)throw readError;
     if(existing && existing.device_hash!==device_hash)return response({error:"subscription belongs to another browser token"},409);
+    if(action==="status"){
+      return response({
+        ok:true,registered:!!existing?.active,
+        topics:existing?.active ? (existing.topics||[]) : [],
+        lastTestAcceptedAt:existing?.active ? (existing.last_test_at||null) : null
+      });
+    }
     if(action==="subscribe"){
       const topics=cleanTopics(data.topics);
       if(!topics.length)return response({error:"Choose at least one service"},400);
