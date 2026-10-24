@@ -221,5 +221,24 @@ class BuildSiteTests(unittest.TestCase):
         self.assertEqual(b.static_url("sw.js"), "/quizpick-lite/sw.js")
         self.assertEqual(b.static_url("manifest.webmanifest"), "/quizpick-lite/manifest.webmanifest")
 
+    def test_push_diagnostics_are_split_between_local_and_remote(self):
+        root=Path(__file__).resolve().parents[1]
+        builder=(root/"scripts/build_site.py").read_text(encoding="utf-8")
+        front=(root/"site/assets/push.js").read_text(encoding="utf-8")
+        worker=(root/"site/sw.js").read_text(encoding="utf-8")
+        server=(root/"supabase/functions/quizpick-push/index.ts").read_text(encoding="utf-8")
+        for anchor in ("push-health-permission", "push-health-browser", "push-health-server",
+                       "push-health-test", "push-health-received", "push-local-test", "push-check"):
+            self.assertIn(anchor,builder)
+            self.assertIn(anchor,front)
+        self.assertIn("reg.showNotification(",front)
+        self.assertIn("post('test',",front)
+        self.assertIn("post('status',",front)
+        self.assertIn("QUIZPICK_PUSH_LAST",worker)
+        self.assertIn("lastRemoteReceipt",worker)
+        self.assertIn('if(action==="status")',server)
+        self.assertIn('existing.device_hash!==device_hash',server)
+        self.assertNotIn("SUPABASE_SERVICE_ROLE_KEY",front)
+
 if __name__ == "__main__":
     unittest.main()
