@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-26T01:21:07+09:00",
+  "updated_at": "2026-10-26T05:52:03+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-dc6a44db5e6bf893",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "여럿이 돈을 모아 부동산에 투자하고, 수익을 나눠 갖는 부동산 간접투자기구를 무엇이라고 할까요?",
+      "answer": "3. 리츠",
+      "date": "2026-10-26",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-b5fe79df179b23d9",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "만 55세 이상 고객 보이스피싱 피해를 최대 2천만원까지 보상하는 서비스는?",
+      "answer": "지켜드림",
+      "date": "2026-10-26",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-adb9c5cd3f349e01",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "KBO 규정상 외국인 선수가 포스트시즌 및 한국시리즈에 출전하기 위해서는 언제까지 소속 선수로 등록을 마쳐야 할까요…",
+      "answer": "8월 15일",
+      "date": "2026-10-26",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-41632eeb2f24eb56",
       "app": "toss",
