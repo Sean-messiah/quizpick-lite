@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-27T00:12:28+09:00",
+  "updated_at": "2026-10-27T06:01:20+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-24584ae59c5c49be",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "매년 10월 마지막 화요일 OO의 날은 금융에 대한 국민의 관심을 높이기 위해 지정된 법정기념일이다",
+      "answer": "금융",
+      "date": "2026-10-27",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-4eb31e2f0560b59c",
       "app": "kakaobank",
