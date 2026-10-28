@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-28T16:23:18+09:00",
+  "updated_at": "2026-10-28T17:34:01+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-1c72c395bd4809f6",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "10/28~10/31 단 4일! 향 좋고 끈적임 없는 피누엘 말차 바디로션 1+1에 바디워시 본품 증정, 선착순 바…",
+      "answer": "스쿠알란",
+      "date": "2026-10-28",
+      "time": "17:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-f5326b29e5740beb",
       "app": "cashwalk",
@@ -54,6 +67,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-1d113bd7636129e3",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "유성",
+      "date": "2026-10-28",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -213,11 +239,37 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-f76aaf3c41ee5835",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "국민유산균, 브랜드세일",
+      "answer": "&nbsp;역대급",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-5193fa3d428923f3",
       "app": "toss",
       "app_name": "토스",
       "question_hint": "MOUM 오픈 이벤트",
       "answer": "유관기관, 계좌개설",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-16518060d932fa4a",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스러닝할때놓칠수없는포인트는?10월28일두근두근일등1등찍기",
+      "answer": "일등 페이스 체크, 기록 확인 2등 음악과 함께 신나게 달리기",
       "date": "2026-10-28",
       "time": null,
       "source": "퀴즈벨 공개 자료",
