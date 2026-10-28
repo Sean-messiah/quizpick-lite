@@ -1,9 +1,74 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-28T05:42:19+09:00",
+  "updated_at": "2026-10-28T10:23:30+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-be0f18582fc63d2b",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "넛츠피아의 신제품 \"촉촉한 쏙! 찐병아리콩\"은 간편하게 먹기 좋은 40g 소용량 포장으로 식이섬유와 단백질이 포함된…",
+      "answer": "캐나다",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-8be2eff1beead65e",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "\"소휘 푸룬 구미 상큼쫀득 젤리처럼 먹었을 뿐인데 비싼 유산균보다 좋더라구요\" 세상에서 가장 맛있는 푸룬 지금 넾다…",
+      "answer": "구미",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-7086348cd314a68a",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "\"소휘 푸룬 구미 상큼쫀득 젤리처럼 먹었을 뿐인데 비싼 유산균보다 좋더라구요\" 세상에서 가장 맛있는 푸룬 지금 넾다…",
+      "answer": "편안",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-46256b3cfa2f1b03",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "\"소휘 푸룬 구미 상큼쫀득 젤리처럼 먹었을 뿐인데 비싼 유산균보다 좋더라구요\" 세상에서 가장 맛있는 푸룬 지금 넾다…",
+      "answer": "쫀득",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-25ccd6f121b2df96",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "\"소휘 푸룬 구미 상큼쫀득 젤리처럼 먹었을 뿐인데 비싼 유산균보다 좋더라구요\" 세상에서 가장 맛있는 푸룬 지금 넾다…",
+      "answer": "비움",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-212ca2442680e06a",
       "app": "kbstar",
@@ -15,6 +80,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-217fdcbe6a1a24f1",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "유모차",
+      "date": "2026-10-28",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +119,45 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-feb1a0902f1eb405",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "모음에서 0000하면 삼전닉스 당첨기회가 생겨요. 조건충족시 기회가 생겨요",
+      "answer": "계좌개설",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-5193fa3d428923f3",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "MOUM 오픈 이벤트",
+      "answer": "유관기관, 계좌개설",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-039d300e114798f7",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "롯데다운세일 구매이벤트",
+      "answer": "100",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
