@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-29T14:49:47+09:00",
+  "updated_at": "2026-10-29T16:39:39+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-d1108b85640c68f9",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "[개당 1,860원] 아쿠아민트치약 9개 16740원! (쿠폰적용가) 단 1시간 한정! 캐시딜 돈버는퀴즈쇼 역대급 …",
+      "answer": "1450",
+      "date": "2026-10-29",
+      "time": "15:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-7419710b8f8e4098",
       "app": "kakaobank",
@@ -105,6 +118,32 @@
       "time": "01:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-494eab321114e575",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "엄마도 챙기고 가족도 챙기는 국민 유산균! 락토핏 골드 120포 3통 락토핏 골드 60포 증정 올리브영 모바일1만원…",
+      "answer": "63200",
+      "date": "2026-10-28",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-05eaff9ca7a5e0db",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "달콤함도 크기도 점보급! 제스프리 썬골드키위 점보사이즈 OO입, 총 3.1kg. 방송 중 특가! 당도 18.8% 이…",
+      "answer": "20",
+      "date": "2026-10-28",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-28",
       "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
