@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-29T01:38:22+09:00",
+  "updated_at": "2026-10-29T14:49:47+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-7419710b8f8e4098",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "객차",
+      "date": "2026-10-29",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-cd7dded5ca42ac54",
       "app": "kbstar",
@@ -15,6 +28,71 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-c9cb9267eff74088",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "[온라인 최저가 보장 ] 1일1팩도 건조한 피부엔 피부장벽 비타민 1박스당 6,650원 푸드루트 비타민B는 새콤한 …",
+      "answer": "간편",
+      "date": "2026-10-29",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-80fdc5f0aa57f135",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "[온라인 최저가 보장 ] 1일1팩도 건조한 피부엔 피부장벽 비타민 1박스당 6,650원 푸드루트 비타민B는 새콤한 …",
+      "answer": "물",
+      "date": "2026-10-29",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-71242017c600b067",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "이번 14회차 깨비로또에서 행운의 숫자를 추가로 뽑기 위해 할 수 있는 미션이 아닌 것은?",
+      "answer": "운동 기록 미션",
+      "date": "2026-10-29",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-4fc2127e66c1bfe2",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "[온라인 최저가 보장 ] 1일1팩도 건조한 피부엔 피부장벽 비타민 1박스당 6,650원 푸드루트 비타민B는 OO한 …",
+      "answer": "새콤",
+      "date": "2026-10-29",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-5fa9cf7cbd2501cd",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "치킨무",
+      "date": "2026-10-29",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
