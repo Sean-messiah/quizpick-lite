@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-29T16:39:39+09:00",
+  "updated_at": "2026-10-29T22:02:23+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-e6f9e10d7bba0648",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "누적 1억개 판매! 배우 이민정 모델의 아이크림 명가 AHC 브랜드 아이크림 12ml 총 10개 구성을 110,00…",
+      "answer": "18500",
+      "date": "2026-10-29",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-a6e2560ff7bc2953",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "넾다세일 특가! 베이직북16 최대 할인율은 ㅇㅇ%입니다. ㅇㅇ에 들어갈 단어는 무엇일까요?",
+      "answer": "53",
+      "date": "2026-10-29",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-2306127aa34f0fb0",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "현금서비스",
+      "date": "2026-10-29",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-d1108b85640c68f9",
       "app": "cashwalk",
@@ -93,6 +132,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-10-29",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-b9f2c93e85b3068d",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "치킨무",
+      "date": "2026-10-29",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-837ba93740ad070e",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "객차",
+      "date": "2026-10-29",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
