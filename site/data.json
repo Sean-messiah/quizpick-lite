@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-30T14:50:46+09:00",
+  "updated_at": "2026-10-30T21:56:54+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-b09994110aa4f3a2",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "오늘 단 하루, 푸드루트 뼈건강 비타민 K2&D o박스가 단돈 12,200원! 하루 한 포, 간편하게 뼈건강 충전하…",
+      "answer": "2",
+      "date": "2026-10-30",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-30",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-8cc68b2651c27c20",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "괴담",
+      "date": "2026-10-30",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-3961c60af547c088",
       "app": "cashwalk",
@@ -192,6 +218,19 @@
       "app_name": "토스",
       "question_hint": "토스하루중커피가가장생각나는순간은?10월30일두근두근일등1등찍기",
       "answer": "일등 밥 먹고 난 다음 이등 집중이 필요한 순간",
+      "date": "2026-10-30",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-bb492a9fecc77132",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "캐세이 80주년 이벤트",
+      "answer": "비즈니스",
       "date": "2026-10-30",
       "time": null,
       "source": "퀴즈벨 공개 자료",
