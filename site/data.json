@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-31T14:42:39+09:00",
+  "updated_at": "2026-10-31T16:29:20+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-9f3c90c79ff6b2ca",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "종근당건강 \"락토핏 코어 5통\" 을 \"락토핏 골드 60포\" 증정 구성으로 초특가 00,000원에 올리브영 모바일 쿠…",
+      "answer": "59900",
+      "date": "2026-10-31",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-10-31",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-37bb15604d0b60b3",
       "app": "cashwalk",
