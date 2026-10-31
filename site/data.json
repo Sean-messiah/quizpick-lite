@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-31T16:29:20+09:00",
+  "updated_at": "2026-10-31T21:31:42+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-55f2580c77fe38b5",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "등정",
+      "date": "2026-10-31",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-9f3c90c79ff6b2ca",
       "app": "cashwalk",
