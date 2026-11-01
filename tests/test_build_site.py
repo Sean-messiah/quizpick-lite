@@ -54,10 +54,16 @@ class BuildSiteTests(unittest.TestCase):
 
     def test_featured_app_cards_keep_answers_hidden(self):
         example = {"date": "2026-10-20", "answer": "SENSITIVE_ANSWER"}
-        html = b.app_summary("toss", [example])
+        html = b.app_summary("toss", [example], show_cta=True)
         self.assertIn('data-app="toss"', html)
         self.assertIn("회차별 정답 확인하기", html)
         self.assertNotIn("SENSITIVE_ANSWER", html)
+        # The homepage CTA cannot be used in the two-column app directory:
+        # a full-width flex child would squeeze icons/text and overflow.
+        directory = b.app_summary("toss", [example])
+        self.assertIn('data-app="toss"', directory)
+        self.assertNotIn('class="card-cta"', directory)
+        self.assertIn('class="app-brand-logo"', directory)
 
 
     def test_toss_first_second_choices(self):
