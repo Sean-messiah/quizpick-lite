@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-01T15:06:32+09:00",
+  "updated_at": "2026-11-01T22:26:32+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-0fee577dd1882364",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "서머타임",
+      "date": "2026-11-01",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-4fa1e9013e2f698b",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "드디어 돌아온 알리익스프레스 11.11 광군제! 올해는 알리가차쏜다 ! 매일 최초 1회 참여비 110원, 미션 달성…",
+      "answer": "테슬라",
+      "date": "2026-11-01",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-01",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-42953b8e92671cb0",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "알리가 차쏜다?! 진짜로 ㅇㅇㅇ가 경품으로! 드디어 오늘 OPEN, 알리익스프레스 역대급 이벤트! 매일 최초 1회 …",
+      "answer": "테슬라",
+      "date": "2026-11-01",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-01",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-36cf3b6a1e85dedb",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "알리가 차쏜다?! ㅇㅇㅇ의 주인공은 누구? 알리익스프레스 11.11 광군제 이벤트, 드디어 오늘 OPEN! 매일 최…",
+      "answer": "테슬라",
+      "date": "2026-11-01",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-01",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-b0d0f50b4b414148",
       "app": "kakaobank",
