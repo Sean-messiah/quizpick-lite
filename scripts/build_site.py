@@ -258,11 +258,11 @@ def item_card(row, kind="tile"):
     body+='<strong>%s</strong><small>정답은 상세 페이지에서 확인 · 진행 여부 미확인</small>'%e(summary(row))
     return '<a class="quizcard" href="%s" data-event="quiz_select" data-app="%s">%s<span class="arr">정답 보기 →</span></a>'%(e(href),e(row["app"]),body)
 
-def app_summary(slug, rows):
+def app_summary(slug, rows, *, show_cta=False):
     name,icon,_,_,sub=APPS[slug]
     current=sum(r["date"]==TODAY.isoformat() for r in rows)
     report=("오늘 공개 참고 정답 %d건 · 현재 참여 여부 미확인"%current) if current else "최근 7일 참고 기록 · 오늘 출제 여부 미확인"
-    cta='<span class="card-cta">회차별 정답 확인하기 →</span>' if slug in ("toss","kakaobank") else ""
+    cta='<span class="card-cta">회차별 정답 확인하기 →</span>' if show_cta and slug in ("toss","kakaobank") else ""
     return '''<a class="appcard" data-app="%s" href="%s" data-event="home_app_click">
     %s<span><strong>%s</strong><small>%s</small>
     <span class="appstat">%s</span></span><span class="chevron" aria-hidden="true">›</span>%s</a>'''%(
@@ -325,7 +325,7 @@ def main():
     <div class="hero-art" aria-hidden="true"><span class="hero-bunny">🐰</span><span class="hero-coin">🪙</span><span class="hero-gift">🎁</span></div>
     </section>'''%(e(TODAY.isoformat()),len(rows))
     homes=heading("⭐ 우선 확인","토스 · 카카오뱅크","먼저 찾는 두 앱의 정답은 회차별 상세 페이지에서 확인하세요.",level="h2")
-    homes+='<div class="featured">'+''.join(app_summary(x,byapp[x]) for x in p0)+'</div>'
+    homes+='<div class="featured">'+''.join(app_summary(x,byapp[x],show_cta=True) for x in p0)+'</div>'
     others=heading("🎁 앱테크 더보기","다른 퀴즈도 확인해요","최근 7일 공개 정답 참고 자료가 있는 앱만 표시합니다.",level="h2")
     others+='<div class="apps-grid">'+''.join(app_summary(x,byapp[x]) for x in remaining)+'</div>'
     others+='<p class="inline-action">'+link("전체 앱 보기 →",local("apps"))+'</p>'
@@ -339,9 +339,9 @@ def main():
     homebody=hero+push_cta+sections+guide
     write("",page("오늘의 토스·카카오뱅크 앱테크 퀴즈", "토스 행운퀴즈와 카카오뱅크 AI 이모지 퀴즈부터 날짜와 회차별 공개 정답을 확인하세요. 리워드는 원본 앱에서 제공합니다.",homebody,local()))
 
-    allbody=breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
+    allbody='<div class="directory-page">'+breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
     allbody+='<label class="finder">앱 이름 검색 <input type="search" id="app-search" placeholder="토스, 카카오뱅크, 캐시워크..." autocomplete="off"></label>'
-    allbody+='<p class="eyebrow" id="search-count" aria-live="polite"></p><div class="apps-grid app-list">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
+    allbody+='<p class="eyebrow" id="search-count" aria-live="polite"></p><h2 class="directory-subheading">최근 정답 자료가 확인된 앱</h2><div class="apps-grid app-list directory-active-grid">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
     catalog_data=json.loads((SITE/"catalog.json").read_text(encoding="utf-8"))
     active=set(apporder)
     candidates=[]
@@ -360,7 +360,7 @@ def main():
     if candidates:
         allbody+='<details id="candidate-details" class="candidate-details"><summary>운영 확인 대기 · 기타 후보 '+str(len(candidates))+'개</summary><p class="notice">아래 항목은 현재 리워드 지급을 확인하지 못했습니다. 정답이 있다고 표시하지 않으며 출처 링크만 제공합니다.</p><div class="apps-grid app-list">'+''.join(candidates)+'</div></details>'
     allbody+='<div class="empty-panel" id="search-empty" hidden><strong>검색 결과가 없어요 🔎</strong><p>다른 앱 이름으로 검색하거나 검색어를 지워 주세요.</p></div>'
-    allbody+='<div class="info"><h2>왜 모든 앱을 표시하지 않나요?</h2><p>종료된 이벤트와 운영 확인이 어려운 퀴즈를 현재 참여 가능한 것처럼 안내하지 않기 위해서입니다. 정답이 있는 앱도 보상 지급 여부는 앱에서 다시 확인해야 합니다.</p></div>'
+    allbody+='<div class="info"><h2>왜 모든 앱을 표시하지 않나요?</h2><p>종료된 이벤트와 운영 확인이 어려운 퀴즈를 현재 참여 가능한 것처럼 안내하지 않기 위해서입니다. 정답이 있는 앱도 보상 지급 여부는 앱에서 다시 확인해야 합니다.</p></div></div>'
     write("apps",page("앱테크 퀴즈 전체 목록","토스, 카카오뱅크, 캐시워크 등 공개 정답 자료가 확인된 앱 모음.",allbody,local("apps")))
 
     for slug in apporder:
