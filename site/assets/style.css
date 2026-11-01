@@ -378,3 +378,40 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
  .push-diagnostic-actions{display:grid;grid-template-columns:1fr 1fr}
  .push-diagnostic-actions button{padding:9px 6px;font-size:11px}
 }
+
+
+/* All-app directory: prevent homepage CTA / flex layout from breaking listing cards. */
+.directory-page{min-width:0}
+.directory-page .directory-subheading{font-size:18px;line-height:1.4;letter-spacing:-.4px;margin:17px 0 12px;color:#45263b}
+.directory-page .directory-active-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.directory-page .directory-active-grid .appcard{
+  display:grid;grid-template-columns:56px minmax(0,1fr) 16px;align-items:center;
+  gap:13px;min-width:0;min-height:116px;padding:17px 16px;border-radius:18px;
+}
+.directory-page .appcard>.appicon{width:56px;height:56px;border-radius:16px}
+.directory-page .appcard>span:nth-child(2){min-width:0;max-width:100%;overflow-wrap:anywhere}
+.directory-page .appcard strong{font-size:17px;line-height:1.35;overflow-wrap:anywhere}
+.directory-page .appcard small{font-size:12px;line-height:1.4}
+.directory-page .appcard .appstat{font-size:11px;line-height:1.5;margin-top:6px;overflow-wrap:anywhere}
+.directory-page .appcard .chevron{font-size:23px;line-height:1;text-align:right}
+.directory-page .appcard .card-cta{display:none!important}
+.directory-page .candidate-details{overflow:hidden}
+.directory-page .candidate-details .apps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.directory-page .directory-card{min-width:0;overflow-wrap:anywhere}
+.directory-page .finder{margin:19px 0 8px}
+.directory-page #search-count{font-size:12px;line-height:1.5;margin:8px 0;color:#ae5e85}
+@media(max-width:720px){
+ .directory-page .directory-active-grid,
+ .directory-page .candidate-details .apps-grid{grid-template-columns:minmax(0,1fr)}
+ .directory-page .directory-active-grid .appcard{
+  grid-template-columns:48px minmax(0,1fr) 14px;gap:11px;
+  padding:13px 12px;min-height:96px;border-radius:16px
+ }
+ .directory-page .appcard>.appicon{width:48px;height:48px;border-radius:13px}
+ .directory-page .appcard strong{font-size:16px}
+ .directory-page .appcard small{font-size:11px}
+ .directory-page .appcard .appstat{font-size:10px;margin-top:5px}
+ .directory-page .directory-subheading{font-size:17px;margin:13px 0 9px}
+ .directory-page .candidate-details{padding:12px;margin:17px 0}
+ .directory-page .directory-card{min-height:86px;padding:12px}
+}
