@@ -261,12 +261,13 @@ def item_card(row, kind="tile"):
 def app_summary(slug, rows, *, show_cta=False):
     name,icon,_,_,sub=APPS[slug]
     current=sum(r["date"]==TODAY.isoformat() for r in rows)
-    report=("오늘 공개 참고 정답 %d건 · 현재 참여 여부 미확인"%current) if current else "최근 7일 참고 기록 · 오늘 출제 여부 미확인"
+    status="today" if current else ("history" if rows else "empty")
+    report=("오늘 공개 참고 정답 %d건 · 현재 참여 여부 미확인"%current) if current else ("지난 7일 참고 기록 · 오늘 출제 여부 미확인" if rows else "최근 등록된 정답 없음 · 출제 여부 미확인")
     cta='<span class="card-cta">회차별 정답 확인하기 →</span>' if show_cta and slug in ("toss","kakaobank") else ""
-    return '''<a class="appcard" data-app="%s" href="%s" data-event="home_app_click">
+    return '''<a class="appcard" data-app="%s" data-status="%s" href="%s" data-event="home_app_click">
     %s<span><strong>%s</strong><small>%s</small>
     <span class="appstat">%s</span></span><span class="chevron" aria-hidden="true">›</span>%s</a>'''%(
-        e(slug),e(app_path(slug)),app_icon(slug),e(name),e(sub),e(report),cta)
+        e(slug),e(status),e(app_path(slug)),app_icon(slug),e(name),e(sub),e(report),cta)
 
 def breadcrumb(*nodes):
     links=[]
@@ -340,8 +341,9 @@ def main():
     write("",page("오늘의 토스·카카오뱅크 앱테크 퀴즈", "토스 행운퀴즈와 카카오뱅크 AI 이모지 퀴즈부터 날짜와 회차별 공개 정답을 확인하세요. 리워드는 원본 앱에서 제공합니다.",homebody,local()))
 
     allbody='<div class="directory-page">'+breadcrumb(("홈",local()))+heading("QUIZ DIRECTORY","앱테크 퀴즈 전체 목록","최근 7일 정답 출처가 확인된 앱을 먼저 표시합니다. 과거 이벤트나 미확인 서비스는 현재 참여 가능하다고 표시하지 않습니다.")
-    allbody+='<label class="finder">앱 이름 검색 <input type="search" id="app-search" placeholder="토스, 카카오뱅크, 캐시워크..." autocomplete="off"></label>'
-    allbody+='<p class="eyebrow" id="search-count" aria-live="polite"></p><h2 class="directory-subheading">최근 정답 자료가 확인된 앱</h2><div class="apps-grid app-list directory-active-grid">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
+    allbody+='<label class="finder" for="app-search">앱 이름 검색 <input type="search" id="app-search" placeholder="토스, 카카오뱅크, 캐시워크..." autocomplete="off" aria-controls="directory-active-grid candidate-details"></label>'
+    allbody+='<div class="directory-tabs" role="group" aria-label="정답 확인 상태별 앱 필터"><button type="button" class="directory-tab" data-directory-filter="all" aria-pressed="true">전체</button><button type="button" class="directory-tab" data-directory-filter="today" aria-pressed="false">오늘 정답</button><button type="button" class="directory-tab" data-directory-filter="history" aria-pressed="false">지난 기록</button><button type="button" class="directory-tab" data-directory-filter="pending" aria-pressed="false">확인 대기</button></div>'
+    allbody+='<p class="eyebrow" id="search-count" role="status" aria-live="polite"></p><h2 class="directory-subheading" id="directory-active-heading">최근 정답 자료가 확인된 앱</h2><div class="apps-grid app-list directory-active-grid" id="directory-active-grid">'+''.join(app_summary(x,byapp[x]) for x in apporder)+'</div>'
     catalog_data=json.loads((SITE/"catalog.json").read_text(encoding="utf-8"))
     active=set(apporder)
     candidates=[]
@@ -359,7 +361,7 @@ def main():
         candidates.append('<a class="directory-card" href="'+e(source)+'" target="_blank" rel="noopener noreferrer" data-app="'+e(appid)+'"><strong>'+e(name)+'</strong><small>'+e(note)+'</small><span>공개 출처 확인 ↗</span></a>')
     if candidates:
         allbody+='<details id="candidate-details" class="candidate-details"><summary>운영 확인 대기 · 기타 후보 '+str(len(candidates))+'개</summary><p class="notice">아래 항목은 현재 리워드 지급을 확인하지 못했습니다. 정답이 있다고 표시하지 않으며 출처 링크만 제공합니다.</p><div class="apps-grid app-list">'+''.join(candidates)+'</div></details>'
-    allbody+='<div class="empty-panel" id="search-empty" hidden><strong>검색 결과가 없어요 🔎</strong><p>다른 앱 이름으로 검색하거나 검색어를 지워 주세요.</p></div>'
+    allbody+='<div class="empty-panel" id="search-empty" hidden><strong>조건에 맞는 앱이 없어요 🔎</strong><p>다른 검색어를 입력하거나 전체 필터를 선택해 주세요.</p><button type="button" class="savebtn" id="directory-reset">전체 앱 다시 보기</button></div>'
     allbody+='<div class="info"><h2>왜 모든 앱을 표시하지 않나요?</h2><p>종료된 이벤트와 운영 확인이 어려운 퀴즈를 현재 참여 가능한 것처럼 안내하지 않기 위해서입니다. 정답이 있는 앱도 보상 지급 여부는 앱에서 다시 확인해야 합니다.</p></div></div>'
     write("apps",page("앱테크 퀴즈 전체 목록","토스, 카카오뱅크, 캐시워크 등 공개 정답 자료가 확인된 앱 모음.",allbody,local("apps")))
 
