@@ -415,3 +415,32 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #fa32
  .directory-page .candidate-details{padding:12px;margin:17px 0}
  .directory-page .directory-card{min-height:86px;padding:12px}
 }
+
+
+/* Directory tabs v1.5: compact, keyboard-accessible status browsing. */
+.directory-page .directory-tabs{
+  display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:15px 0 12px;
+}
+.directory-page .directory-tab{
+  appearance:none;display:inline-flex;justify-content:center;align-items:center;
+  min-height:42px;border:1px solid #eed3e1;background:#fff;color:#885b74;
+  border-radius:999px;padding:10px 17px;font-size:13px;font-weight:850;
+  line-height:1.2;box-shadow:0 2px 7px rgba(169,59,104,.035);
+}
+.directory-page .directory-tab[aria-pressed="true"]{
+  background:#fa3283;border-color:#fa3283;color:white;
+  box-shadow:0 4px 12px rgba(250,50,131,.19);
+}
+.directory-page .directory-tab:hover:not([aria-pressed="true"]){background:#fff0f6;border-color:#f5acce;color:#bd3272}
+.directory-page .directory-tab:focus-visible,
+.directory-page #directory-reset:focus-visible{outline:3px solid #fa3283;outline-offset:3px}
+.directory-page .directory-active-grid[hidden],
+.directory-page .candidate-details[hidden],
+.directory-page .directory-subheading[hidden]{display:none!important}
+.directory-page #search-empty{margin:18px 0}
+.directory-page #directory-reset{margin-top:12px}
+@media(max-width:720px){
+ .directory-page .directory-tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;gap:7px;margin:12px 0 9px;padding:2px 0 7px;scrollbar-width:thin}
+ .directory-page .directory-tab{flex:none;min-height:39px;padding:9px 13px;font-size:12px}
+ .directory-page #search-count{font-size:11px;overflow-wrap:anywhere}
+}
