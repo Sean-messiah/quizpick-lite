@@ -48,30 +48,89 @@ document.addEventListener('click', async (event) => {
 
 const search = document.getElementById('app-search');
 if (search) {
-  const activeCards = Array.from(document.querySelectorAll('.app-list .appcard'));
-  const candidateCards = Array.from(document.querySelectorAll('.app-list .directory-card'));
-  const cards = [...activeCards, ...candidateCards];
+  const activeCards = Array.from(document.querySelectorAll('.directory-active-grid .appcard'));
+  const candidateCards = Array.from(document.querySelectorAll('#candidate-details .directory-card'));
   const details = document.getElementById('candidate-details');
+  const grid = document.getElementById('directory-active-grid');
+  const heading = document.getElementById('directory-active-heading');
+  const tabs = Array.from(document.querySelectorAll('[data-directory-filter]'));
   const empty = document.getElementById('search-empty');
+  const reset = document.getElementById('directory-reset');
   const count = document.getElementById('search-count');
-  const filter = () => {
+  const modes = new Set(['all', 'today', 'history', 'pending']);
+  let mode = 'all';
+
+  function matchesQuery(card, query) {
+    if (!query) return true;
+    // Search by app name and description, never classify a candidate as verified.
+    return card.textContent.toLocaleLowerCase('ko-KR').includes(query);
+  }
+
+  function filter() {
     const q = search.value.trim().toLocaleLowerCase('ko-KR');
-    let matches = 0, candidateMatches = 0;
-    for (const card of cards) {
-      card.hidden = !card.textContent.toLocaleLowerCase('ko-KR').includes(q);
-      if (!card.hidden) {
-        matches += 1;
-        if (card.classList.contains('directory-card')) candidateMatches += 1;
+    let shownActive = 0;
+    let shownCandidates = 0;
+    for (const card of activeCards) {
+      const status = card.dataset.status || 'empty';
+      const allowed = mode === 'all' ||
+        (mode === 'today' && status === 'today') ||
+        (mode === 'history' && status === 'history');
+      const visible = allowed && matchesQuery(card, q);
+      card.hidden = !visible;
+      if (visible) shownActive++;
+    }
+    for (const card of candidateCards) {
+      const visible = (mode === 'all' || mode === 'pending') && matchesQuery(card, q);
+      card.hidden = !visible;
+      if (visible) shownCandidates++;
+    }
+
+    const showActive = mode !== 'pending' && shownActive > 0;
+    if (grid) grid.hidden = !showActive;
+    if (heading) heading.hidden = !showActive;
+    if (details) {
+      details.hidden = (mode === 'today' || mode === 'history') ||
+        ((mode === 'pending' || q.length > 0) && shownCandidates === 0);
+      if (mode === 'pending') details.open = shownCandidates > 0;
+      else if (q && shownCandidates > 0) details.open = true;
+      else if (!q) details.open = false;
+    }
+    for (const tab of tabs) {
+      tab.setAttribute('aria-pressed', String(tab.dataset.directoryFilter === mode));
+    }
+    const found = shownActive + shownCandidates;
+    if (empty) empty.hidden = found > 0;
+    if (count) {
+      if (mode === 'all' && !q) {
+        count.textContent = '최근 정답 자료 있는 앱 ' + activeCards.filter(c => c.dataset.status !== 'empty').length +
+          '개 · 정답 미등록 앱 ' + activeCards.filter(c => c.dataset.status === 'empty').length +
+          '개 · 확인 대기 후보 ' + candidateCards.length + '개';
+      } else if (mode === 'today') {
+        count.textContent = '오늘 참고 정답이 등록된 앱 ' + shownActive + '개 · 현재 참여 가능 여부는 원본 앱에서 확인';
+      } else if (mode === 'history') {
+        count.textContent = '지난 7일 기록이 있는 앱 ' + shownActive + '개 · 현재 출제 여부는 미확인';
+      } else if (mode === 'pending') {
+        count.textContent = '운영 확인 대기 ' + shownCandidates + '개 · 현재 정답·리워드 지급 미확인';
+      } else {
+        count.textContent = '검색 결과 ' + found + '개 (확인 대기 ' + shownCandidates + '개 포함)';
       }
     }
-    if (details && q && candidateMatches) details.open = true;
-    if (details && !q) details.open = false;
-    if (empty) empty.hidden = matches !== 0;
-    if (count) count.textContent = q
-      ? matches + '개 검색 결과 · 확인 대기 항목은 현재 참여 가능하다는 뜻이 아닙니다'
-      : '정답 자료 있는 앱 ' + activeCards.length + '개 · 확인 대기 후보 ' + candidateCards.length + '개';
-  };
+  }
+
+  function chooseMode(next) {
+    if (!modes.has(next)) return;
+    mode = next;
+    filter();
+  }
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => chooseMode(tab.dataset.directoryFilter));
+  }
   search.addEventListener('input', filter);
+  reset?.addEventListener('click', () => {
+    search.value = '';
+    chooseMode('all');
+    search.focus();
+  });
   filter();
 }
 
