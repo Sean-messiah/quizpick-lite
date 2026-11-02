@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T15:04:51+09:00",
+  "updated_at": "2026-11-02T17:17:07+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -62,6 +62,19 @@
       "app_name": "오퀴즈",
       "question_hint": "OK캐쉬백 '오늘의 투자'에서 국내주식을 매수하면 체결금액의 1%를 OK캐쉬백 포인트로 돌려드려요. 매월 최대 받을…",
       "answer": "5000",
+      "date": "2026-11-02",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-8c5616bcbaee5385",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "미국의 대규모 할인 행사인 '블랙프라이데이'는 어떤 명절의 다음 날일까요?",
+      "answer": "추수감사절",
       "date": "2026-11-02",
       "time": "10:00",
       "source": "살보픽 투데이",
