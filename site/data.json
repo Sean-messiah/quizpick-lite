@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T00:55:26+09:00",
+  "updated_at": "2026-11-03T08:30:46+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-58f934ddcf956298",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "(가) 운동에 대한 설명으로 옳은 것은? 1929년 나주와 광주를 오가는 통학 열차에서 한국인 학생과 일본인 학생의…",
+      "answer": "3번 3·1 운동 이후 최대 규모의 민족 운동으로 발전하였다",
+      "date": "2026-11-03",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-03",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-74042a79e9657b68",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "수능",
+      "date": "2026-11-03",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-f0b39efee643f788",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "2026 KBO 플레이오프에서 맹활약하며 시리즈 MVP를 수상한 삼성 라이온즈의 투수 아리엘 후라도 선수의 출신 국…",
+      "answer": "파나마",
+      "date": "2026-11-03",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-03",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-5cd5fe1ca93030ed",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "신한카드 같이페이 시즌1이 만든 따뜻한 변화가 아닌 것은 무엇일까요?",
+      "answer": "해외여행 지원",
+      "date": "2026-11-03",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-03",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-1ed66d3692efef8c",
       "app": "kakaobank",
