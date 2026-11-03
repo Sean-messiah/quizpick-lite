@@ -1,15 +1,41 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T01:16:21+09:00",
+  "updated_at": "2026-11-04T06:50:10+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-53a4efee2edf94fd",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "2026년 독감 무료 예방접종 대상이 아닌 것은 무엇일까요?",
+      "answer": "대학생",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-ec6e5e2180c0ca26",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
       "question_hint": "2026 정규시즌 우승팀 KT위즈와 플레이오프 승자 삼성라이온즈가 맞붙는 한국시리즈는 무승부 경기 등 변수가 발생하…",
       "answer": "7차전",
+      "date": "2026-11-04",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-9a730bc61f7c15a5",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "2026 코리아 그랜드 페스티벌 이벤트 참여 시 받을 수 있는 최대 혜택은 무엇일까요?",
+      "answer": "청구할인 1만원",
       "date": "2026-11-04",
       "time": "01:00",
       "source": "살보픽 투데이",
