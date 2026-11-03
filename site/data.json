@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T15:48:34+09:00",
+  "updated_at": "2026-11-03T17:33:28+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -161,6 +161,58 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-84a929224d03e8cf",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "단백질부터 오메가-3, 셀레늄까지 영양소가 가득해 하루 한 캔으로 건강까지 챙기는 동원참치 전상품 무료배송 10캔+…",
+      "answer": "27900",
+      "date": "2026-11-02",
+      "time": "22:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2d3903e0900da910",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "11/2 단 하루! 김희애가 선택한 ‘카무트 브랜드밀 효소 골드’ 초특가 OOOOO원 + 무료배송 + 사은품 증정 …",
+      "answer": "31900",
+      "date": "2026-11-02",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-eb92ce947e07b15b",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "카카오 톡딜위크 라이브 이벤트 라이브 중 전 구매 고객 히알워터풀 글로우 겔마스크 1매 증정 라이브 중 구매 인증 …",
+      "answer": "퍼밍",
+      "date": "2026-11-02",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-180fc3c180854603",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "성장하는 아이들이 편안한 하루를 보내도록! 이번 크라우드펀딩은 안성시 가족센터 중도입국 청소년의 건강한 성장을 위한…",
+      "answer": "이너웨어",
+      "date": "2026-11-02",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-1ed66d3692efef8c",
       "app": "kakaobank",
       "app_name": "카카오뱅크",
@@ -171,6 +223,58 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-88f205d895cf5349",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "빅스마일데이 첫 날! 삼성 갤럭시 ㅊㅊㄷ+구매인증 추첨! 갤럭시 Z폴드8, Z폴드8 울트라, S26 시리즈, 갤럭시…",
+      "answer": "총출동",
+      "date": "2026-11-02",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-fc61f25200b38233",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "마블워크 회원가입 리워드는 OO 설치·가입 시에만 지급돼요. 지금 바로 참여하고 10,000P 받아가세요! 여기서 …",
+      "answer": "최초",
+      "date": "2026-11-02",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-843ee2092e03bf13",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "알리익스프레스 11.11 광군제 역대급 혜택! 11월 1일부터 18일까지 쭉~이어지는 초특급 이벤트 매일 110원으…",
+      "answer": "5",
+      "date": "2026-11-02",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-45752cfb27401f30",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "1년을 기다려 온 알리익스프레스 11.11 광군제, 이제 막 오픈했어요! 부담 없는 추첨 이벤트 개/봉/박/두 알리…",
+      "answer": "110",
+      "date": "2026-11-02",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-02",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
