@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T06:50:10+09:00",
+  "updated_at": "2026-11-04T11:20:57+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-aec619551de0f8b3",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "꺼진 피부 탄력에 덴서티 밀도탄력을 높여주는 20년 No.1 아이오페 대표 안티에이징 크림은 OOOOO입니다. OO…",
+      "answer": "슈퍼바이탈",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-53a4efee2edf94fd",
       "app": "kbstar",
@@ -15,6 +28,71 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-41ff8a4795994400",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay KB오토핏의 '000'이야기에서는...",
+      "answer": "차차차",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-22bf2d9ce0e7f408",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "이건 [짜게 먹은 날 밤 10시에 마시는 커피]. 원두대신 호박을 진하게 내려 카페인이 없거든요. 커피 1잔값 이면…",
+      "answer": "무카페인",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-1d27bcb2026ea27e",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "이건 [짜게 먹은 날 밤 10시에 마시는 커피]. 원두대신 호박을 진하게 내려 카페인이 없거든요. 커피 1잔값 이면…",
+      "answer": "호박",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-09cb531beb8c4067",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "이건 [짜게 먹은 날 밤 10시에 마시는 커피]. 원두대신 호박을 진하게 내려 카페인이 없거든요. 커피 1잔값 이면…",
+      "answer": "임산부",
+      "date": "2026-11-04",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-04",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-a6e18b043546d468",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "만두소",
+      "date": "2026-11-04",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
