@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T17:30:14+09:00",
+  "updated_at": "2026-11-05T18:30:12+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-5315479ac77f621b",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "일교차",
+      "date": "2026-11-05",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-a838e91e3c5d6073",
       "app": "cashdoc",
@@ -145,6 +158,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-05",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-d4d5c41a7ebe0251",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스선물하면감각있어보일것같은상품은?11월5일두근두근일등1등찍기",
+      "answer": "일등 미니 핸디형 무선청소기 이등 유토렉스 음이온 칫솔살균기 또는 코코도르 그리너리 디퓨저",
+      "date": "2026-11-05",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-b296f8e04233eba9",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "맥심X네이버페이 이벤트",
+      "answer": "2000",
+      "date": "2026-11-05",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
