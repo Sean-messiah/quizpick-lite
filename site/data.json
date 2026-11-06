@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T15:47:50+09:00",
+  "updated_at": "2026-11-06T17:29:09+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-e0bc018a7cd53858",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "멕시카나 37주년 기념 11월 한정 혜택 EVENT! 지금 멕시카나 앱에서 치킨을 주문하면, 겉은 바삭하고 속은 촉…",
+      "answer": "멕시카나",
+      "date": "2026-11-06",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-06",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-93e02a06b7d884a3",
       "app": "kakaobank",
@@ -75,6 +88,19 @@
       "app_name": "캐시워크",
       "question_hint": "상큼쫀득 맛있는 젤리인데 아침마다 가볍게 비우는 [소휘 비움구미] 지금만 최저가 지금 놓치면 2만원 손해 쫀득한 구…",
       "answer": "원액",
+      "date": "2026-11-06",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-06",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-019345fea03c3333",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay 'N슈퍼적립 서비스'를 통해 N+스토어의 슈퍼적립·슈퍼특가 상품을 구매하면 몇 %가 추가 적립될까요?",
+      "answer": "2%",
       "date": "2026-11-06",
       "time": "10:00",
       "source": "살보픽 투데이",
@@ -187,6 +213,32 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-88e104e5179670e5",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "오늘 단 하루 컷슬린데일리 0kcal 보리차 340ml 24병이 단 한 번도 없던 파격가 ㅇㅇ,ㅇㅇㅇ원! 이 제품은…",
+      "answer": "12900",
+      "date": "2026-11-05",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-05",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-824a83575a57fd7d",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "정상가 2,420,920원 1,720,000원, 약 29% 할인 거실을 꽉 채우는 214cm(85인치) 초대형 화면…",
+      "answer": "1",
+      "date": "2026-11-05",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-05",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-fe1ee123c5ac1141",
       "app": "kakaobank",
       "app_name": "카카오뱅크",
@@ -197,6 +249,19 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-4e4c0c5f309fc8f7",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "멕시카나 37주년 기념 11월 한정 혜택 EVENT! 지금 멕시카나 앱에서 치킨을 주문하면, 겉은 바삭하고 속은 촉…",
+      "answer": "멕시카나",
+      "date": "2026-11-05",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-05",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
