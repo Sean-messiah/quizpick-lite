@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-07T00:55:51+09:00",
+  "updated_at": "2026-11-07T06:29:54+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-2ff2d75b9a124497",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "OO 바운티란 화이트해커가 보안 취약점을 찾아 제보하면 포상금을 지급하는 제도이다",
+      "answer": "버그",
+      "date": "2026-11-07",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-07",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-b314b9f2be1db52b",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "2026년 10월 31일 한화 이글스 구단의 요청에 따라 이 선수를 메이저리그 30개 구단에 포스팅하여 줄 것을 M…",
+      "answer": "노시환",
+      "date": "2026-11-07",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-07",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2196b4dea1b2fef8",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "마이샵 혜택 ON하고 네이버스토에서 삼성월렛으로 결제 시 받을 수 있는 혜택 금액은?",
+      "answer": "8천원",
+      "date": "2026-11-07",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-07",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-8e36416f706e7837",
       "app": "kakaobank",
