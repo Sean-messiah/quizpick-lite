@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-07T10:56:55+09:00",
+  "updated_at": "2026-11-07T16:46:11+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -79,6 +79,32 @@
       "time": "01:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-07",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-327c37029c1fa15f",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "단 하루동안 진행되는 \"캐시딜\" 제로딜에서 튀기지 않은 ZERO 현미칩 5봉이 건강 간식의 정석으로 OOOO원+무료…",
+      "answer": "8900",
+      "date": "2026-11-06",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-06",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-905e4257333555b1",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "라이브 이벤트 라이브 중 전 구매 고객 덴트릭스 크러쉬 민트볼 20입 증정 라이브 중 구매 인증 10명 추첨 크러쉬…",
+      "answer": "버블보블",
+      "date": "2026-11-06",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-06",
       "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
