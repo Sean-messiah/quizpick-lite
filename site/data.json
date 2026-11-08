@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-08T16:57:30+09:00",
+  "updated_at": "2026-11-08T17:59:56+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-7497dbdcb6637542",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "기름진 음식 먹은 뒤, 식후 1포로 완성하는 속 편한 습관! 자연 발효의 힘으로 소화를 돕는 '바른 ○○○○'! 곡…",
+      "answer": "곡물효소",
+      "date": "2026-11-08",
+      "time": "17:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-beefb0bb9fdb4658",
       "app": "cashwalk",
@@ -41,6 +54,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-2a383c5698613fe5",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "이정표",
+      "date": "2026-11-08",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -106,6 +132,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-3cbe001545f5d714",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스아래메뉴지금다할인중받고싶은할인쿠폰은?11월8일두근두근1등일등찍기",
+      "answer": "1등 BBQ 할인쿠폰 2등 BHC 할인쿠폰",
+      "date": "2026-11-08",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
