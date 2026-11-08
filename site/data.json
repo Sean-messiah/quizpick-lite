@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-08T10:26:43+09:00",
+  "updated_at": "2026-11-08T16:57:30+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-beefb0bb9fdb4658",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "깨끗한나라 더 클린앤소프트 O겹 화장지 30m 30롤x2팩(총 60롤) 27,900원+GS25 2천원 기프티콘 무조…",
+      "answer": "3",
+      "date": "2026-11-08",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-6040f12b1549056d",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "두부과자 5봉 OOOO원 특가 오븐에 구워 더욱 바삭한 식감! 계속 손이 가는 담백한 맛! 국산콩 두부함량 25% …",
+      "answer": "8900",
+      "date": "2026-11-08",
+      "time": "15:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-9968eee9ae40b216",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "315달톤 초저분자 콜라겐 펩타이드에 생기와 활력, 항산화에 꼭 필요한 비타민C 함유된 올앳미 비타콜라겐은 초특가 …",
+      "answer": "15900",
+      "date": "2026-11-08",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-10fae0eedbbffffe",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "하루 두 팩으로 18G 단백질 충전 마이밀 OOOO 오리지널 32입 고소한 호두맛+BCAA 3종 함유 59,000원…",
+      "answer": "뉴프로틴",
+      "date": "2026-11-08",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-08",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-b036290371dfc96f",
       "app": "kbstar",
