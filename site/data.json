@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09T10:44:14+09:00",
+  "updated_at": "2026-11-09T17:39:49+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-84f3bee8c2178b48",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "김장재료부터 전국 김치맛집, 김치 보관까지! 김장 준비를 한 번에 해결하는 네이버플러스 스토어의 프로모션은 oooo…",
+      "answer": "김장대전",
+      "date": "2026-11-09",
+      "time": "12:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-09",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-f044666e4bf89d76",
       "app": "kbstar",
