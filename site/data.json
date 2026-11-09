@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09T17:39:49+09:00",
+  "updated_at": "2026-11-09T18:48:49+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -15,6 +15,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-09",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-095a53616bad7ac7",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "킬커버",
+      "date": "2026-11-09",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -132,6 +145,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-09",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-f62bc7860a3ad504",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스합격을부르는레시피빠지면안될재료는?11월9일두근두근일등1등찍기",
+      "answer": "1등 연봉은 통 크게 듬뿍 이등 완성하면 합격축하금까지",
+      "date": "2026-11-09",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-2228c47e48af1e7b",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "롯데타운 크리스마스티켓",
+      "answer": "크리스마스마켓",
+      "date": "2026-11-09",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
