@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-10T17:49:04+09:00",
+  "updated_at": "2026-11-10T21:40:01+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-c6950bef0c34290e",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "에이지투웨니스 시그니처 에센스 팩트 인텐스커버 케이스1개+리필2개(14g) 가 캐시딜 단독 할인으로 행사가 18,9…",
+      "answer": "71",
+      "date": "2026-11-10",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-10",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-bb47ac4cb2a5913b",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "삼성 TV G마켓 특가 왔어요~ 삼성 KQ75QNH70AFXKR 189cm(75인치)Neo QLED TV스탠드 10…",
+      "answer": "사운드바",
+      "date": "2026-11-10",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-10",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-3dba8bc31fa46afd",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "헌법소원",
+      "date": "2026-11-10",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-119d06e2750c8de5",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "○시간 연속 릴레이 LIVE 숙면매트 최대혜택 찬스! 어떤 걸 구매해도 100% 상품권 증정 2026년 최신상 온수…",
+      "answer": "2",
+      "date": "2026-11-10",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-10",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-ffa7ffacb1961430",
       "app": "cashwalk",
