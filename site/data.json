@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T05:49:48+09:00",
+  "updated_at": "2026-11-11T10:56:31+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -15,6 +15,45 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-5ceeaa156fdefe16",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "유산균 매일 먹어도 화장실 가끔 갔다면 푸룬구미를 드세요 단 6일, 소휘 푸룬구미 1박스 1만원대+10%쿠폰 소휘 …",
+      "answer": "푸룬",
+      "date": "2026-11-11",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2f0345cb9b7169d2",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "'빨간날 없는 11월..밸런스게임으로 재미드려요' 이벤트에서 1회차에 해당하는 밸런스게임은 무엇일까요?",
+      "answer": "빼빼로데이 vs 가래떡데이",
+      "date": "2026-11-11",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-e757a785803fd490",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "서점의날",
+      "date": "2026-11-11",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +80,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-9f14beb74dbb5312",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "한국의 티니핑과 일본의 헬로키티, 두 캐릭터를 만든 회사는 똑같이 돈을 잘 번다?",
+      "answer": "O",
+      "date": "2026-11-11",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
