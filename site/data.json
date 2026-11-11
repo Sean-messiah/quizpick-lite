@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T17:22:35+09:00",
+  "updated_at": "2026-11-11T18:26:37+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-597ab515cab6b76e",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "진짜 쇼핑 잘알들은 오늘을 기다려왔다! 오늘은 1년 중 혜택이 가장 커지는 날, 11.11 광군제라구요! 최대 80…",
+      "answer": "20",
+      "date": "2026-11-11",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-192f4366eea61cab",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "오늘은 1년 중 혜택이 가장 큰 날, 11.11 광군제! 최대 80% 할인과 선착순 혜택으로 장바구니 정리해요! 그…",
+      "answer": "브랜드",
+      "date": "2026-11-11",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-11",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-bda03df4873cdcc3",
       "app": "cashdoc",
@@ -96,6 +122,32 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-bb1bbd505ecec8e8",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "책책",
+      "date": "2026-11-11",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-48ad310c050074e2",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "책책",
+      "date": "2026-11-11",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-d83f268b58c2dcdc",
       "app": "kbstar",
       "app_name": "KB스타뱅킹",
@@ -148,6 +200,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-91d5db9d9895a9ad",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "서점의날",
+      "date": "2026-11-11",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-f1015c54693e9225",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
@@ -174,11 +239,50 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-f298bba3c7dfbad5",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스통장만들고올영상품권GET당신의첫픽은?11월11일두근두근일등1등찍기",
+      "answer": "일등 선크림 이등 메이크업 픽서",
+      "date": "2026-11-11",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-9f14beb74dbb5312",
       "app": "toss",
       "app_name": "토스",
       "question_hint": "한국의 티니핑과 일본의 헬로키티, 두 캐릭터를 만든 회사는 똑같이 돈을 잘 번다?",
       "answer": "O",
+      "date": "2026-11-11",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-2db9d28513fa56e6",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "한국의 티니핑과 일본의 헬로키티, 두 캐릭터를 만든 회사는 똑같이 돈을 잘 번다?",
+      "answer": "O",
+      "date": "2026-11-11",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-0165cb660ddc17bc",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스통장만들고올영상품권GET당신의첫픽은?11월11일두근두근일등1등찍기",
+      "answer": "일등 선크림 이등 메이크업 픽서",
       "date": "2026-11-11",
       "time": null,
       "source": "퀴즈벨 공개 자료",
