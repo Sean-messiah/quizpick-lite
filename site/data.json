@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-14T02:45:53+09:00",
+  "updated_at": "2026-11-14T08:35:21+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -12,6 +12,32 @@
       "answer": "중도",
       "date": "2026-11-14",
       "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-14",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-0f6c82a66c850729",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "쌈짓돈",
+      "date": "2026-11-14",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-dd914b2d56bbfea7",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "한진트래블 이집트 전세기 사전 예약 시 받을 수 있는 최대 할인율은 얼마일까요?",
+      "answer": "8%",
+      "date": "2026-11-14",
+      "time": "01:00",
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-14",
       "source_status": "마감 표시",
