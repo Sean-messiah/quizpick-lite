@@ -1,15 +1,41 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T10:05:22+09:00",
+  "updated_at": "2026-11-13T17:44:24+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-a3c0a0bdf458d651",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "11월 한정! 37주년 감사 프로모션 멕시카나 공식 앱으로 치킨 주문 시, 겉은 바삭하고 속은 육즙 가득한 후라이드…",
+      "answer": "멕시카나",
+      "date": "2026-11-13",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-13",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-89c58410a964c315",
       "app": "kbstar",
       "app_name": "KB스타뱅킹",
       "question_hint": "반려 목적으로 기르는 O개월령 이상의 개는 동물 등록 의무 대상이다.",
       "answer": "2",
+      "date": "2026-11-13",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-13",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-18c9c9821ac9c97d",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "'가을 밸런스 Pick 시즌2 취향대로 픽, 선물도 픽!' 이벤트를 통해 받을 수 있는 경품이 아닌 것은 무엇일까요…",
+      "answer": "메가커피 아메리카노",
       "date": "2026-11-13",
       "time": "10:00",
       "source": "살보픽 투데이",
@@ -96,6 +122,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-cf3354a3e885de3b",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "11/12 단 하루! 이병헌이 선택한 ‘면역엔 생 유산균 100포’ 정상가 59,900원에서 무려 OOOOO원 + …",
+      "answer": "12900",
+      "date": "2026-11-12",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-12",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-0336e834aa05fb35",
       "app": "kakaobank",
       "app_name": "카카오뱅크",
@@ -106,6 +145,32 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-7bb4c545a52c78e4",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "~56% SALE 나비엔 매직 라이브 ㅌ별 혜택 라이브 중 구매시 1구 인덕션 증정 이벤트! 요리시간 절반으로 똑똑…",
+      "answer": "특",
+      "date": "2026-11-12",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-12",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-587af9d187f912d7",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "MCM 프래그런스 국내 O방송 롯데온 단독 24% 할인 전 구매 샘플 1.5ml 증정 백팩 라인 구매 시 미니어처 …",
+      "answer": "첫",
+      "date": "2026-11-12",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-12",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
