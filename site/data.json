@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-14T15:24:15+09:00",
+  "updated_at": "2026-11-14T16:59:34+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -132,6 +132,32 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-1d1ebcf1f8c942e5",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "단 3시간 한정! 캐시딜 제로딜 역대급 특가 오픈! 뷰카의 베스트 구취케어템, '아쿠아민트 치약 110g 8개입'을…",
+      "answer": "1450",
+      "date": "2026-11-13",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-13",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-94559d71bedd3aab",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "성장하는 아이들이 편안한 하루를 보내도록! 이번 크라우드펀딩은 안성시 가족센터 중도입국 청소년의 건강한 성장을 위한…",
+      "answer": "이너웨어",
+      "date": "2026-11-13",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-13",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
