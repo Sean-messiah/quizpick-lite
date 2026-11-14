@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-15T00:05:48+09:00",
+  "updated_at": "2026-11-15T05:43:59+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-1b984e8c50a1fec3",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "내가 살지 않는 지역에 기부하고 세액공제와 답례품을 받을 수 있는 고향사랑기부제를 통해 기부할 수 있는 연간 한도는…",
+      "answer": "2,000만원",
+      "date": "2026-11-15",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-15",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-cd6859c9b10237d3",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "블프맞이 해외직구 이벤트에서 100만원 리워드를 받을 수 있는 도전장의 명칭은 무엇일까요?",
+      "answer": "직구 레전드",
+      "date": "2026-11-15",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-15",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-77399ccdbaa32e2d",
+      "app": "shinhanbank",
+      "app_name": "신한 SOL뱅크",
+      "question_hint": "다음 중 끝날 때까지 끝난 게 아니다라는 명언을 남긴 전설적인 메이저리그 포수이자 감독 출신 인물은 누구일까요?",
+      "answer": "로렌스 피터 베라",
+      "date": "2026-11-15",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-15",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-46e08bdf414ea098",
       "app": "kakaobank",
