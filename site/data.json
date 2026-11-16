@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T15:30:56+09:00",
+  "updated_at": "2026-11-16T17:34:05+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -379,6 +379,19 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-ba0fc6f6c63df707",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "매콤쫄깃 양념 무뼈 닭발 OOOg 1+1 (총 2팩) 오늘 하루 2만원대! 뼈없이 즐기는 닭발의 정석 맛있게 매콤한…",
+      "answer": "300",
+      "date": "2026-11-15",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-15",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
