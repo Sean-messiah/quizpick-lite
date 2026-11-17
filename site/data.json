@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-17T11:56:11+09:00",
+  "updated_at": "2026-11-17T18:43:18+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-05a5e928e1b979e0",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "1위 디지털학습 - 밀크T 무료체험 + OO 증정 혜택 (11월 한정 최대 10만원) G마켓에서 무료체험 신청하고 …",
+      "answer": "전원",
+      "date": "2026-11-17",
+      "time": "15:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-efbfef0c9d8fd912",
       "app": "cashwalk",
@@ -36,6 +49,19 @@
       "app_name": "KB스타뱅킹",
       "question_hint": "대규모 재개발이 어려운 주거지에서 주민이 직접 집을 새로 짓거나 고칠 수 있도록 지원하는 사업을 OO타운 2.0이라…",
       "answer": "휴먼",
+      "date": "2026-11-17",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-cb7dec92bb6a32c9",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay에서 매월 다양한 혜택을 모아 소개하는 페이지의 이름은 무엇일까요?",
+      "answer": "월간혜택",
       "date": "2026-11-17",
       "time": "10:00",
       "source": "살보픽 투데이",
@@ -148,6 +174,32 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-fb52374093f3b307",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "매일 마시는 물이니까 더 엄격하게 관리하는 바른먹거리 풀무원 샘물 2L를 6병에 o,ooo원에 구매할 수 있는 기회…",
+      "answer": "4500",
+      "date": "2026-11-16",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-16",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-009375e45903155f",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "10년 묵은 기미/검버섯도 녹여주는 PDRN 연어 재생 앰플! 피부 조직과 유사한 연어 DNA 성분으로 본질적 고민…",
+      "answer": "15500",
+      "date": "2026-11-16",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-16",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "qb-7a859b2a129c5c40",
       "app": "kakaobank",
       "app_name": "카카오뱅크",
@@ -171,6 +223,19 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-ff58bae115a85a5e",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "[O라이브] 앵콜! ASUS 인기 노트북 특가 모음! 차원이 다른 퍼포먼스를 확인하세요! AI데이터 글로벌 수요 증…",
+      "answer": "G",
+      "date": "2026-11-16",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-16",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
