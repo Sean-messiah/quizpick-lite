@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-17T03:33:28+09:00",
+  "updated_at": "2026-11-17T11:56:11+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-efbfef0c9d8fd912",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "캐시워커들을 위한 정관장 브랜드스토어 특별 혜택 장 건강과 콜레스테롤 관리, 유:바이오틱스 포커스로 한 번에! 즉시…",
+      "answer": "39900",
+      "date": "2026-11-17",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-b834c1733ca33e90",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "11/17(화) 오전 11시, 르네휘테르 올해 마지막 OO 혜택 LIVE 전 구매 고객에게 포티샤·트리파직 샴푸 총…",
+      "answer": "최대",
+      "date": "2026-11-17",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-e6dfcc1edfc57f1a",
       "app": "kbstar",
@@ -15,6 +41,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-71b70e4864e59b01",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "11/17(화) 오전 11시, 르네휘테르 올해 마지막 OO 혜택 LIVE 전 구매 고객에게 포티샤·트리파직 샴푸 총…",
+      "answer": "최대",
+      "date": "2026-11-17",
+      "time": "09:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-4b5099139a28ff1a",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "뉴로비로봇청소기",
+      "date": "2026-11-17",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +93,58 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-17",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-ed0b75d4c4b7b1d9",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "김장철 할인행사명은 대한민국 수산대전 코리아OO페스타예요",
+      "answer": "수산",
+      "date": "2026-11-17",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-cfe751f8afc718d7",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스블랙프라이데이S급가전가장갖고싶은가전은11월17일두근두근1등일등찍기",
+      "answer": "1등 로보락 S9 MAXV 2등 세라젬 마스터 V9",
+      "date": "2026-11-17",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-68d51f1d0c4d18eb",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "대한민국 수산대전",
+      "answer": "29, 수산, 김장철",
+      "date": "2026-11-17",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-3ec4dfb10433c7f8",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "11월17일 토스 행운퀴즈 정답 김장철 할인행사명 대한민국 수산대전",
+      "answer": "29 수산 김장철",
+      "date": "2026-11-17",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
