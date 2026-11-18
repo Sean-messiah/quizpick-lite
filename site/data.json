@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-18T16:29:40+09:00",
+  "updated_at": "2026-11-18T18:05:50+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-c12f6ce322927da7",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "가을 간식 뽑기에 응모하면 자동응모로 스페셜 경품 OOO 슈퍼소닉 트래블 헤어드라이어를 받을 수 있다. OOO에 들…",
+      "answer": "다이슨",
+      "date": "2026-11-18",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-18",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-564f9dbb1c8d5b34",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "간식 이벤트에 응모하면 자동으로 OOO 선물에 응모된다. OOO에 들어갈 말은? (초성힌트 :ㅅㅍㅅ)",
+      "answer": "스페셜",
+      "date": "2026-11-18",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-18",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2e80fb7abf7782cd",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "가을 간식 뽑기 완료하면 스페셜 선물에 OO응모된다. OO에 들어갈 말은?(초성힌트 : ㅈㄷ)",
+      "answer": "자동",
+      "date": "2026-11-18",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-18",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-037eaaae7ad50378",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "WON뱅킹에서 이벤트 응모하면 맛있는 OO간식을 뽑을 수 있다. OO에 들어갈 말은?(초성힌트 : ㄱㅇ)",
+      "answer": "가을",
+      "date": "2026-11-18",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-18",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-8cc872356c64dc78",
       "app": "cashwalk",
