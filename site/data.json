@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-19T18:29:13+09:00",
+  "updated_at": "2026-11-19T19:21:35+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-d485aa0666e2cbdb",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "꺼진 피부 탄력의 덴서티 밀도탄력을 높여주는 20년 No.1 아이오페 대표 안티에이징 크림의 이름은 oooo 입니다…",
+      "answer": "슈퍼바이탈",
+      "date": "2026-11-19",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-6a643bc39af0b9a1",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "춘천에서 직배송되는 OO 통닭갈비 큼직한 닭다리살로 즐기는 촉촉하고 풍부한 육즙 프라이팬에 볶기만 하면 간편하게 완…",
+      "answer": "온담",
+      "date": "2026-11-19",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-0dbe7b56181ed630",
       "app": "cashwalk",
@@ -15,6 +41,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-19",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-3d47c8e033beba2e",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "레이어드룩",
+      "date": "2026-11-19",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -179,6 +218,19 @@
       "app_name": "토스",
       "question_hint": "11월19일 토스 행운퀴즈 정답 ㄷㅎㄷ  K 헤리티지 팝업스토어",
       "answer": "더현대",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-94b2bfb2f5d601c8",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스목돈이있다면내가활용할방법은11월19일두근두근일등1등찍기",
+      "answer": "1등 최고 연4% 정기예금 가입 이등 주식 투자",
       "date": "2026-11-19",
       "time": null,
       "source": "퀴즈벨 공개 자료",
