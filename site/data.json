@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-20T12:17:03+09:00",
+  "updated_at": "2026-11-20T18:10:10+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-eca64f9adc92e2c6",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "오늘 단 하루, 컷슬린데일리 보리한잔 o박스가 단돈 13,900원! 간편하게 수분 충전하고, 한 병당 5백 원대 혜…",
+      "answer": "1",
+      "date": "2026-11-20",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-1ed905eb2fa6f076",
       "app": "kakaobank",
@@ -70,6 +83,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-9eccf21d6e682a51",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "오픈뱅킹과 함께라면 결제부터 송금까지 ○○만 있으면 다 가능해요! 빈칸에 알맞은 것은?",
+      "answer": "계좌",
+      "date": "2026-11-20",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-0bffcb7cd3886d81",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
@@ -93,6 +119,32 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-e29687116932e094",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "ONLY 나비엔 라이브 숙면매트 구매 시 상품권 100% 증ㅈ! 어떤 걸 구매해도 100% 상품권 증ㅈ 2026년 …",
+      "answer": "정",
+      "date": "2026-11-19",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-19",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-3e0bb2045f3b0ebb",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "품질보장 3겹화장지 30롤 최저가도전! 깨끗한나라 순수 프리미엄 27m OO롤 x 1팩, 캐시딜에서만 특가로 득템할…",
+      "answer": "30",
+      "date": "2026-11-19",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-19",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
