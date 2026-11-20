@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-20T18:10:10+09:00",
+  "updated_at": "2026-11-20T21:54:34+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-b8d136b576665d24",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "AGE20S 글래스 스킨 에센스 팩트 글로우/퍼펙트 본품+리필(12.5g) 행사가 23,900원+증정품+무료배송! …",
+      "answer": "72",
+      "date": "2026-11-20",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-7c3559675c9c4bca",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "할인쿠폰",
+      "date": "2026-11-20",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-eca64f9adc92e2c6",
       "app": "cashwalk",
