@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-20T05:38:18+09:00",
+  "updated_at": "2026-11-20T12:17:03+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-1ed905eb2fa6f076",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "하만헤드폰",
+      "date": "2026-11-20",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-f9ec6d283844f357",
       "app": "kbstar",
@@ -15,6 +28,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-b3d0791395e8a848",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay 쇼핑에서 단 하루 38% 특가 행사 중인 감귤이 특별한 이유는 무엇일까요?",
+      "answer": "제주국제감귤박람회 우수농가",
+      "date": "2026-11-20",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-1ddc65bd2b0d4096",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "사업자",
+      "date": "2026-11-20",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +80,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-20",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-e6ada126d067e505",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "20일 오전 토스 행운퀴즈(토스 행퀴)에는 K 헤리티지 팝업스토어 관련 문제가 나왔다. 문제는 K 헤리티지 팝업에서…",
+      "answer": "국가유산",
+      "date": "2026-11-20",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
