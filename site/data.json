@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T02:49:56+09:00",
+  "updated_at": "2026-11-23T08:37:18+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
@@ -18,6 +18,32 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-6c456c75423aadb2",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "직잭팟최저가도전",
+      "date": "2026-11-23",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-f8da65e1b35a4e44",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "롯데월드 어드벤처의 Tops 쿠폰으로 받을 수 있는 최대 할인율은?",
+      "answer": "47%",
+      "date": "2026-11-23",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-65d592c3a96945f6",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
@@ -28,6 +54,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-91dfc7195baf9344",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "11월23일 토스 행운퀴즈 정답 스핀들 근력은 평생 자산 근력엔 ㅇㅋㅁㅅㅇ로 관리",
+      "answer": "아커만시아",
+      "date": "2026-11-23",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
