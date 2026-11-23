@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T16:40:08+09:00",
+  "updated_at": "2026-11-23T18:45:20+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-8c513f21a64003ef",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "키움증권 중개형 ISA 계좌 개설 이벤트에서 20·30 고객은 올리브영상품권 0000원을 받을 수 있습니다. 000…",
+      "answer": "5000",
+      "date": "2026-11-23",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-4cb4db3500ca494a",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "키움증권에서는 중개형ISA를 첫 계좌개설하면 현금 00000원을 드립니다. 00000에 들어갈 숫자는?",
+      "answer": "15000",
+      "date": "2026-11-23",
+      "time": "18:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-eb7e000591dc9f48",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "동국제약에서 출시된 '00마그네슘' 마그네슘 스피드샷 제품이 출시 두달 만에 60만포* 판매 돌파했다. 이를 기념하…",
+      "answer": "젖산",
+      "date": "2026-11-23",
+      "time": "17:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-bd219a34cd3444a2",
       "app": "cashwalk",
