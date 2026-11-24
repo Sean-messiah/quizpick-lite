@@ -1,9 +1,61 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T13:49:05+09:00",
+  "updated_at": "2026-11-24T20:36:05+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-e75bebf83419b6a2",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "팬마음에서는 ooo 스타 남자&여자 투표 81차가 진행 중이에요! 1-4위를 달성한 남녀 스타에게는 서울 지하철역 …",
+      "answer": "트로트",
+      "date": "2026-11-24",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-80e9fef6570fdd4e",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "팬마음 트로트 스타 81차 투표 2위 달성 스타에게는 ㅇㅇㅇㅇ T1역 LED 광고를 선물하고 있어요!(초성 힌트: …",
+      "answer": "인천공항",
+      "date": "2026-11-24",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-38badce6c5538155",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "김용빈, 장한별, 박지현, 장민호 등이 있는 팬마음 트로트 스타 81차 투표에서 3위를 달성한 남녀 스타에게는 건대…",
+      "answer": "스타시티",
+      "date": "2026-11-24",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-16ba0fac420c0689",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "팬마음 트로트 스타 81차 투표에서 1위를 달성한 스타에게 oooo역 3중 초대형 광고를 선물해드려요!(초성 힌트:…",
+      "answer": "건대입구",
+      "date": "2026-11-24",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-230f6f12b67b2317",
       "app": "kakaobank",
@@ -80,6 +132,32 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-60c70d3f2d384a3b",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "오늘 단 하루, 컷슬린데일리 보리한잔 1박스가 단돈 12,900원! 하루 한 병, 간편하게 o 칼로리로 수분 충전하…",
+      "answer": "0",
+      "date": "2026-11-23",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-b2a300bb87ef53a0",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "한스킨 할인광에서는 최대 OO% 할인 혜택을 만나볼 수 있습니다. 빈칸에 들어갈 숫자는 무엇일까요?",
+      "answer": "87",
+      "date": "2026-11-23",
+      "time": "20:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-23",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
