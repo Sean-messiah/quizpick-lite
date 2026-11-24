@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T05:14:32+09:00",
+  "updated_at": "2026-11-24T13:49:05+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-230f6f12b67b2317",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "눈속임",
+      "date": "2026-11-24",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-77caab036d39b419",
       "app": "kbstar",
@@ -18,6 +31,19 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "qb-755c0e2f6509fb36",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "플레이오프",
+      "date": "2026-11-24",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-f218319148c3c700",
       "app": "shinhanbank",
       "app_name": "신한 SOL뱅크",
@@ -28,6 +54,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-dd5229a9f05cc1bb",
+      "app": "shinhanpay",
+      "app_name": "신한 SOL페이",
+      "question_hint": "신한 슈퍼SOL에 신규 가입할 때 받을 수 있는 혜택은 무엇일까요?",
+      "answer": "1만 포인트",
+      "date": "2026-11-24",
+      "time": "01:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-7a76888599b6f17a",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스현대홈쇼핑에서가장받고싶은혜택은11월24일두근두근1등일등찍기",
+      "answer": "일등 꽝 없는 선물 이벤트 2등 에어프라이어",
+      "date": "2026-11-24",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
