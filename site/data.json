@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T02:46:09+09:00",
+  "updated_at": "2026-11-25T11:30:25+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-154d13d0152e4bfa",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "[네이버/쿠팡보다 훨씬싸요] 1.15kg 대용량 알룰로스 1병 9,428원+무배 ※ 브랜드전 10% 추가 할인 쿠폰…",
+      "answer": "건강한대체재",
+      "date": "2026-11-25",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-98bec19078b969bf",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay여행의 와이파이도시락에서 와이파이, eSIM 구매 시 추가로 제공되는 쿠폰 할인율은?",
+      "answer": "10%",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-38f58b76a6291a86",
       "app": "kbstar",
@@ -15,6 +41,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-20e0c7634c9e2434",
+      "app": "okquiz",
+      "app_name": "오퀴즈",
+      "question_hint": "KB Pay 선물은 PICK! 행운은 ㅅㅋㄹ 이벤트 지금 KB Pay App에서 나의 달콤 PICK을 고르면 각 3…",
+      "answer": "시크릿",
+      "date": "2026-11-25",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-100ba505b23b366e",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "나들이",
+      "date": "2026-11-25",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +93,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-ea4e41d6fb4a8eee",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "새롭게 출제된 토스 행운퀴즈는 비욘드 신세계 메가딜을 주제로 구성됐다.",
+      "answer": "신세계백화점",
+      "date": "2026-11-25",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
