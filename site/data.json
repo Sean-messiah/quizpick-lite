@@ -1,9 +1,74 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T11:30:25+09:00",
+  "updated_at": "2026-11-25T19:28:04+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-758b53308b6be253",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "오늘 단 하루, 푸드루트 항산화 면역 비타민C o박스가 단돈 8,900원! 간편하게 활력 충전하고, 1포당 2백 원…",
+      "answer": "1",
+      "date": "2026-11-25",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-377128aad0e26ddf",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "액상과 정제를 한번에 섭취하는 고함량 멀티비타민 아임비타 이뮨샷은 면역비타민C30포 증정, 메가커피 아메리카노 증정…",
+      "answer": "19900",
+      "date": "2026-11-25",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-e500ba9a1ec7f8dc",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "팬마음 2026 2026 불타는 황금 목소리 트롯 스타에서 1위 달성 스타에게 유동 인구가 많은 건대입구역에 3중 …",
+      "answer": "초대형",
+      "date": "2026-11-25",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-920da22fc66c852c",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "팬마음에서 진행 중인 2026 불타는 황금 목소리 트롯 스타 투표에서는 1위를 달성한 스타에게 oooo역 3중 초대…",
+      "answer": "건대입구",
+      "date": "2026-11-25",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-255856e95bd35149",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "춘길/강문경/추혁진 등이 포함된 팬마음 2026 불타는 황금 목소리 트롯 스타 투표에서는 2위를 달성한 스타에게 2…",
+      "answer": "지하철",
+      "date": "2026-11-25",
+      "time": "14:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-25",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-154d13d0152e4bfa",
       "app": "cashwalk",
@@ -106,6 +171,19 @@
       "source": "퀴즈벨 공개 자료",
       "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
       "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-e6d162e831980885",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "엄마도 챙기고 가족도 챙기는 국민 유산균! 락토핏 골드 120포 3통 락토핏 코어 60포 증정 신세계상품권1만원권 …",
+      "answer": "63200",
+      "date": "2026-11-24",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-24",
+      "source_status": "마감 표시",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
