@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T19:01:30+09:00",
+  "updated_at": "2026-11-26T19:54:42+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-d8586d45b81ab566",
+      "app": "cashdoc",
+      "app_name": "캐시닥",
+      "question_hint": "동국제약 메가세일 라이브 이벤트 라이브 중 전 구매 고객 마데카 ㅇㅇ 에센스 트리트먼트 증정 라이브 중 구매 인증 …",
+      "answer": "토닝",
+      "date": "2026-11-26",
+      "time": "19:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-d0141a8fd191f95a",
       "app": "cashwalk",
@@ -28,6 +41,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-26",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-65c8e20fc37140d5",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "만국기",
+      "date": "2026-11-26",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -80,6 +106,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-26",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-dfe2b0c04b7321f6",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스2026연말을맞아가장받고싶은선물은11월26일두근두근일등1등찍기",
+      "answer": "1등 오전 LG그램 AI노트북 당첨 이등 오후 갤럭시 Z폴드8 당첨",
+      "date": "2026-11-26",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-7109d929495578d6",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "11월26일 토스 행운퀴즈 정답 MOUM 모음 ㅌㅍ 발행어음은 세전 이자를 드려요",
+      "answer": "특판 발행어음",
+      "date": "2026-11-26",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
