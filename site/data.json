@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T09:21:15+09:00",
+  "updated_at": "2026-11-26T19:01:30+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-d0141a8fd191f95a",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "11/26(목) 단 하루 최대 27% 특가로 즐기는 프렌치카페 카페믹스! 깊고 부드러운 OOOOO 커피에 풍부한 우…",
+      "answer": "듀얼프레소",
+      "date": "2026-11-26",
+      "time": "16:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-86c8a7294fc99471",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "단 1시간 한정! 캐시딜 제로딜 초특가 타임어택! 입안 가득 상쾌함이 터지는 뷰카의 구취케어 1등 템, '아쿠아민트…",
+      "answer": "1450",
+      "date": "2026-11-26",
+      "time": "15:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-26",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-961069a387cc846e",
       "app": "kbstar",
