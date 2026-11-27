@@ -1,9 +1,35 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-27T19:07:20+09:00",
+  "updated_at": "2026-11-27T22:57:23+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-2947a2745ce91762",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "구운란 30구 중란 OOOO원 HACCP시설 직영농장 계란 사용! 무항생제로 더욱 신선하게! 48시간 정성을 담아 …",
+      "answer": "9700",
+      "date": "2026-11-27",
+      "time": "21:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-b98c8a441e88c36b",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (저녁 8시)",
+      "answer": "경기",
+      "date": "2026-11-27",
+      "time": "20:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-142136afdeb6903b",
       "app": "cashwalk",
@@ -57,10 +83,36 @@
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
+      "id": "salbopick-fbdf3388b941df38",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "KB Pay 쇼핑에서 특가 행사 중인 Bespoke AI 콤보! 세탁과 건조 용량은 각각 얼마일까요?",
+      "answer": "세탁 25kg · 건조 18kg",
+      "date": "2026-11-27",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
       "id": "salbopick-eea396ac93f73ab5",
       "app": "kbstar",
       "app_name": "KB스타뱅킹",
       "question_hint": "미션 참여 시 추첨을 통해 제공되는 2027 KB국민은행 X 민음사 행운 꾸러미의 구성이 아닌 것은 무엇일까요?",
+      "answer": "포스트잇",
+      "date": "2026-11-27",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-372415946ad6370a",
+      "app": "kbstar",
+      "app_name": "KB스타뱅킹",
+      "question_hint": "미션 참여 시 추첨을 통해 제공되는 「2027 KB국민은행 X 민음사」 행운 꾸러미의 구성이 아닌 것은 무엇일까요?",
       "answer": "포스트잇",
       "date": "2026-11-27",
       "time": "10:00",
