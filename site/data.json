@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-27T13:15:38+09:00",
+  "updated_at": "2026-11-27T19:07:20+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "salbopick-142136afdeb6903b",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "피죤 카쇼라 단 3일간의 특가! 초고농축피죤 시그니처 섬유유연제 1.3L 4개를 19,350원에 만나보실 수 있습니…",
+      "answer": "피카츄",
+      "date": "2026-11-27",
+      "time": "17:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "qb-5379fc638e514b98",
       "app": "kakaobank",
