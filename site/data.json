@@ -1,9 +1,48 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-27T06:32:49+09:00",
+  "updated_at": "2026-11-27T13:15:38+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-5379fc638e514b98",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "하객",
+      "date": "2026-11-27",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-5a82653004a006e1",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "【온라인최저가 종료임박】 오직 키토선생 브랜드전에서만! 리얼마이즈 저당 땅콩버터 세트 [블프특가+10%쿠폰] 할인중…",
+      "answer": "알갱이",
+      "date": "2026-11-27",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-2fa570b94883b419",
+      "app": "cashwalk",
+      "app_name": "캐시워크",
+      "question_hint": "종료 D-3! 메트로시티 블랙프라이데이 마감 임박! 1년에 단 한 번, 비교할 수 없는 최대 혜택의 메트로시티 블프…",
+      "answer": "오픈런",
+      "date": "2026-11-27",
+      "time": "11:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-eea396ac93f73ab5",
       "app": "kbstar",
@@ -15,6 +54,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-fa0484e20fda2488",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "소포",
+      "date": "2026-11-27",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-7ac3b3b29362bc2d",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "소포",
+      "date": "2026-11-27",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +106,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-27",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-34c80538d67b242d",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스유니클로감사제에서가장구매하고싶은옷은?11월27일두근두근1등일등찍기",
+      "answer": "일등 라이트 다운 볼륨 재킷 이등 오후 퍼프테크 파카",
+      "date": "2026-11-27",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
