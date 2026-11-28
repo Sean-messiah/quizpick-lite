@@ -1,9 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-28T07:43:24+09:00",
+  "updated_at": "2026-11-28T16:50:17+09:00",
   "source_mode": "public-page",
   "notice": "외부 공개 페이지 참고 정보입니다. 정답과 진행 여부는 원본 앱에서 확인하세요.",
   "quizzes": [
+    {
+      "id": "qb-1098273fedf6390a",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (점심 12시)",
+      "answer": "노점상",
+      "date": "2026-11-28",
+      "time": "12:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
     {
       "id": "salbopick-5c7bee4cc4de9fd5",
       "app": "kbstar",
@@ -15,6 +28,32 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-28",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "salbopick-424d6c724e46885c",
+      "app": "kbpay",
+      "app_name": "KB Pay",
+      "question_hint": "해외 ATM 이용 시 수수료를 면제받을 수 있는 카드는 무엇일까요?",
+      "answer": "트래블러스 체크카드",
+      "date": "2026-11-28",
+      "time": "10:00",
+      "source": "살보픽 투데이",
+      "source_url": "https://salbopick.com/today/quiz/date/2026-11-28",
+      "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-c24f009995427d33",
+      "app": "kakaobank",
+      "app_name": "카카오뱅크",
+      "question_hint": "AI 이모지 퀴즈 (아침 8시)",
+      "answer": "돗자리",
+      "date": "2026-11-28",
+      "time": "08:00",
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/kakaobank/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
@@ -41,6 +80,19 @@
       "source": "살보픽 투데이",
       "source_url": "https://salbopick.com/today/quiz/date/2026-11-28",
       "source_status": "마감 표시",
+      "confidence_label": "외부 게시 정보 · 미검증"
+    },
+    {
+      "id": "qb-02b577ab0b9d6855",
+      "app": "toss",
+      "app_name": "토스",
+      "question_hint": "토스2027년새해가장받고싶은복은11월28일두근두근일등1등찍기",
+      "answer": "1등 오전에는 쏠쏠하게 쌓이는 재물 이등 오후에는 몸도 마음도 튼튼한 건강복",
+      "date": "2026-11-28",
+      "time": null,
+      "source": "퀴즈벨 공개 자료",
+      "source_url": "https://quizbells.com/quiz/toss/weekly/answer",
+      "source_status": "진행 여부 미확인",
       "confidence_label": "외부 게시 정보 · 미검증"
     },
     {
